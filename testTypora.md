@@ -57,5 +57,5 @@ $$
 
 
 
-Write in <span style="color:red"> *red* text</span>.
+Write in <span style="color:red"> *red* </span>.
 
