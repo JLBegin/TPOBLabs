@@ -123,7 +123,107 @@ huile utilisée = arachide
 - Diviser le faisceau en 2 pour mesurer la variation du laser en **live** 
 - 
 
-## Semaine 2 (amélioration du montage)
+
+
+------
+
+## Partie 2  -  2 octobre 2018
+
+------
+
+
+
+## Reconfiguration de l'expérience
+
+- Le parcours optique a été modifié en plaçant un filtre à densité neutre **O.D. 0.4** à la sortie du laser afin de séparer le faisceau incident. Une partie de la puissance est alors réfléchie sur un capteur équipé d'un filtre **O.D. 0.2** afin de lire la puissance du laser pendant les acquisitions. 
+- Une carte d'acquisition LabJack est utilisée afin d'enregistrer les données des différents capteurs. 
+- La batterie du capteur à puissance incidente du laser est mise en fonction. 
+- Le capteur à puissance incidente et les deux capteurs des sphères à transmission et réflection sont tous  respectivement connectés sur les entrées AIN0, AIN1 et AIN2 du LabJack à l'aide de fils BNC à pinces crocodiles. 
+- Puisque le capteur à puissance incidente nous donne une variation en courant dans les micro-ampères, une résistance de 1 M$\Omega$ est connectée entre l'entrée AIN0 et GND du LabJack afin d'enregistrer une variation en tension de l'ordre du volt. 
+
+
+
+## Caractérisation de la variation du laser
+
+- Un échantillion constant, soit une plaque mince creusée de 2.5mm, est installé entre les sphères. 
+- Acquisitions sur 300 secondes
+
+
+
+### Bruit d'arrière plan
+
+| CHANNEL      | MIN    | MAX    | AVG    | STD    |
+| ------------ | ------ | ------ | ------ | ------ |
+| Incidence    | 0.6503 | 0.6553 | 0.6531 | 0.0008 |
+| Transmitance | 0.1588 | 0.2603 | 0.2050 | 0.0123 |
+| Réflectance  | 0.1202 | 0.2454 | 0.1595 | 0.0277 |
+
+
+
+### Données non normalisées 
+
+Fichier: readingRaw300sec1.txt
+
+| CHANNEL      | MIN    | MAX    | AVG    | STD    |
+| ------------ | ------ | ------ | ------ | ------ |
+| Incidence    | 4.8830 | 5.1012 | 4.9489 | 0.0778 |
+| Transmitance | 0.2600 | 0.2979 | 0.2864 | 0.0049 |
+| Réflectance  | 0.1630 | 0.1979 | 0.1898 | 0.0034 |
+
+Fichier: readingRaw300sec2.txt
+
+| CHANNEL      | MIN    | MAX    | AVG    | STD    |
+| ------------ | ------ | ------ | ------ | ------ |
+| Incidence    | 4.6781 | 5.0064 | 4.8337 | 0.0834 |
+| Transmitance | 0.2582 | 0.3022 | 0.2886 | 0.0059 |
+| Réflectance  | 0.1573 | 0.1944 | 0.1855 | 0.0036 |
+
+
+
+### Données normalisées
+
+Fichier: readingNorm300sec.txt
+
+| CHANNEL      | MIN    | MAX    | AVG    | STD    |
+| ------------ | ------ | ------ | ------ | ------ |
+| Incidence    | 4.7967 | 5.0161 | 4.8612 | 0.0769 |
+| Transmitance | 0.2747 | 0.3039 | 0.3004 | 0.0012 |
+| Réflectance  | 0.1672 | 0.1957 | 0.1932 | 0.0008 |
+
+
+
+## Mesures RAT normalisées
+
+- Échantillons minces du plus épais au plus mince
+- Acquisitions de 10 secondes
+
+Fichier: data0.txt
+
+| CHANNEL      | MIN    | MAX    | AVG    | STD    |
+| ------------ | ------ | ------ | ------ | ------ |
+| Incidence    | 3.0042 | 3.1308 | 3.0686 | 0.0481 |
+| Transmitance | 0.0848 | 0.0899 | 0.0874 | 0.0013 |
+| Réflectance  | 0.1252 | 0.1304 | 0.1276 | 0.0012 |
+
+Fichier: data1.txt
+
+| CHANNEL      | MIN    | MAX    | AVG    | STD    |
+| ------------ | ------ | ------ | ------ | ------ |
+| Incidence    | 3.0288 | 3.1671 | 3.0887 | 0.0495 |
+| Transmitance | 0.0828 | 0.0877 | 0.0850 | 0.0010 |
+| Réflectance  | 0.1396 | 0.1452 | 0.1421 | 0.0015 |
+
+Fichier: data2.txt
+
+| CHANNEL      | MIN    | MAX    | AVG    | STD    |
+| ------------ | ------ | ------ | ------ | ------ |
+| Incidence    | 3.0479 | 3.1510 | 3.0701 | 0.0259 |
+| Transmitance | 0.0906 | 0.0944 | 0.0924 | 0.0007 |
+| Réflectance  | 0.1361 | 0.1421 | 0.1388 | 0.0011 |
+
+**À Finir**
+
+
 
 
 
