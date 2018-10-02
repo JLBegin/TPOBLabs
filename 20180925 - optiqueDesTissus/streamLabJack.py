@@ -124,7 +124,6 @@ class StreamDataReader():
             print("readStreamData exception: %s %s" % (type(e), e))
 
     def proessStreamData(self):
-        self.startStream()
         errors = 0
         missed = 0
         while True:
@@ -168,6 +167,7 @@ class StreamDataReader():
 
         # Start the stream and begin loading the result into a Queue
         self.sdrThread.start()
+        self.proessStreamData()
 
 
     def stopStream(self):
@@ -178,4 +178,4 @@ class StreamDataReader():
 
 
 
-StreamDataReader().proessStreamData()
+StreamDataReader().startStream()
