@@ -22,48 +22,49 @@ except ImportError:  # Python 3
 import u3
 
 
-# MAX_REQUESTS is the number of packets to be read.
-MAX_REQUESTS = 2500
-# SCAN_FREQUENCY is the scan frequency of stream mode in Hz.
-SCAN_FREQUENCY = 50000
-
-d = None
+# self.MAX_REQUESTS is the number of packets to be read.
 
 
-# At high frequencies ( >5 kHz), the number of samples will be MAX_REQUESTS
-# times 48 (packets per request) times 25 (samples per packet)
-d = u3.U3()
 
-# To learn the if the U3 is an HV
-d.configU3()
-
-# For applying the proper calibration to readings.
-d.getCalibrationData()
-
-# Set the FIO0 to Analog
-d.configIO(FIOAnalog=1)
-
-print("Configuring U3 stream")
-d.streamConfig(NumChannels=1, PChannels=[0], NChannels=[31], Resolution=3, ScanFrequency=SCAN_FREQUENCY)
-
-
-if d is None:
-    print("""Configure a device first.
-Please open streamTest-threading.py in a text editor and uncomment the lines for your device.
-
-Exiting...""")
-    sys.exit(0)
-
-
-class StreamDataReader(object):
-    def __init__(self, device):
-        self.device = device
+class StreamDataReader():
+    def __init__(self):
         self.data = Queue.Queue()
         self.dataCount = 0
         self.missed = 0
         self.finished = False
         self.sdr = None
         self.sdrThread = None
+        self.MAX_REQUESTS = 2500
+        self.SCAN_FREQUENCY = 50000
+        self.d = None
+        self.d = None
+        self.initLabJack()
+
+
+    def initLabJack(self):
+
+
+        self.d = u3.U3()
+
+        # To learn the if the U3 is an HV
+        self.d.configU3()
+
+        # For applying the proper calibration to readings.
+        self.d.getCalibrationData()
+
+        # Set the FIO0 to Analog
+        self.d.configIO(FIOAnalog=1)
+
+        print("Configuring U3 stream")
+        self.d.streamConfig(NumChannels=1, PChannels=[0], NChannels=[31], Resolution=3, ScanFrequency=self.SCAN_FREQUENCY)
+
+        if self.d is None:
+            print("""Configure a device first.
+        Please open streamTest-threading.py in a text editor and uncomment the lines for your device.
+
+        Exiting...""")
+            sys.exit(0)
+
 
     def readStreamData(self):
         self.finished = False
@@ -71,12 +72,12 @@ class StreamDataReader(object):
         print("Start stream.")
         start = datetime.now()
         try:
-            self.device.streamStart()
+            self.d.streamStart()
             while not self.finished:
                 # Calling with convert = False, because we are going to convert in
                 # the main thread.
-                returnDict = next(self.device.streamData(convert=False))
-                #returnDict = self.device.streamData(convert=False).next()  # Python 2.5
+                returnDict = next(self.d.streamData(convert=False))
+                #returnDict = self.d.streamData(convert=False).next()  # Python 2.5
                 if returnDict is None:
                     print("No stream data")
                     continue
@@ -85,21 +86,21 @@ class StreamDataReader(object):
 
                 self.missed += returnDict["missed"]
                 self.dataCount += 1
-                if self.dataCount >= MAX_REQUESTS:
+                if self.dataCount >= self.MAX_REQUESTS:
                     self.finished = True
 
             print("Stream stopped.\n")
-            self.device.streamStop()
+            self.d.streamStop()
             stop = datetime.now()
 
             # Delay to help prevent print text overlapping in the two threads.
             time.sleep(0.200)
 
-            sampleTotal = self.dataCount * self.device.packetsPerRequest * self.device.streamSamplesPerPacket
+            sampleTotal = self.dataCount * self.d.packetsPerRequest * self.d.streamSamplesPerPacket
             scanTotal = sampleTotal / 1  # sampleTotal / NumChannels
 
             print("%s requests with %s packets per request with %s samples per packet = %s samples total." %
-                  (self.dataCount, d.packetsPerRequest, d.streamSamplesPerPacket, sampleTotal))
+                  (self.dataCount, self.d.packetsPerRequest, self.d.streamSamplesPerPacket, sampleTotal))
 
             print("%s samples were lost due to errors." % self.missed)
             sampleTotal -= self.missed
@@ -107,7 +108,7 @@ class StreamDataReader(object):
 
             runTime = (stop-start).seconds + float((stop-start).microseconds)/1000000
             print("The experiment took %s seconds." % runTime)
-            print("Actual Scan Rate = %s Hz" % SCAN_FREQUENCY)
+            print("Actual Scan Rate = %s Hz" % self.SCAN_FREQUENCY)
             print("Timed Scan Rate = %s scans / %s seconds = %s Hz" %
                   (scanTotal, runTime, float(scanTotal)/runTime))
             print("Timed Sample Rate = %s samples / %s seconds = %s Hz" %
@@ -115,7 +116,7 @@ class StreamDataReader(object):
         except Exception:
             try:
                 # Try to stop stream mode. Ignore exception if it fails.
-                self.device.streamStop()
+                self.d.streamStop()
             except:
                 pass
             self.finished = True
@@ -138,7 +139,7 @@ class StreamDataReader(object):
                     print("+++++ Total Errors: %s, Total Missed: %s +++++" % (errors, missed))
 
                 # Convert the raw bytes (result['result']) to voltage data.
-                r = d.processStreamData(result['result'])
+                r = self.d.processStreamData(result['result'])
 
                 # Do some processing on the data to show off.
                 print("DICT R: ", r, r.keys())
@@ -160,9 +161,9 @@ class StreamDataReader(object):
             # self.stopStream()
 
     def startStream(self):
-        self.sdr = StreamDataReader(d)
+        self.sdr = StreamDataReader()
         # writing at the DAC0
-        d.writeRegister(5000, 3)
+        self.d.writeRegister(5000, 3)
         self.sdrThread = threading.Thread(target=self.sdr.readStreamData)
 
         # Start the stream and begin loading the result into a Queue
@@ -172,9 +173,9 @@ class StreamDataReader(object):
     def stopStream(self):
         self.sdrThread.join()
         # Close the device
-        d.close()
+        self.d.close()
 
 
 
 
-StreamDataReader(d).proessStreamData()
+StreamDataReader().proessStreamData()
