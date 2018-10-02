@@ -8,6 +8,8 @@ streaming speeds than streamTest.py.
 import sys
 import threading
 import time
+import math
+import DACsinGenerator as DACgen
 
 from copy import deepcopy
 from datetime import datetime
@@ -125,7 +127,8 @@ sdrThread = threading.Thread(target=sdr.readStreamData)
 
 # Start the stream and begin loading the result into a Queue
 sdrThread.start()
-
+# DACgen.runSinGenerator()
+d.writeRegister(5000, 3)
 errors = 0
 missed = 0
 # Read from Queue until there is no data. Adjust Queue.get timeout
@@ -145,7 +148,7 @@ while True:
         r = d.processStreamData(result['result'])
 
         # Do some processing on the data to show off.
-        print("DICT R: ", r)
+        print("DICT R: ", r, r.keys())
         print("Average of %s reading(s): %s" % (len(r['AIN0']), sum(r['AIN0'])/len(r['AIN0'])))
     except Queue.Empty:
         if sdr.finished:
