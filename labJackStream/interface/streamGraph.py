@@ -68,9 +68,6 @@ class StreamGraph(Canvas):
             self.transmitance.append(float(transmitanceSample))
             self.reflectance.append(float(reflectanceSample))
 
-            # TODO: Get STDEV + normalize trs/ref data with laser deviation percentage
-            # TODO: move files to DCCOTE repo
-
             self.updateLines()
             self.checkLimits()
 
