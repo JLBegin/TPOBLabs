@@ -20,11 +20,11 @@ class StreamGraph(Canvas):
         Canvas.setSizePolicy(self, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         Canvas.updateGeometry(self)
 
-        self.normalize = True
+        self.normalize = False
         self.laserInit = 0
         self.timeWindow = 20
-        self.maxY = 1
-        self.minY = 0
+        self.maxY = 10
+        self.minY = -1
         self.times = []
         self.laser = []
         self.transmitance = []
@@ -34,21 +34,20 @@ class StreamGraph(Canvas):
         self.lineTransmitance = None
         self.lineReflectance = None
         self.graphQueue = Queue()
-        self.tickLength = 1
+        self.tickLength = 2
 
         self.graphWorker = Worker(self.liveGraph)
         self.threadPool = QThreadPool()
 
     def startGraph(self):
-        self.lineLaser, = self.axes[0].plot(self.times, self.laser, 'r', label="Laser")
-        self.lineTransmitance, = self.axes[0].plot(self.times, self.transmitance, 'g', label="Transmitance")
-        self.lineReflectance, = self.axes[0].plot(self.times, self.reflectance, 'b', label="Réflectance")
+        self.lineLaser, = self.axes[0].plot(self.times, self.laser, 'r')
+        self.lineTransmitance, = self.axes[0].plot(self.times, self.transmitance, 'g')
+        self.lineReflectance, = self.axes[0].plot(self.times, self.reflectance, 'b')
 
         self.axes[0].set_ylim(self.minY, self.maxY)
         self.axes[0].set_xlim(0, self.timeWindow)
         self.axes[0].set_xlabel("Time [s]", color="white")
         self.axes[0].tick_params(labelcolor="white")
-        plt.legend(loc='lower left')
         self.draw()
 
         self.threadPool.start(self.graphWorker)
@@ -66,8 +65,8 @@ class StreamGraph(Canvas):
                 transmitanceSample /= normFactor
                 reflectanceSample /= normFactor
             self.laser.append(float(laserSample))
-            self.transmitance.append(20*float(transmitanceSample))
-            self.reflectance.append(20*float(reflectanceSample))
+            self.transmitance.append(float(transmitanceSample))
+            self.reflectance.append(float(reflectanceSample))
 
             self.updateLines()
             self.checkLimits()
@@ -101,26 +100,21 @@ class StreamGraph(Canvas):
     def updateLimits(self):
         for vector in [self.laser, self.transmitance, self.reflectance]:
             if max(vector) > self.maxY:
-                self.maxY = max(vector) + 0.1
+                self.maxY = max(vector) + 0.5
                 self.axes[0].set_ylim(self.minY, self.maxY)
             if min(vector) < self.minY:
-                self.minY = min(vector) - 0.1
+                self.minY = min(vector) - 0.5
                 self.axes[0].set_ylim(self.minY, self.maxY)
         self.draw()
 
     def printStats(self):
         print("\n|CHANNEL|    MIN|       MAX|       AVG|       STD|")
-        print("|------|--------|----------|----------|----------|")
         for i, channel in enumerate([self.laser, self.transmitance, self.reflectance]):
-            channel = np.array(channel)
-            if i > 0:
-                channel /= 20
             print("|{} |{:8.4f}|{:10.4f}|{:10.4f}|{:10.4f}|".format(["Laser", "Trans", "Refle"][i], np.min(channel), np.max(channel), np.average(channel), np.std(channel)))
 
     def saveData(self):
-        dataArray = np.hstack((np.array(self.times)[np.newaxis].T, np.array(self.laser)[np.newaxis].T))
-        dataArray = np.hstack((dataArray, (np.array(self.transmitance)/20)[np.newaxis].T))
-        dataArray = np.hstack((dataArray, (np.array(self.reflectance)/20)[np.newaxis].T))
+        dataArray = np.hstack((np.array(self.laser)[np.newaxis].T, np.array(self.transmitance)[np.newaxis].T))
+        dataArray = np.hstack((dataArray, np.array(self.reflectance)[np.newaxis].T))
 
         index = 0
         fileName = "data/data"
