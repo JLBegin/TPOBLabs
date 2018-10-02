@@ -62,6 +62,8 @@ class StreamDataReader(object):
         self.dataCount = 0
         self.missed = 0
         self.finished = False
+        self.sdr = None
+        self.sdrThread = None
 
     def readStreamData(self):
         self.finished = False
@@ -120,53 +122,59 @@ class StreamDataReader(object):
             e = sys.exc_info()[1]
             print("readStreamData exception: %s %s" % (type(e), e))
 
+    def proessStreamData(self):
+        self.startStream()
+        errors = 0
+        missed = 0
+        while True:
+            try:
+                # Pull results out of the Queue in a blocking manner.
+                result = self.sdr.data.get(True, 1)
 
-sdr = StreamDataReader(d)
+                # If there were errors, print that.
+                if result["errors"] != 0:
+                    errors += result["errors"]
+                    missed += result["missed"]
+                    print("+++++ Total Errors: %s, Total Missed: %s +++++" % (errors, missed))
 
-sdrThread = threading.Thread(target=sdr.readStreamData)
+                # Convert the raw bytes (result['result']) to voltage data.
+                r = d.processStreamData(result['result'])
 
-# Start the stream and begin loading the result into a Queue
-sdrThread.start()
-# DACgen.runSinGenerator()
-d.writeRegister(5000, 3)
-errors = 0
-missed = 0
-# Read from Queue until there is no data. Adjust Queue.get timeout
-# for slow scan rates.
-while True:
-    try:
-        # Pull results out of the Queue in a blocking manner.
-        result = sdr.data.get(True, 1)
+                # Do some processing on the data to show off.
+                print("DICT R: ", r, r.keys())
+                print("Average of %s reading(s): %s" % (len(r['AIN0']), sum(r['AIN0']) / len(r['AIN0'])))
+            except Queue.Empty:
+                if self.sdr.finished:
+                    print("Done reading from the Queue.")
+                else:
+                    print("Queue is empty. Stopping...")
+                    self.sdr.finished = True
+                break
+            except KeyboardInterrupt:
+                self.sdr.finished = True
+            except Exception:
+                e = sys.exc_info()[1]
+                print("main exception: %s %s" % (type(e), e))
+                self.sdr.finished = True
+                break
+            # self.stopStream()
 
-        # If there were errors, print that.
-        if result["errors"] != 0:
-            errors += result["errors"]
-            missed += result["missed"]
-            print("+++++ Total Errors: %s, Total Missed: %s +++++" % (errors, missed))
+    def startStream(self):
+        self.sdr = StreamDataReader(d)
+        # writing at the DAC0
+        d.writeRegister(5000, 3)
+        self.sdrThread = threading.Thread(target=self.sdr.readStreamData)
 
-        # Convert the raw bytes (result['result']) to voltage data.
-        r = d.processStreamData(result['result'])
+        # Start the stream and begin loading the result into a Queue
+        self.sdrThread.start()
 
-        # Do some processing on the data to show off.
-        print("DICT R: ", r, r.keys())
-        print("Average of %s reading(s): %s" % (len(r['AIN0']), sum(r['AIN0'])/len(r['AIN0'])))
-    except Queue.Empty:
-        if sdr.finished:
-            print("Done reading from the Queue.")
-        else:
-            print("Queue is empty. Stopping...")
-            sdr.finished = True
-        break
-    except KeyboardInterrupt:
-        sdr.finished = True
-    except Exception:
-        e = sys.exc_info()[1]
-        print("main exception: %s %s" % (type(e), e))
-        sdr.finished = True
-        break
 
-# Wait for the stream thread to stop
-sdrThread.join()
+    def stopStream(self):
+        self.sdrThread.join()
+        # Close the device
+        d.close()
 
-# Close the device
-d.close()
+
+
+
+StreamDataReader(d).proessStreamData()
