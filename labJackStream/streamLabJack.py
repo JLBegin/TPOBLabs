@@ -60,7 +60,7 @@ class StreamLabJack:
 
     def startStream(self):
         # writing at the DAC0
-        self.d.writeRegister(5000, 3)
+        # self.d.writeRegister(5000, 3)
         self.sdrThread = threading.Thread(target=self.readStreamData)
         self.processThread = threading.Thread(target=self.processStreamData)
 
@@ -141,9 +141,9 @@ class StreamLabJack:
 
                 # Do some processing on the data to show off.
                 # print("DICT R: ", r, r.keys())
-                pinAIN0 = sum(r['AIN0']) / len(r['AIN0'])
-                pinAIN1 = -sum(r['AIN1']) / len(r['AIN1'])
-                pinAIN2 = -sum(r['AIN2']) / len(r['AIN2'])
+                pinAIN0 = sum(r['AIN0']) / len(r['AIN0'])  # - 0.6531
+                pinAIN1 = -sum(r['AIN1']) / len(r['AIN1'])  # - 0.2050
+                pinAIN2 = -sum(r['AIN2']) / len(r['AIN2'])  # - 0.1595
                 # print("Average of %s reading(s): %s" % (len(r['AIN0']), pinAIN0))
 
                 graphData = [pinAIN0, pinAIN1, pinAIN2]
