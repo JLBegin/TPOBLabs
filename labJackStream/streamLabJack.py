@@ -34,22 +34,22 @@ class StreamLabJack:
         self.processThread = None
         self.MAX_REQUESTS = 2500
         self.SCAN_FREQUENCY = 50000
-        self.device = None
-        self.device = None
+        self.d = None
+        self.d = None
         self.initLabJack()
 
     def initLabJack(self):
-        self.device = u3.U3()
-        self.device.configU3()
-        self.device.getCalibrationData()
+        self.d = u3.U3()
+        self.d.configU3()
+        self.d.getCalibrationData()
 
         # Set the FIO0 to Analog
-        self.device.configIO(FIOAnalog=1)
+        self.d.configIO(FIOAnalog=1)
 
         print("Configuring U3 stream")
-        self.device.streamConfig(NumChannels=1, PChannels=[0], NChannels=[31], Resolution=3, ScanFrequency=self.SCAN_FREQUENCY)
+        self.d.streamConfig(NumChannels=1, PChannels=[0], NChannels=[31], Resolution=3, ScanFrequency=self.SCAN_FREQUENCY)
 
-        if self.device is None:
+        if self.d is None:
             print("""Configure a device first.
         Please open streamTest-threading.py in a text editor and uncomment the lines for your device.
 
@@ -60,7 +60,7 @@ class StreamLabJack:
 
     def startStream(self):
         # writing at the DAC0
-        self.device.writeRegister(5000, 3)
+        self.d.writeRegister(5000, 3)
         self.sdrThread = threading.Thread(target=self.readStreamData)
         self.processThread = threading.Thread(target=self.processStreamData)
 
@@ -74,9 +74,9 @@ class StreamLabJack:
         print("Start stream.")
         start = datetime.now()
         try:
-            self.device.streamStart()
+            self.d.streamStart()
             while not self.finished:
-                returnDict = next(self.device.streamData(convert=False))
+                returnDict = next(self.d.streamData(convert=False))
 
                 if returnDict is None:
                     print("No stream data")
@@ -90,18 +90,34 @@ class StreamLabJack:
                     self.finished = True
 
             print("Stream stopped.\n")
-            self.device.streamStop()
+            self.d.streamStop()
             stop = datetime.now()
 
             # Delay to help prevent print text overlapping in the two threads.
             time.sleep(0.200)
 
-            sampleTotal = self.dataCount * self.device.packetsPerRequest * self.device.streamSamplesPerPacket
+            sampleTotal = self.dataCount * self.d.packetsPerRequest * self.d.streamSamplesPerPacket
+            scanTotal = sampleTotal / 1  # sampleTotal / NumChannels
+
+            # print("%s requests with %s packets per request with %s samples per packet = %s samples total." %
+            #       (self.dataCount, self.d.packetsPerRequest, self.d.streamSamplesPerPacket, sampleTotal))
+            #
+            # print("%s samples were lost due to errors." % self.missed)
+            # sampleTotal -= self.missed
+            # print("Adjusted number of samples = %s" % sampleTotal)
+            #
+            # runTime = (stop-start).seconds + float((stop-start).microseconds)/1000000
+            # print("The experiment took %s seconds." % runTime)
+            # print("Actual Scan Rate = %s Hz" % self.SCAN_FREQUENCY)
+            # print("Timed Scan Rate = %s scans / %s seconds = %s Hz" %
+            #       (scanTotal, runTime, float(scanTotal)/runTime))
+            # print("Timed Sample Rate = %s samples / %s seconds = %s Hz" %
+            #       (sampleTotal, runTime, float(sampleTotal)/runTime))
 
         except Exception:
             try:
                 # Try to stop stream mode. Ignore exception if it fails.
-                self.device.streamStop()
+                self.d.streamStop()
             except:
                 pass
             self.finished = True
@@ -121,7 +137,7 @@ class StreamLabJack:
                     print("+++++ Total Errors: %s, Total Missed: %s +++++" % (errors, missed))
 
                 # Convert the raw bytes (result['result']) to voltage data.
-                r = self.device.processStreamData(result['result'])
+                r = self.d.processStreamData(result['result'])
 
                 # Do some processing on the data to show off.
                 # print("DICT R: ", r, r.keys())
@@ -151,5 +167,4 @@ class StreamLabJack:
         self.graph.graphQueue.put([])
         self.sdrThread.join()
         # Close the device
-        self.device.close()
-
+        self.d.close()
