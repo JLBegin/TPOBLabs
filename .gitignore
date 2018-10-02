@@ -2,4 +2,7 @@
 *.xml
 
 .idea/
+
 *.pyc
+
+data/

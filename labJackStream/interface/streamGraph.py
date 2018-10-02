@@ -117,7 +117,7 @@ class StreamGraph(Canvas):
         dataArray = np.hstack((dataArray, np.array(self.reflectance)[np.newaxis].T))
 
         index = 0
-        fileName = "data"
+        fileName = "data/data"
         while os.path.exists(fileName + "{}.txt".format(index)):
             index += 1
         fileName = fileName + "{}.txt".format(index)
