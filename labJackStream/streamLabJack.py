@@ -32,8 +32,8 @@ class StreamLabJack:
         self.finished = False
         self.sdrThread = None
         self.processThread = None
-        self.MAX_REQUESTS = 2500
-        self.SCAN_FREQUENCY = 50000
+        self.MAX_REQUESTS = 25000
+        self.SCAN_FREQUENCY = 5000
         self.d = None
         self.d = None
         self.initLabJack()
@@ -47,7 +47,7 @@ class StreamLabJack:
         self.d.configIO(FIOAnalog=1)
 
         print("Configuring U3 stream")
-        self.d.streamConfig(NumChannels=1, PChannels=[0], NChannels=[31], Resolution=3, ScanFrequency=self.SCAN_FREQUENCY)
+        self.d.streamConfig(NumChannels=3, PChannels=[0,1,2], NChannels=[31,31,31], Resolution=3, ScanFrequency=self.SCAN_FREQUENCY)
 
         if self.d is None:
             print("""Configure a device first.
@@ -96,9 +96,9 @@ class StreamLabJack:
             # Delay to help prevent print text overlapping in the two threads.
             time.sleep(0.200)
 
-            sampleTotal = self.dataCount * self.d.packetsPerRequest * self.d.streamSamplesPerPacket
-            scanTotal = sampleTotal / 1  # sampleTotal / NumChannels
-
+            # sampleTotal = self.dataCount * self.d.packetsPerRequest * self.d.streamSamplesPerPacket
+            # scanTotal = sampleTotal / 1  # sampleTotal / NumChannels
+            #
             # print("%s requests with %s packets per request with %s samples per packet = %s samples total." %
             #       (self.dataCount, self.d.packetsPerRequest, self.d.streamSamplesPerPacket, sampleTotal))
             #
@@ -134,7 +134,7 @@ class StreamLabJack:
                 if result["errors"] != 0:
                     errors += result["errors"]
                     missed += result["missed"]
-                    print("+++++ Total Errors: %s, Total Missed: %s +++++" % (errors, missed))
+                    # print("+++++ Total Errors: %s, Total Missed: %s +++++" % (errors, missed))
 
                 # Convert the raw bytes (result['result']) to voltage data.
                 r = self.d.processStreamData(result['result'])
@@ -142,9 +142,11 @@ class StreamLabJack:
                 # Do some processing on the data to show off.
                 # print("DICT R: ", r, r.keys())
                 pinAIN0 = sum(r['AIN0']) / len(r['AIN0'])
+                pinAIN1 = -sum(r['AIN1']) / len(r['AIN1'])
+                pinAIN2 = -sum(r['AIN2']) / len(r['AIN2'])
                 # print("Average of %s reading(s): %s" % (len(r['AIN0']), pinAIN0))
 
-                graphData = [pinAIN0, pinAIN0-0.1, pinAIN0+0.1]
+                graphData = [pinAIN0, pinAIN1, pinAIN2]
                 self.graph.graphQueue.put(graphData)
 
             except Queue.Empty:
