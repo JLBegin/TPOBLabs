@@ -27,8 +27,8 @@ class DataGraph:
 
             for i in range(numberOfColumns):
                 normData = data[:, i+1] / np.mean(data[:, i+1])
+                stDev = round(np.std(normData)*100, 2)
                 if self.smoothFactor > 1:
-                    stDev = round(np.std(normData)*100, 2)
                     normData = (normData - 1) * 100
                     normData = [np.mean(normData[i*self.smoothFactor:(i+1)*self.smoothFactor]) for i in range((len(normData)//self.smoothFactor)+1)]
                 self.axes[e].plot(timeVector, normData, label="{} ($\sigma$ = {}%)".format(["Incidence", "Transmitance", "Réflectance"][i], stDev), color=["r", "g", "b"][i], linestyle=["-", "-"][e])
@@ -37,7 +37,7 @@ class DataGraph:
         for axe in self.axes:
             axe.set_xlim(0, 150)
             axe.set_ylim(-2, 4)
-            axe.set_ylabel("$\Delta$F/F [%]", fontsize=17)
+            axe.set_ylabel("$\Delta$S/S [%]", fontsize=17)
             axe.set_xlabel("Time [s]", fontsize=17)
             axe.legend(loc="upper right", fontsize=15)
             axe.tick_params(labelsize=16, length=8, width=2)
