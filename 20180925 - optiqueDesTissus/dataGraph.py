@@ -20,18 +20,22 @@ class DataGraph:
         self.normData = np.loadtxt("../labJackStream/data/readingNorm300sec.txt")
 
     def plotData(self):
-        for e, data in enumerate([self.rawData, self.normData]):
-
+        for e, data in enumerate([self.normData, self.normData]):  # Fastest and ugliest data back correction
             numberOfColumns = data[0].shape[0] - 1
             timeVector = data[:, 0][::self.smoothFactor] - 100
 
             for i in range(numberOfColumns):
-                normData = data[:, i+1] / np.mean(data[:, i+1])
+                normData = data[:, i+1]
+                if e == 0 and i > 0:
+                    rawFactor = data[:, 1] / data[:, 1][0]
+                    normData = data[:, i+1] * rawFactor
+
+                normData /= np.mean(normData)
                 stDev = round(np.std(normData)*100, 2)
                 if self.smoothFactor > 1:
                     normData = (normData - 1) * 100
                     normData = [np.mean(normData[i*self.smoothFactor:(i+1)*self.smoothFactor]) for i in range((len(normData)//self.smoothFactor)+1)]
-                self.axes[e].plot(timeVector, normData, label="{} ($\sigma$ = {}%)".format(["Incidence", "Transmitance", "Réflectance"][i], stDev), color=["r", "g", "b"][i], linestyle=["-", "-"][e])
+                self.axes[e].plot(timeVector, normData, label="{} ($\sigma$ = {}%)".format(["Source laser", "Transmitance", "Réflectance"][i], stDev), color=["r", "g", "b"][i], linestyle=["-", "-"][e])
 
     def adjustPlot(self):
         for axe in self.axes:
