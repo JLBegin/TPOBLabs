@@ -223,6 +223,12 @@ Fichier: data2.txt
 
 **À Finir**
 
+## Suggestion de manipulation afin d'optimiser la correction du bruit
+
+- S'assurer de la linéarité de la réponse de du détecteur DET-110 ( pour voir si la correction dépend de la puissance d'entrée)
+- Isoler le système de sphères intégrantes de la lumière ambiante pour limiter le *background*
+- Vérifier que pour une puissance constante, et des échantillions variables, le facteur de correction est différents (pour voir si la correction dépend de l'épaisseur de l'échantillion)
+
 
 
 
