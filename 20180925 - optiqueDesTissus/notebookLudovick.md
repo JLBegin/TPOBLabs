@@ -255,3 +255,11 @@ Fichier: data2.txt
 
 **À Finir**
 
+
+
+## Propositions d'amélioration
+
+- Isoler d'avantage les sphères intégrantes afin de diminuer le bruit de fond, et son écart type, par rapport à la variation de la puissance sur les capteurs et ultimement peut-être réussir à soustraire un bruit de fond constant sur les mesures prises. 
+- Caractériser la relation puissance-tension du capteur à puissance incidente afin de déterminer s'il n'est pas linéaire et ainsi parfaire le facteur de correction. 
+
+- Enregistrer les mesures à puissance constante pour différentes épaisseurs afin de voir si le facteur de correction doit dépendre de l'échantillon observé (idéalement pas). 
