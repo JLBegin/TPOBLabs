@@ -25,19 +25,18 @@ First of all, if it has not been done yet, get a copy of the repository (with cl
 $ git clone https://github.com/JLBegin/TPOBLabs.git
 ```
 
-### Running main
+### Running main from IDE
 
-To run the main app, you have to navigate to the labJackStream emplacement and run the main script.
+To run the main app, open the labJackStream project in your IDE and run the *main.py* file.
 
-```powershell
-$ cd TPOBLabs\labJackStream
-$ python main.py
-```
-
-you can now choose to start an acquisition and visualize the data live. Pressing on the 'STOP' button will save a .txt file with the following architecture:
+You can now choose to start an acquisition and visualize the data live. Pressing on the 'STOP' button will save a .txt file with the following architecture:
 
 | Time | Laser power | Reflexion power | Transmission Power |
 | ---- | ----------- | --------------- | ------------------ |
 | ...  | ...         | ...             | ...                |
 
+<<<<<<< HEAD:labJackStream/README
+It also will print a table in your *run* window with different statistics from the acquisition you just done. You are recommended to rename the .txt data file after each acquisition with a significant name. 
+=======
 It also will print a table in your command prompt with different statistics from the acquisition you just done. You are recommended to rename the .txt data file after each acquisition with a significant name. 
+>>>>>>> e816d00e84b23b29cb7e540531e70e4c88236b35:labJackStream/README.md
