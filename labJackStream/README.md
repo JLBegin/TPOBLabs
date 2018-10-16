@@ -35,11 +35,11 @@ To run the main app, open the labJackStream project in your IDE and run the *mai
 
 You can now choose to start an acquisition and visualize the data live. Pressing on the 'STOP' button will save a .txt file inside `/data` with the following architecture:
 
-| Time | Laser power | Reflexion power | Transmission Power |
-| ---- | ----------- | --------------- | ------------------ |
-| ...  | ...         | ...             | ...                |
+| Time | Laser power | Transmission power | Reflexion Power |
+| ---- | ----------- | ------------------ | --------------- |
+| ...  | ...         | ...                | ...             |
 
 
-It will also print a table in your *run* window with different statistics from the acquisition you just done. It is recommended to rename the .txt data file after each acquisition with a significant name. 
+It will also print a table (MarkDown format) in your *run* window with different statistics (Min, Max, AVG, STD) from the acquisition you just done. It is recommended to rename the .txt data file after each acquisition with a significant name. 
 
 
