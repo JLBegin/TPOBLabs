@@ -8,7 +8,7 @@ These instructions will get you a copy of the project on your local machine for 
 
 ### Prerequisites
 
-It is obligatory to get the Anaconda distribution for python 3 since it has most of the required modules.
+It is obligatory to get the Anaconda distribution for python 3.x since it has most of the required modules. You can download it  [here](https://www.anaconda.com/download/).
 **To be able to use labJackStream, make sure to install the following packages through a command window: (power shell)**
 
 ```powershell
