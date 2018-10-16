@@ -15,6 +15,8 @@ It is obligatory to get the Anaconda distribution for python 3.x since it has mo
 $ pip install labjackpython
 ```
 
+**You will also need to install the [LabJack Drivers](https://labjack.com/support/software/installers/ud)**
+
 If those modules are missing you wont be able to use the program properly.
 
 ### Installing
