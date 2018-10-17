@@ -6,6 +6,43 @@
 
 
 
+# Microscopie et résolution
+
+------
+
+
+
+------
+
+## Partie 1  -  16 octobre 2018
+
+------
+
+## Préparation
+
+
+
+
+
+- **Photo du montage** !!
+
+
+
+
+
+
+
+## Alignement
+
+- L'illumination est mise à intensité moyenne
+- Choisir le bon objectif (10x) - Profondeur de champ (f number - ouverture numérique - distance de travail) (grossissement indépendant généralement de l'ouverture numérique (profondeur de champ))
+- Condenseur
+- Mise au point
+
+
+
+
+
 # Microscopie HiLo
 
 ------
@@ -14,7 +51,7 @@
 
 ---------
 
-## Partie 1  -  16 octobre 2018
+## Partie 2  -  23 octobre 2018
 
 -------
 
@@ -27,4 +64,3 @@
 - S'assurer que l'illumination uniforme est **uniforme** . Si ce n'est pas le cas, trouver une façon de l'uniformiser.
 - Prendre des images Hi et Lo puis les combiner dans FiJi
 - Comparer les images Hi Lo avec un confocale et prouver son bon fonctionnement malgré son faible cout.
-
