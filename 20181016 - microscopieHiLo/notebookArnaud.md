@@ -1,4 +1,6 @@
 ---
+
+
 typora-copy-images-to: ./
 ---
 
@@ -59,16 +61,22 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 ### Shéma du montage fait par l'équipe précédente 
 
-## ![Capture](C:\Users\arnau\Documents\GitHub\TPOBLabs\20181016 - microscopieHiLo\Capture.PNG)
 
 
+![IMG_2926[1703]](C:\Users\arnau\Documents\GitHub\TPOBLabs\20181016 - microscopieHiLo\IMG_2926[1703].JPG)
 
 ## À faire
 
-- Trouver monture pour fixer le cube séparateur, et le système 4 f de la caméra. Idéalement, un ajustement de la position du cube séparateur est possible afin de faciliter l'alignement de celui-ci.
--  Le système 4 f de la caméra devra réduire la taille de l’image de l’échantillon pour qu’elle couvre adéquatement
-  les dimensions du capteur. Le plan image de ce dernier 4 f doit nécessairement se trouver
-  sur le capteur de la caméra.
+- Trouver l'objectif désiré (demander à daniel)
+- Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à la focal de la premier lentille du 4f
+- Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif)
+- Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif
+- Monter  l'objectif et le cube et vérifier que le faisceau remplit l'objectif
+- L'objectif doit être placé à une BFL 
+- Placer l'échantillon au point focale de l'objectif ou working distance
+- Placez la caméra sur la plaque verticale en haut du cube séparateur
+- Placez une lentile convergent entre le cube et la caméra. Ajuster la position de la caméra pour que l'image remplisse le capteur.x
+
 - S'assurer que le l'illumination uniforme est **uniforme** . Si ce n'est pas le cas, trouver une façon de l'uniformiser.
 - Prendre des images Hi et Lo puis les combiner dans FiJI
 - Comparer les images Hi Lo avec un confocale et prouver son bon fonctionnement malgré son faible cout.
