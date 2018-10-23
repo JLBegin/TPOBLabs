@@ -108,6 +108,10 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 ## Préparation
 
+BUT et Résumé
+
+
+
 **Schéma du montage à réaliser**
 
 ![Schéma du montage à réaliser](dessinMontage.png)
@@ -133,7 +137,28 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 ## Manipulation
 
+- On réutilise le microscope standard qui possède un objectif 10x et une lentille qui forme un système 4f
+- Diffuseur plus loin
+- On utilise pour l'instant une plaque de verre. 
+- "bfl" dans le schéma est faux. Le microscope possède l'objectif 10x avec une autre lentille qui forme un système 4f. Il s'agit alors d'amener notre tache agrandi proche de la focale arrière de ce 4f.
+- Finalement on ne reconverge pas. 
+- Mirroir astigmatisme
+- On baisse le système 4f en redirigant la sortie du laser plus bas tout en essayant de respecter les limites d'angles sur les miroirs afin de ne pas avoir d'aberration. 
+- Un mirroir fait sortir le faisceau vers le microscope. On a ici un beau faisceau rond qui rempli l'objectif du microscope. (**Photo**)
+- Un grand pôle sert à amener la plaque de verre au dessus du microscope et un diffuseur est placé juste avant. 
+- On obtient de la lumière à l'échantillon dans le microscope.
+- Plaque de verre trop près du plan image du microscope, on voit alors quelques poussières et traces dans l'image. 
+- Avec diffuseur il est difficile de voir une image au focus. 
+- Manque de degré de liberté sur la plaque de verre
+- Il faudrait remplacer la plaque de verre idéalement par un cube et le rapprocher du microscope. 
 
+Possibilité de passer une plaque à Daniel en lui indiquant de demander au COPL d'ajouter un coating 50%. Ou trouver un dichroïque. 
+
+Installer la caméra
+
+Ajouter un relais afin d'obtenir une image qui entre mieux dans la caméra. Le faisceau initial est d'environ 3 cm vers la caméra DMK 21AF04 qui semble accepter un diamètre d'environ 0.5 cm.
+
+Petit diffuseur pour créer une illumination speckle et une méthode pour obtenir un illumination uniforme (généralement obtenue en brassant le diffuseur). 
 
 
 
