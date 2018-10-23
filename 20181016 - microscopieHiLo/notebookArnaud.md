@@ -55,15 +55,15 @@ typora-copy-images-to: ./
 
 Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne sera pas faite (afin de travailler sur le montage HiLo), la calibration des dimensions observées est laissé de côté. Le but et les manipulations de cette étape sont toutefois bien comprises. 
 
-# Microscopie HiLo
+# Microscopie HiLo						23 octobre
 
 -----
 
-### Shéma du montage fait par l'équipe précédente 
+### Plan du montage à effectué
+
+![Schéma du montage à réaliser](dessinMontage.png)
 
 
-
-![IMG_2926[1703]](C:\Users\arnau\Documents\GitHub\TPOBLabs\20181016 - microscopieHiLo\IMG_2926[1703].JPG)
 
 
 
@@ -74,7 +74,7 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 - Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif)
 - Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif
 - Monter  l'objectif et le cube et vérifier que le faisceau remplit l'objectif
-- L'objectif doit être placé à une BFL 
+- L'objectif doit être placé à une BFL  --> **Faux!!** finalement, on veux juste avoir un beau faisceau (bon diamètre)
 - Placer l'échantillon au point focale de l'objectif ou working distance
 - Placez la caméra sur la plaque verticale en haut du cube séparateur
 - Placez une lentile convergent entre le cube et la caméra. Ajuster la position de la caméra pour que l'image remplisse le capteur.x
@@ -85,51 +85,45 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 ## Manipulations
 
-###  
+### Trouver l'objectif désiré:
 
-### Trouver l'objectif désiré (demander à daniel):
+L'objectif utilisé est en fait le système 4f intégré du microscope. La tête comportant les oculaires sont retirées et le faisceau est dirigé vers le système 4f interne du microscope.
 
+### Installation d'un relais 4f 
 
+le premier relais 4f à pour effet seulement de grossir le faisceau. Le faisceau entre collimé et ressort collimé. Les lentilles utilisées sont de focale 2.54 cm et de 20 cm, produisant un grossissement de 8. L'importnt est que le faisceau soit centré et ne *clip* pas sur aucun composantes optique
 
-### Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à la focal de la premier lentille du 4f:
+### Trouver un diffuseur  et  le fixer  apres le premier 4f:
 
+2 diffuseurs différents ont été essayé . Il est placé entre 2 lames de microscope. Dans le montage, il est placé avant le séparateur (lame de verre). 
 
+| Type de diffuseur                                        | Commentaire                                                  |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+| Papier pour nettoyer les lentilles entre 2 lame de verre | Diffuse bien mais encore un peu trop                         |
+| Verre dépoli beaucoup                                    | diffuse beaucoup trop, aucune lumiére observé en réflexion   |
+| Verre dépolie grossièrement                              | pas essayer                                                  |
+| sans diffuseur                                           | Il y a assez de lumière pour éclairer l'échantillon et observer de la réflexion |
 
-### Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif):
+Nous n'avons pas pris le temps d'esssayer tous les diffuseurs pour trouver celui qui produit les plus beaux **speckles**
 
+### Positionnement de la plaque de verre feant office de de cube séparateur:
 
-
-### Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif:
-
-
-
-### Monter  l'objectif et le cube et vérifier que le faisceau remplit l'objectif:
-
-
-
-### L'objectif doit être placé à une BFL :
-
-
+Plaque de verre trop près du plan image du microscope, on voit alors quelques poussières et traces dans l'image. Il manque un degrés de liberté afin de faire d es ajusteents plus fins. À remplacer par des dicroïques avec différents *coatings* (70-30, 50-50)
 
 ### Placer l'échantillon au point focale de l'objectif ou working distance:
 
-
-
-### Placez la caméra sur la plaque verticale en haut du cube séparateur:
-
-
-
-### Placez une lentile convergent entre le cube et la caméra. Ajuster la position de la caméra pour que l'image remplisse le capteur.x:
+Il est possible d'observer (en réflexion)  l'image de l'échantillon en haut de la plaque de verre servant de cube séparateur
 
 
 
-### S'assurer que le l'illumination uniforme est **uniforme** . Si ce n'est pas le cas, trouver une façon de l'uniformiser :
+### 
 
+## À faire
 
+### Installer la caméra
 
-### Prendre des images Hi et Lo puis les combiner dans FiJI:
+La caméra est déja fixer, mais pas du tout ajustée.
 
+Ajouter un relais afin d'obtenir une image qui entre (remplisse le capteur) mieux dans la caméra. Le faisceau initial est d'environ 3 cm vers la caméra DMK 21AF04 qui semble accepter un diamètre d'environ 0.5 cm.
 
-
-### Comparer les images Hi Lo avec un confocale et prouver son bon fonctionnement malgré son faible cout:
-
+Petit diffuseur pour créer une illumination speckle et une méthode pour obtenir un illumination uniforme (généralement obtenue en brassant le diffuseur). 
