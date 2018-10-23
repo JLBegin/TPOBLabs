@@ -65,10 +65,12 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 ![IMG_2926[1703]](C:\Users\arnau\Documents\GitHub\TPOBLabs\20181016 - microscopieHiLo\IMG_2926[1703].JPG)
 
-## À faire
+
+
+## Préparation (étapes à faire):
 
 - Trouver l'objectif désiré (demander à daniel)
-- Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à la focal de la premier lentille du 4f
+- Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à l:a focal de la premier lentille du 4f
 - Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif)
 - Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif
 - Monter  l'objectif et le cube et vérifier que le faisceau remplit l'objectif
@@ -80,4 +82,54 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 - S'assurer que le l'illumination uniforme est **uniforme** . Si ce n'est pas le cas, trouver une façon de l'uniformiser.
 - Prendre des images Hi et Lo puis les combiner dans FiJI
 - Comparer les images Hi Lo avec un confocale et prouver son bon fonctionnement malgré son faible cout.
+
+## Manipulations
+
+###  
+
+### Trouver l'objectif désiré (demander à daniel):
+
+
+
+### Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à la focal de la premier lentille du 4f:
+
+
+
+### Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif):
+
+
+
+### Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif:
+
+
+
+### Monter  l'objectif et le cube et vérifier que le faisceau remplit l'objectif:
+
+
+
+### L'objectif doit être placé à une BFL :
+
+
+
+### Placer l'échantillon au point focale de l'objectif ou working distance:
+
+
+
+### Placez la caméra sur la plaque verticale en haut du cube séparateur:
+
+
+
+### Placez une lentile convergent entre le cube et la caméra. Ajuster la position de la caméra pour que l'image remplisse le capteur.x:
+
+
+
+### S'assurer que le l'illumination uniforme est **uniforme** . Si ce n'est pas le cas, trouver une façon de l'uniformiser :
+
+
+
+### Prendre des images Hi et Lo puis les combiner dans FiJI:
+
+
+
+### Comparer les images Hi Lo avec un confocale et prouver son bon fonctionnement malgré son faible cout:
 
