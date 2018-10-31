@@ -6,15 +6,7 @@
 
 
 
-# Microscopie et résolution
-
-------
-
-
-
-------
-
-## Partie 1  -  16 octobre 2018
+# Microscopie et résolution  -  16 octobre 2018
 
 ------
 
@@ -48,8 +40,8 @@
 
 ## Installation de la caméra
 
-- La camera est vissé sur l'oculaire (**Quelle caméra ?**).  
-- Le logiciel IC Capture est ouvert. Il reconnait la caméra et on peut y voir l'image en temps réel
+- La camera DMK 21AF04 est vissé sur l'oculaire.  
+- Le logiciel IC Capture est ouvert. Il reconnait la caméra et on peut y voir l'image en temps réel.
 - On garde le même échantillon que plus tôt pour recalibrer le système avec la caméra. 
 - On remet l'image au focus pour la caméra (ce qui n'est pas au même endroit que pour la mise au point avec l'oculaire). 
 
@@ -57,9 +49,9 @@
 
 ## Observation des échantillons vivants
 
-- Préparation d'un échantillon de levures et de bactéries. À l'aide d'une micropipette, 15 $\mu$L d'une solution à bactéries et installé sur une lamelle de microscope et 100 $\mu$L d'une solution à levures est installé de la même manière sur une lamelle. 
+- Préparation d'un échantillon de levures et de bactéries. À l'aide d'une micropipette, 15 $\mu$L d'une solution à bactéries est installé sur une lamelle de microscope et 100 $\mu$L d'une solution à levures est installé de la même manière sur une lamelle. 
 
-- L'échantillon de levure est placé sous le microscope avec l'objectif 40x non Ph.
+- L'échantillon de levure est placé sous le microscope avec l'objectif 40x non Ph (sans constraste de phase).
 
 - L'image est mise au focus et enregistrée sur le logiciel -> `levure_40x.jpg`.
 
@@ -92,23 +84,15 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 
 
-# Microscopie HiLo
+# Microscopie HiLo -  23 octobre 2018
 
 ------
 
 
 
----------
-
-## Partie 2  -  23 octobre 2018
-
--------
-
-
-
 ## Préparation
 
-BUT et Résumé
+**BUT et Résumé**
 
 
 
@@ -118,14 +102,16 @@ BUT et Résumé
 
 
 
+**FAUX** le faisceau sera diffusé à la fin avant d'entrer dans l'objectif. La source est alors considéré collimé avant d'entrer dans le premier relais, et de petit diamètre. Le faisceau en resort grossi d'un facteur d'environ 8x pour finir avec un diamètre d'environ 3 cm. La distance entre le relais et l'objectif n'a alors pas d'importance, car le faisceau est collimé. 
+
 **Étapes à réaliser**
 
 - Trouver l'objectif désiré (demander à daniel)
 - Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à l:a focal de la premier lentille du 4f
 - Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif)
 - Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif
-- Monter  l'objectif et le cube et vérifier que le faisceau remplit l'objectif
-- L'objectif doit être placé à une BFL 
+- Monter l'objectif et le cube et vérifier que le faisceau remplit l'objectif
+- L'objectif doit être placé à une BFL après le relais 4f --> **Faux !** finalement, on veux juste avoir un beau faisceau qui rempli l'objectif
 - Placer l'échantillon au point focale de l'objectif ou working distance
 - Placez la caméra sur la plaque verticale en haut du cube séparateur
 - Placez une lentile convergent entre le cube et la caméra. Ajuster la position de la caméra pour que l'image remplisse le capteur.
@@ -162,7 +148,13 @@ Petit diffuseur pour créer une illumination speckle et une méthode pour obteni
 
 
 
-## Montage final
+![Nouveau schéma corrigé](schemaHiloCorrigé.png)
+
+
+
+## Montage réalisé
+
+
 
 ![Montage du système HiLo réalisé](montageHilo.png)
 
