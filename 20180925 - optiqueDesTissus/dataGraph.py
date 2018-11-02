@@ -16,8 +16,8 @@ class DataGraph:
         self.show()
 
     def getData(self):
-        self.rawData = np.loadtxt("../labJackStream/data/readingRaw300sec1.txt")
-        self.normData = np.loadtxt("../labJackStream/data/readingNorm300sec.txt")
+        self.rawData = np.loadtxt("./data/readingRaw300sec1.txt")
+        self.normData = np.loadtxt("./data/readingNorm300sec.txt")
 
     def plotData(self):
         for e, data in enumerate([self.normData, self.normData]):  # Fastest and ugliest data back correction
@@ -41,8 +41,8 @@ class DataGraph:
         for axe in self.axes:
             axe.set_xlim(0, 150)
             axe.set_ylim(-2, 4)
-            axe.set_ylabel("$\Delta$S/S [%]", fontsize=17)
-            axe.set_xlabel("Time [s]", fontsize=17)
+            axe.set_ylabel("Intensité relative", fontsize=17)
+            axe.set_xlabel("Temps [s]", fontsize=17)
             axe.legend(loc="upper right", fontsize=15)
             axe.tick_params(labelsize=16, length=8, width=2)
             axe.axhline(0, color="black")
@@ -53,6 +53,8 @@ class DataGraph:
         plt.tight_layout(h_pad=3)
 
     def show(self):
+        plt.savefig('dataCorrection600dpi',dpi=600)
         plt.show()
+
 
 DataGraph().compareCorrectedData()
