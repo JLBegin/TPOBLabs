@@ -1,6 +1,6 @@
-# How to use of labJackStream
+# LabJackStream Readme
 
-This is a program made to automate the measurement of RAT (réflexion,absorption et transmission)  data to determine the diffusion coefficients of biological sample. Th program, if used with the correct experimental setup, performs a correction of the laser source fluctuations.
+This is a program made to automate the measurement of RAT (réflexion, absorption et transmission) data to determine the diffusion coefficients of biological sample. The program, if used with the correct experimental setup, performs a correction of the laser source fluctuations.
 
 ## Getting Started
 
