@@ -22,7 +22,7 @@ class DataGraph:
     def plotData(self):
         for e, data in enumerate([self.normData, self.normData]):  # Fastest and ugliest data back correction
             numberOfColumns = data[0].shape[0] - 1
-            timeVector = data[:, 0][::self.smoothFactor] - 13
+            timeVector = data[:, 0][::self.smoothFactor] - 17
 
             for i in range(numberOfColumns):
                 normData = data[:, i+1]
@@ -45,15 +45,15 @@ class DataGraph:
                 if self.smoothFactor > 1:
                     normData = (normData - 1) * 100
                     normData = [np.mean(normData[i*self.smoothFactor:(i+1)*self.smoothFactor]) for i in range((len(normData)//self.smoothFactor)+1)]
-                self.axes[e].plot(timeVector, normData, label="{} ($\sigma$ = {}%)".format(["Source laser", "Transmitance", "Réflectance"][i], stDev), color=["r", "g", "b"][i], linestyle=["-", "-"][e])
+                self.axes[e].plot(timeVector, normData, label="{} ($\sigma$ = {}%)".format(["Source laser", "Transmitance", "Réflectance"][i], stDev), color=["r", "g", "b"][i], linestyle=["-", "-"][e], linewidth=1.4)
 
     def adjustPlot(self):
         for axe in self.axes:
-            axe.set_xlim(0, 54)
+            axe.set_xlim(0, 50)
             axe.set_ylim(-2, 4)
             axe.set_ylabel("Intensité relative", fontsize=17)
             axe.set_xlabel("Temps [s]", fontsize=17)
-            axe.legend(loc="upper right", fontsize=15)
+            axe.legend(loc="upper right", fontsize=15, fancybox=True, framealpha=0.9)
             axe.tick_params(labelsize=16, length=8, width=2)
             axe.axhline(0, color="black")
             axe.axhline(-2, color="black", linewidth=3)
