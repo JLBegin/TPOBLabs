@@ -14,9 +14,13 @@
 
 On a du fermer les rideaux et les lumières car les instruments son extrèmement sensibles et le peu de lumière fausse les données.
 
-Une fois la lumière extérieur réduite au minimum, le faisceau eest alligné de sorte qu'il traverse les deux sphère intégrante et frappe le puissancemètre au bout du trajet optique. De plus, la valeur de chaqun des instruments est mesuré avant que le laser soit allumé afin d'avoir une valeur de référence du *background* *noise* .
+Une fois la lumière extérieur réduite au minimum, le faisceau eest alligné de sorte qu'il traverse les deux sphère intégrante et frappe le puissancemètre au bout du trajet optique. Le faisceau ne doit pas être bloqué. De plus, la valeur de chaqun des instruments est mesuré avant que le laser soit allumé afin d'avoir une valeur de référence du *background* *noise* .
+
+![](C:\Users\arnau\Documents\GitHub\TPOBLabs\20180925 - optiqueDesTissus\montageRAT.PNG)
 
 ### Zéros des instruments
+
+Les lumières et rideaux sont fermés, le laser est fermé et seulement l'optomètre est allumé. Les mesures des 2 sphères sont donc notés. La position des gens dans la pièce font varier la valeurs de puissances. Les capteurs sont très très sensibles.	
 
 Puissance incidente: (0.0 pm 0.1) $\mu$A
 Puissance réfléchie : (0.47 pm 0.01) nA
@@ -26,8 +30,8 @@ Puissance transmise: (0.33 pm 0.02) nA
 
 ### Mesure de puissances pour les échantillons fictifs mince
 
-Les échantillions sont des blocs de plastique dont une fine couche est enlevé pour faire varier l'épaisseur
-En générale, les échantillons sont difficile à placer et la moindre variation de la position induit des variations de la lecture des puissances . 
+Les échantillions sont des blocs de plastique [voir source : https://www.ino.ca/media/55876/fant%C3%B4me-optique-biomimic.pdf ] dont une fine couche est enlevé pour faire varier l'épaisseur
+En générale, les échantillons sont difficile à placer et la moindre variation de la position induit des variations de la lecture des puissances . Il faudrait peut-être rapprocher les sphères ou avoir un meilleur système pour les tenirs en place.
 
 - L'ouverture arrière de la sphère intégrante en transmission est demeuré ouverte en tout temps.
 - Le puissancemètre est utilisé en courant avec la batterie allumé (**à confimer**)
@@ -93,7 +97,7 @@ En générale, les échantillons sont difficile à placer et la moindre variatio
 
 ### Mesure de puissances pour les échantillons  lait  et crème + papier
 
-- Les échantillons de crème 10 % et de lait 2% ont été dilués en série et placer sur des lames de microscopes avec la technique tunnel pour permettre au liquide de se propager entre 2 plaques de verre.
+- Les échantillons de crème 10 % et de lait 2% ont été dilués en série  (avec 2 ml au départ en transvidant 1 ml dans la prochaine éprouvette ) et placer sur des lames de microscopes avec la technique tunnel pour permettre au liquide de se propager entre 2 plaques de verre.
 
 | Échantillon            | incidente ($\mu$A) | transmise (nA) | Réfléchie (nA) |
 | ---------------------- | ------------------ | -------------- | -------------- |
@@ -121,7 +125,7 @@ huile utilisée = arachide
 
 - Automatisé la prises de mesures de l'optomètre et de la mesure de la puissance
 - Diviser le faisceau en 2 pour mesurer la variation du laser en **live** 
-- 
+- Corriger les fluctuations du aux variations de puissances du laser
 
 
 
@@ -135,13 +139,13 @@ huile utilisée = arachide
 
 ## Reconfiguration de l'expérience
 
-- Le parcours optique a été modifié en plaçant un filtre à densité neutre **O.D. 0.4** à la sortie du laser afin de séparer le faisceau incident. Une partie de la puissance est alors réfléchie sur un capteur équipé d'un filtre **O.D. 0.2** afin de lire la puissance du laser pendant les acquisitions. 
+- Le parcours optique a été modifié en plaçant un filtre à densité neutre **O.D. 0.4** à la sortie du laser afin de séparer le faisceau incident. Une partie de la puissance est alors réfléchie sur un capteur équipé d'un filtre **O.D. 0.2** afin de lire la puissance du laser pendant les acquisitions. La puissance étant réduite, le signal to noise ratio est moins bon.
 - Une carte d'acquisition LabJack est utilisée afin d'enregistrer les données des différents capteurs. 
 - La batterie du capteur à puissance incidente du laser est mise en fonction. 
 - Le capteur à puissance incidente et les deux capteurs des sphères à transmission et réflection sont tous  respectivement connectés sur les entrées AIN0, AIN1 et AIN2 du LabJack à l'aide de fils BNC à pinces crocodiles. 
 - Puisque le capteur à puissance incidente nous donne une variation en courant dans les micro-ampères, une résistance de 1 M$\Omega$ est connectée entre l'entrée AIN0 et GND du LabJack afin d'enregistrer une variation en tension de l'ordre du volt. 
 
-
+![](C:\Users\arnau\Documents\GitHub\TPOBLabs\20180925 - optiqueDesTissus\newMontageRAT.PNG)
 
 ## Caractérisation de la variation du laser
 
@@ -150,7 +154,9 @@ huile utilisée = arachide
 
 
 
-### Bruit d'arrière plan
+### Bruit d'arrière plan:
+
+Les lumières et rideaux sont fermés ainsi que le laser et une acquisition de 1 minute est enregistrée.
 
 | CHANNEL      | MIN    | MAX    | AVG    | STD    |
 | ------------ | ------ | ------ | ------ | ------ |
@@ -192,7 +198,7 @@ Fichier: readingNorm300sec.txt
 
 
 
-## Mesures RAT normalisées
+## Mesures RAT avec compensation 
 
 - Échantillons minces du plus épais au plus mince
 - Acquisitions de 10 secondes
