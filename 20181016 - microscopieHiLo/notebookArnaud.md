@@ -17,16 +17,33 @@ typora-copy-images-to: ./
 
 +**Photo du montage**
 
+![Photo du montage à microscopie](microscopie.jpg)
 
 
-## Mise au point 
 
-- Infos sur cahier à ludo
-- Utilise l'échantillon X
+## Préparation
+
+La préparation n'as pas éé fait, car nous avions péparé un plan pour le HiLo à la place. Nous pensions qu nous ferions le HiLo out de suite.
+
+## Mise au point et alignement 
+
+- L'illumination est mise à intensité moyenne
+
+- On installe un échantillon de bactéries colorés déjà préparé sous lamelle et facile à voir (**Trouver référence**). 
+
+- Le bon objectif d'alignement est choisi, soit l'objectif 10x qui possède ici la plus grande ouverture numérique, soit la plus grande profondeur de champ, ce qui permet d'arriver au focus plus facilement. 
+
+- Le condenseur est avancé à quelques millimètres de l'échantillon en mode champ clair ("O") et le diaphragme d'ouverture est ouvert afin de laisser passer le plus de lumière. 
+
+- La mise au point sur l'échantillon est effectuée.
+
+  > Il est noté que la mise au point se fait généralement très proche de l'objectif et qu'il est du coup plus efficace de commencer le balayage en se rapprochant le plus près possible de l'objectif et descendre lentement jusqu'à la mise au point. 
+
+
 
 ## Installation de la caméra
 
-- La camera est vissé sur l'oculaire
+- La camera est vissé sur l'oculaire (modèle DMK 21AF04)
 - Le logiciel IC Capture est ouvert. Il reconnait la caméra et on peut y voir l'image en temps réel
 - On garde le même échantillon que plus tôt pour calibrer le système. 
 
@@ -34,7 +51,7 @@ typora-copy-images-to: ./
 
 ## Observation des échantillons biologiques
 
-- Préparation des échantillons de levures et bactéries : 15 $\mu$l pour bactérie et 100 $\mu$l sur la me de microscope
+- Préparation des échantillons de levures et bactéries : 15 $\mu$l pour bactérie et 100 $\mu$l sur la me de microscope d'une solution déja péparer dans le frigo.
 
 - Un échantillon de levure est placé sous le microscope avec l'objectif 40x  non Ph -> photo enregistré levure_40x.JPG
 - L'image est mise au focus sur la caméra et enregistrée sur le logiciel 
@@ -43,21 +60,25 @@ typora-copy-images-to: ./
 - set l'illumination à Ph3 avec objectif 40x Ph3
 - L'oculaire sans caméra est remplacé par la lentille de Bertrand et on observe l'anneau du condenseur.
 - Cet anneau est aligné au centre à l'aide des vis de déplacement du condenseur. 
-- L'image est mise au focus sur la caméra et enregistrée sur le logiciel -> bacteries_40x.jpg
+- L'image est mise au focus sur la caméra et enregistrée sur le logiciel -> `bacteries_40x.jpg`
 
 > Il y a dans l'image beaucoup de saletés provenant des lentilles. vrmt bcp
 
 - On place une goutte d'huile à objectif type A sur l'échantillon afin d'utiliser l'objectif 100x Ph4
-- Un image des bactéries est enregistrée avec et sans contraste de phase sous les noms bacteries_100x_2 (+ _Ph4 & _O)
+- Un image des bactéries est enregistrée avec et sans contraste de phase sous les noms `bacteries_100x_2_Ph4.jpg`  & `bacteries_100x_2 _O.jpg`)
 - Bien qu'on observe assez bien les bactéries avec contraste de phase, elles sont pratiquement invisble sans.
-- La distance de travail de l'objectif 100x est **très courte**. 
+- La distance de travail de l'objectif 100x est **très courte**. -> aire attention pour ne pas briser la lamelle en descndant trop proche.
 - 
 
 Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne sera pas faite (afin de travailler sur le montage HiLo), la calibration des dimensions observées est laissé de côté. Le but et les manipulations de cette étape sont toutefois bien comprises. 
 
-# Microscopie HiLo						23 octobre
+# Microscopie HiLo					23    octobre
 
 -----
+
+## But général
+
+Transformer un système de microspie standard en système HiLo. Le gros défi sera de créer une illumination à l'aide du laser He-Ne qui pourra illuminer tout l'chantiilon en passant dans le relais 4f du mircroscope existant.
 
 ### Plan du montage à effectué
 

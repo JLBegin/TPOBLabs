@@ -16,7 +16,7 @@ On a du fermer les rideaux et les lumières car les instruments son extrèmement
 
 Une fois la lumière extérieur réduite au minimum, le faisceau eest alligné de sorte qu'il traverse les deux sphère intégrante et frappe le puissancemètre au bout du trajet optique. Le faisceau ne doit pas être bloqué. De plus, la valeur de chaqun des instruments est mesuré avant que le laser soit allumé afin d'avoir une valeur de référence du *background* *noise* .
 
-![](C:\Users\arnau\Documents\GitHub\TPOBLabs\20180925 - optiqueDesTissus\montageRAT.PNG)
+![](montageRAT.PNG)
 
 ### Zéros des instruments
 
@@ -97,7 +97,7 @@ En générale, les échantillons sont difficile à placer et la moindre variatio
 
 ### Mesure de puissances pour les échantillons  lait  et crème + papier
 
-- Les échantillons de crème 10 % et de lait 2% ont été dilués en série  (avec 2 ml au départ en transvidant 1 ml dans la prochaine éprouvette ) et placer sur des lames de microscopes avec la technique tunnel pour permettre au liquide de se propager entre 2 plaques de verre.
+- Les échantillons de crème 10 % et de lait 2% ont été dilués en série  (avec 2 ml de lait 2% au départ en transvidant 1 ml dans la prochaine éprouvette) et placer sur des lames de microscopes avec la technique tunnel pour permettre au liquide de se propager entre 2 plaques de verre.
 
 | Échantillon            | incidente ($\mu$A) | transmise (nA) | Réfléchie (nA) |
 | ---------------------- | ------------------ | -------------- | -------------- |
@@ -146,7 +146,7 @@ huile utilisée = arachide
 - Puisque le capteur à puissance incidente nous donne une variation en courant dans les micro-ampères, une résistance de 1 M$\Omega$ est connectée entre l'entrée AIN0 et GND du LabJack afin d'enregistrer une variation en tension de l'ordre du volt. 
 - Tous les unités sont en volts, mais vu que pour la mesures des coef de difusion on a juste besoin du ratio on s'en fout un peu.
 
-![](C:\Users\arnau\Documents\GitHub\TPOBLabs\20180925 - optiqueDesTissus\newMontageRAT.PNG)
+![](newMontageRAT.PNG)
 
 ## Caractérisation de la variation du laser
 
@@ -169,7 +169,7 @@ Les lumières et rideaux sont fermés ainsi que le laser et une acquisition de 1
 
 ### Données non compensées
 
-Le laser est allumé et l'échantillon est placé entre les 2 sphères pour 300 secondes. On observe à l'écan la variation du laser et des capteurs. Les deux varie en meme
+Le laser est allumé et l'échantillon est placé entre les 2 sphères pour 300 secondes. On observe à l'écan la variation du laser et des capteurs. Les deux varie en meme temps, mais à ds écelles différentes.
 
 Fichier: readingRaw300sec1.txt
 
@@ -191,6 +191,8 @@ Fichier: readingRaw300sec2.txt
 
 ### Données compensées
 
+Le même échantillon que précédement, mais cette fois si la compensation est activé et les données de puissances sont corigées en temps réel. On voit une grande réduction de la varation des puissances RAT, mais c'Est pas éliminé au complet. Possible de travailler en post process pour enlever tout la variation.
+
 Fichier: readingNorm300sec.txt
 
 | CHANNEL      | MIN    | MAX    | AVG    | STD    |
@@ -203,10 +205,10 @@ Fichier: readingNorm300sec.txt
 
 ## Mesures RAT avec compensation 
 
-- Échantillons minces du plus épais au plus mince
+- Échantillons minces du plus épais au plus mince (dans le même ordre que la semaine passé (voir ci-haut))
 - Acquisitions de 10 secondes
 
-Fichier: data0.txt
+Fichier: data0.txt 
 
 | CHANNEL      | MIN    | MAX    | AVG    | STD    |
 | ------------ | ------ | ------ | ------ | ------ |
@@ -230,21 +232,13 @@ Fichier: data2.txt
 | Transmitance | 0.0906 | 0.0944 | 0.0924 | 0.0007 |
 | Réflectance  | 0.1361 | 0.1421 | 0.1388 | 0.0011 |
 
-**À Finir**
+**À Finir**, manqué de temps pour prendre toutes les mesures...
 
 ## Suggestion de manipulation afin d'optimiser la correction du bruit
 
 - S'assurer de la linéarité de la réponse de du détecteur DET-110 ( pour voir si la correction dépend de la puissance d'entrée)
 - Isoler le système de sphères intégrantes de la lumière ambiante pour limiter le *background*
-- Vérifier que pour une puissance constante, et des échantillions variables, le facteur de correction est différents (pour voir si la correction dépend de l'épaisseur de l'échantillion)
-
-
-
-
-
-
-
-
+- Vérifier que pour une puissance constante, et des échantillions variables, le facteur de correction est différents (pour voir si la correction dépend de l'**épaisseur** de l'échantillion)
 
 
 
