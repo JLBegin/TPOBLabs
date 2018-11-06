@@ -144,6 +144,7 @@ huile utilisée = arachide
 - La batterie du capteur à puissance incidente du laser est mise en fonction. 
 - Le capteur à puissance incidente et les deux capteurs des sphères à transmission et réflection sont tous  respectivement connectés sur les entrées AIN0, AIN1 et AIN2 du LabJack à l'aide de fils BNC à pinces crocodiles. 
 - Puisque le capteur à puissance incidente nous donne une variation en courant dans les micro-ampères, une résistance de 1 M$\Omega$ est connectée entre l'entrée AIN0 et GND du LabJack afin d'enregistrer une variation en tension de l'ordre du volt. 
+- Tous les unités sont en volts, mais vu que pour la mesures des coef de difusion on a juste besoin du ratio on s'en fout un peu.
 
 ![](C:\Users\arnau\Documents\GitHub\TPOBLabs\20180925 - optiqueDesTissus\newMontageRAT.PNG)
 
@@ -166,7 +167,9 @@ Les lumières et rideaux sont fermés ainsi que le laser et une acquisition de 1
 
 
 
-### Données non normalisées 
+### Données non compensées
+
+Le laser est allumé et l'échantillon est placé entre les 2 sphères pour 300 secondes. On observe à l'écan la variation du laser et des capteurs. Les deux varie en meme
 
 Fichier: readingRaw300sec1.txt
 
@@ -186,7 +189,7 @@ Fichier: readingRaw300sec2.txt
 
 
 
-### Données normalisées
+### Données compensées
 
 Fichier: readingNorm300sec.txt
 
