@@ -16,11 +16,9 @@
 
 ![Photo du montage à microscopie](microscopie.jpg)
 
+Les calculs de limite de résolution n'ont pas été fait en préparation. Un plan sur le système HiLo a plutôt été écrit en pensant commencer directement par cette partie. Les calculs de préparation ne sont toutefois pas nécessaire pour l'expérience effectuée cette semaine.
 
-
-- **Calcul de la limite de résolution !!**
-
-
+ 
 
 ## Alignement et mise au point
 
@@ -40,7 +38,7 @@
 
 ## Installation de la caméra
 
-- La camera DMK 21AF04 est vissé sur l'oculaire.  
+- La camera DMK 21AF04 est vissé sur l'oculaire, comme on peut le voir sur la photo du montage plus haut.  
 - Le logiciel IC Capture est ouvert. Il reconnait la caméra et on peut y voir l'image en temps réel.
 - On garde le même échantillon que plus tôt pour recalibrer le système avec la caméra. 
 - On remet l'image au focus pour la caméra (ce qui n'est pas au même endroit que pour la mise au point avec l'oculaire). 
@@ -50,10 +48,10 @@
 ## Observation des échantillons vivants
 
 - Préparation d'un échantillon de levures et de bactéries. À l'aide d'une micropipette, 15 $\mu$L d'une solution à bactéries est installé sur une lamelle de microscope et 100 $\mu$L d'une solution à levures est installé de la même manière sur une lamelle. 
-
 - L'échantillon de levure est placé sous le microscope avec l'objectif 40x non Ph (sans constraste de phase).
-
 - L'image est mise au focus et enregistrée sur le logiciel -> `levure_40x.jpg`.
+
+![Levures à 40x](levures_40x.jpg)
 
 - L'échantillon est remplacée par celle des bactéries.
 
@@ -68,6 +66,8 @@
 - L'image est mise au focus sur la caméra et enregistrée sur le logiciel -> `bacteries_40x.jpg`.
 
   > Il y a dans l'image beaucoup de saletés provenant des lentilles. 
+
+![Bactéries à 40x](bacteries_40x.jpg)
 
 - On place une goutte d'huile à objectif type A sur l'échantillon afin d'utiliser l'objectif 100x Ph4.
 
@@ -92,7 +92,9 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 ## Préparation
 
-**BUT et Résumé**
+**But**
+
+Transformer un système de microscopie standard en système HiLo. Cette expérience se concentrera à amener un faisceau laser diffusé et grossi jusqu'à l'entrée de l'objectif de sorte à le remplir et ainsi créer une illumination sur l'échantillon. 
 
 
 
@@ -102,16 +104,18 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 
 
-**FAUX** le faisceau sera diffusé à la fin avant d'entrer dans l'objectif. La source est alors considéré collimé avant d'entrer dans le premier relais, et de petit diamètre. Le faisceau en resort grossi d'un facteur d'environ 8x pour finir avec un diamètre d'environ 3 cm. La distance entre le relais et l'objectif n'a alors pas d'importance, car le faisceau est collimé. 
+**FAUX** le faisceau sera diffusé à la fin avant d'entrer dans l'objectif. La source est alors considéré collimé avant d'entrer dans le premier relais, et de petit diamètre. Le faisceau en resort grossi d'un facteur d'environ 8x pour finir avec un diamètre d'environ 3 cm. La distance entre le relais et l'objectif n'a pas d'importance, car le faisceau y est collimé. 
+
+
 
 **Étapes à réaliser**
 
-- Trouver l'objectif désiré (demander à daniel)
-- Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à l:a focal de la premier lentille du 4f
-- Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif)
-- Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif
+- Trouver l'objectif désiré.
+- Trouver un diffuseur (feuille de papier) et le fixer sur la plaque vertical à la focal de la premier lentille du 4f. --> **Correction**: Le diffuseur sera placé à la fin du premier relais juste avant d'entrer dans le bloc séparateur afin de perdre moins de lumière. 
+- Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif) --> **Correction**: finalement inutile, particulièrement avec la correction précédente.
+- Trouver une combinaison de lentille permettant de focaliser le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif
 - Monter l'objectif et le cube et vérifier que le faisceau remplit l'objectif
-- L'objectif doit être placé à une BFL après le relais 4f --> **Faux !** finalement, on veux juste avoir un beau faisceau qui rempli l'objectif
+- L'objectif doit être placé à une BFL après le relais 4f --> **Faux !** finalement, le faisceau est initialement collimé et le relais fait alors simplement grossir ce faisceau qui reste collimé. On veut alors juste avoir un beau faisceau qui rempli l'objectif. 
 - Placer l'échantillon au point focale de l'objectif ou working distance
 - Placez la caméra sur la plaque verticale en haut du cube séparateur
 - Placez une lentile convergent entre le cube et la caméra. Ajuster la position de la caméra pour que l'image remplisse le capteur.
@@ -123,12 +127,16 @@ Par contrainte de temps, et sachant que la deuxième partie de l'expérience ne 
 
 ## Manipulation
 
-- On réutilise le microscope standard qui possède un objectif 10x et une lentille qui forme un système 4f
-- Diffuseur plus loin
-- On utilise pour l'instant une plaque de verre. 
-- "bfl" dans le schéma est faux. Le microscope possède l'objectif 10x avec une autre lentille qui forme un système 4f. Il s'agit alors d'amener notre tache agrandi proche de la focale arrière de ce 4f.
-- Finalement on ne reconverge pas. 
-- Mirroir astigmatisme
+- On réutilise le microscope standard qui possède un objectif 10x et une lentille qui forme un système 4f. On enlève les oculaires du microscope standard et on cherchera alors à diriger notre faisceau à cet endroit. 
+
+- On utilise pour l'instant comme diffuseur un papier pour nettoyer les lentilles entre 2 lames de verre. 
+
+- **Correction**: Finalement, le diffuseur sera placé après le premier relais juste avant le bloc séparateur afin de moins perdre de lumière dans le circuit optique. On a alors un faisceau collimé en entrée qui sera alors grossi par le premier relais en restant collimé. La distance _bfl_ sur le schéma est alors faux. Le microscope possède l'objectif 10x avec une autre lentille qui forme un système 4f. Il s'agit alors d'amener notre tache de sorte à remplir la première lentille de ce 4f.
+
+  > **Attention**: quelques miroirs présente de l'astigmatisme, ou sont simplement courbe. Ils ne peuvent donc pas être utilisés pour rediriger le faisceau. 
+
+- Le premier relais est alors composé d'une lentille de focale 2.54 cm et d'une autre avec 20 cm de focale. Cela permet alors de grossir le faisceau d'un facteur d'environ 8. On obtient un faisceau collimé d'environ 3 cm de diamètre à la sortie de ce relais. 
+
 - On baisse le système 4f en redirigant la sortie du laser plus bas tout en essayant de respecter les limites d'angles sur les miroirs afin de ne pas avoir d'aberration. 
 - Un mirroir fait sortir le faisceau vers le microscope. On a ici un beau faisceau rond qui rempli l'objectif du microscope. (**Photo**)
 - Un grand pôle sert à amener la plaque de verre au dessus du microscope et un diffuseur est placé juste avant. 
