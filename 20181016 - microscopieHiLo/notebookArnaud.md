@@ -23,7 +23,7 @@ typora-copy-images-to: ./
 
 ## Préparation
 
-La préparation n'as pas éé fait, car nous avions péparé un plan pour le HiLo à la place. Nous pensions qu nous ferions le HiLo out de suite.
+La préparation n'as pas été fait, car nous avions péparé un plan pour le HiLo à la place. Nous pensions que nous ferions le HiLo out de suite. Nous allons donc faire la premi're partie de l'exprience microscopie pour se familiariser avec le système et vommencer à monter le hilo  fin de période ou la semaine prochaine.
 
 ## Mise au point et alignement 
 
@@ -95,7 +95,7 @@ Transformer un système de microspie standard en système HiLo. Le gros défi se
 - Placer un pin hole  à la sortie du diffuseur pour 'cleaner' le faisceau (colimé) et avoir le bon diamètre (pour remplir le back aperture de l'objectif)
 - Trouver une combinaison de lentille permettant de focalisé le faisceau un peu avant l'objectif de sorte qu'il diverge à nouveau et remplisse l'objectif
 - Monter  l'objectif et le cube et vérifier que le faisceau remplit l'objectif
-- L'objectif doit être placé à une BFL  --> **Faux!!** finalement, on veux juste avoir un beau faisceau (bon diamètre)
+- L'objectif doit être placé à une BFL  --> **Faux!!** finalement, on veux juste avoir un beau faisceau (bon diamètre (assez gros pour remplir l'objectif))
 - Placer l'échantillon au point focale de l'objectif ou working distance
 - Placez la caméra sur la plaque verticale en haut du cube séparateur
 - Placez une lentile convergent entre le cube et la caméra. Ajuster la position de la caméra pour que l'image remplisse le capteur.x
@@ -112,7 +112,7 @@ L'objectif utilisé est en fait le système 4f intégré du microscope. La tête
 
 ### Installation d'un relais 4f 
 
-le premier relais 4f à pour effet seulement de grossir le faisceau. Le faisceau entre collimé et ressort collimé. Les lentilles utilisées sont de focale 2.54 cm et de 20 cm, produisant un grossissement de 8. L'importnt est que le faisceau soit centré et ne *clip* pas sur aucun composantes optique
+le premier relais 4f à pour effet seulement de grossir le faisceau. Le faisceau entre collimé et ressort collimé. Les lentilles utilisées sont de focale 2.54 cm et de 20 cm, produisant un grossissement de 8. L'importnt est que le faisceau soit centré et ne *clip* pas sur aucun composantes optique. La distance entre le relais et l'objectif n'a alors pas d'importance, car le faisceau est collimé. 
 
 ### Trouver un diffuseur  et  le fixer  apres le premier 4f:
 
@@ -135,11 +135,17 @@ Plaque de verre trop près du plan image du microscope, on voit alors quelques p
 
 Il est possible d'observer (en réflexion)  l'image de l'échantillon en haut de la plaque de verre servant de cube séparateur
 
+## Montage réalisé
 
 
-### 
 
-## À faire
+### ![](hilo1.jpg)
+
+![](hilo2.jpg)
+
+Les photos ne sont pas dans le bon sens, mais il sufit d'eller les voirs sur gitHub.
+
+## À faire prochainement:
 
 ### Installer la caméra
 
