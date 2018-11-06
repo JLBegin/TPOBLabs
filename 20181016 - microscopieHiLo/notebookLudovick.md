@@ -137,32 +137,38 @@ Transformer un système de microscopie standard en système HiLo. Cette expérie
 
 - Le premier relais est alors composé d'une lentille de focale 2.54 cm et d'une autre avec 20 cm de focale. Cela permet alors de grossir le faisceau d'un facteur d'environ 8. On obtient un faisceau collimé d'environ 3 cm de diamètre à la sortie de ce relais. 
 
-- On baisse le système 4f en redirigant la sortie du laser plus bas tout en essayant de respecter les limites d'angles sur les miroirs afin de ne pas avoir d'aberration. 
-- Un mirroir fait sortir le faisceau vers le microscope. On a ici un beau faisceau rond qui rempli l'objectif du microscope. (**Photo**)
+  > **Attention**: le support du laser n'est pas bien fixé, même si le tout semble bien vissé. Il faut alors faire attention lorsqu'on ouvre et ferme le laser pour ne pas le déplacer. Il est toutefois facile à réaligner si cela arrive. 
+
+- On baisse le système 4f en redirigant la sortie du laser plus bas tout en essayant de respecter les limites d'angles sur les miroirs afin de ne pas avoir d'aberrations. 
+
+- Un mirroir redirige le faisceau à l'horizontal vers le microscope. On a ici un beau faisceau rond qui rempli l'objectif du microscope, comme on peut voir sur la photo du montage réalisé plus bas. 
+
 - Un grand pôle sert à amener la plaque de verre au dessus du microscope et un diffuseur est placé juste avant. 
-- On obtient de la lumière à l'échantillon dans le microscope.
-- Plaque de verre trop près du plan image du microscope, on voit alors quelques poussières et traces dans l'image. 
-- Avec diffuseur il est difficile de voir une image au focus. 
-- Manque de degré de liberté sur la plaque de verre
-- Il faudrait remplacer la plaque de verre idéalement par un cube et le rapprocher du microscope. 
 
-Possibilité de passer une plaque à Daniel en lui indiquant de demander au COPL d'ajouter un coating 50%. Ou trouver un dichroïque. 
+- **On obtient de la lumière à l'échantillon**.
 
-Installer la caméra
+  > Plaque de verre trop près du plan image du microscope, on voit alors quelques poussières et traces dans l'illumination à l'échantillon. 
 
-Ajouter un relais afin d'obtenir une image qui entre mieux dans la caméra. Le faisceau initial est d'environ 3 cm vers la caméra DMK 21AF04 qui semble accepter un diamètre d'environ 0.5 cm.
+- Les diffuseurs testés sont un verre dépoli et un papier à lentille installé entre 2 lames de verre. 
 
-Petit diffuseur pour créer une illumination speckle et une méthode pour obtenir un illumination uniforme (généralement obtenue en brassant le diffuseur). 
+  > Les diffuseurs utilisés diffusent trop, de sorte qu'il est difficile de trouver une image au focus. 
+
+- Sans diffuseur, on peut repérer une image de l'échantillon (inscriptions de dimensions sur les lames de microscope) au dessus du microscope avec un feuille blanche. 
 
 
+## Améliorations à apporter
 
-![Nouveau schéma corrigé](schemaHiloCorrigé.png)
+- Il est remarqué par Daniel que le système manque un degré de liberté. Il faudrait alors remplacer le support de la plaque de verre par un support à miroir ajustable. 
+- Il faudrait toutefois aussi remplacer la plaque de verre idéalement par un cube séparateur 50% afin d'obtenir une puissance optimal à l'échantillon et sur le futur détecteur, ou passer une plaque de verre à Daniel en lui indiquant de demander au COPL d'ajouter un coating 50%. 
+
+- Installer la caméra au dessus du microscope.
+
+- Ajouter un relais afin d'obtenir une image qui entre mieux dans la caméra. Le faisceau initial est d'environ 3 cm vers la caméra DMK 21AF04 qui a un capteur de 6.25 mm.
+
+- Il faudrait trouver un bon diffuseur pour créer une illumination speckle et une méthode pour obtenir un illumination uniforme (généralement obtenue en brassant le diffuseur). 
 
 
 
 ## Montage réalisé
 
-
-
-![Montage du système HiLo réalisé](montageHilo.png)
-
+![Montage du système HiLo réalisé](hilo3.png)

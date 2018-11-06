@@ -18,20 +18,20 @@
 
 -------
 
+### But
 
+Se familiariser avec les différents instruments et techniques utilisés afin de mesurer les propriétés diffusantes de différents matériaux à l'aide de la théorie de la diffusion optique. 
 
-## Alignement
+### Alignement
 
 * Le circuit optique a été réaligné afin que le faisceau passe bien centré à l'intérieur des sphères intégrantes et arrive sur le capteur de puissance incidente et transmission ballistique. 
 * Le capteur pour la puissance incidente et transmission ballistique est connecté sur un multimètre avec lecture en courant et la batterie du capteur est mise en fonction. 
 
-
-
-## Mesures  de  RAT
-
-
+![Schéma du montage initial pour les mesures de RAT](montageRAT.PNG)
 
 ### Bruit arrière-plan
+
+La valeur des capteurs sur chaque instrument est mesurée avant de mettre en fonction le laser afin d'avoir une valeur du bruit d'arrière-plan de ces différents capteurs. 
 
 > On a du fermer les rideaux et les lumières car les instruments sont extrèmement sensibles et le peu de lumière peut fausser les données.
 
@@ -39,11 +39,15 @@ Puissance incidente: (0.0 pm 0.1) $\mu$A
 Puissance réfléchie : (0.47 pm 0.01) nA
 Puissance transmise: (0.33 pm 0.02) nA
 
+> Le bruit d'arrière plan sur les sphères intégrantes dépend toutefois de la position des gens dans la pièce, car ils sont très sensibles à la lumière. 
 
+
+
+## Mesures de RAT
 
 ### Échantillons tests minces
 
-- Les échantillions sont des blocs de plastique dont une fine couche est enlevé pour faire varier l'épaisseur. 
+- Les échantillions sont des blocs et plaquettes de plastique Phantoms de différentes épaisseurs qui simulent les propriétés de tissus biologique [https://www.ino.ca/media/55876/fant%C3%B4me-optique-biomimic.pdf]. 
 
 - Pour chaque échantillon, on note d'abord la puissance incidente et on place ensuite l'échantillon centré entre les deux sphères pour finalement noter la puissance transmise et réfléchie avant d'enlever l'échantillon et recommancer. 
 
@@ -91,30 +95,28 @@ Puissance transmise: (0.33 pm 0.02) nA
 
 ### Échantillons tests épais
 
-- Les blocs sont fait de la même matière que les derniers échantillons tests.
+- Les blocs sont fait de la même matière que les derniers échantillons tests minces.
 - Le bloc #1 correspond au plus mince. Le tout est ensuite testé par taille croissante. 
 
-> La taille de ces échantillons n'est pas inscrite. <span style="color:red"> ***À mesurer*** </span>.
 
 
-
-| Échantillons | incidente ($\mu$A) | transmise (nA) | Réfléchie (nA) |
-| ------------ | ------------------ | -------------- | -------------- |
-|              | +/- 0.1            | +/- 0.1        | +/- 0.1        |
-| #1           | 121.8              | 52.3           | 80.7           |
-| #2           | 122.8              | 29.6           | 93.1           |
-| #3           | 121.8              | 15.2           | 107            |
-| #4           | 122.0              | 7.8            | 107.0          |
-| #5           | 122.0              | 3.9            | 109.0          |
-| #6           | 122.0              | 2.1            | 105.2          |
-| #7           | 122.0              | 1.12           | 107.7          |
-| #8           | 122.0              | 0.65           | 106.7          |
+| Échantillon | incidente ($\mu$A) | transmise (nA) | Réfléchie (nA) |
+| ----------- | ------------------ | -------------- | -------------- |
+|             | +/- 0.1            | +/- 0.1        | +/- 0.1        |
+| #1          | 121.8              | 52.3           | 80.7           |
+| #2          | 122.8              | 29.6           | 93.1           |
+| #3          | 121.8              | 15.2           | 107            |
+| #4          | 122.0              | 7.8            | 107.0          |
+| #5          | 122.0              | 3.9            | 109.0          |
+| #6          | 122.0              | 2.1            | 105.2          |
+| #7          | 122.0              | 1.12           | 107.7          |
+| #8          | 122.0              | 0.65           | 106.7          |
 
 
 
 ### Échantillons de lait, de crème et de papier
 
-- Les échantillons ont été préparés par dilution en série (diluée de moitié à chaque fois).
+- Les échantillons de crème 10 % et de lait 2% ont été dilués en série  (avec 2 ml de lait 2% au départ en transvidant 1 ml dans la prochaine éprouvette) et placer sur des lames de microscopes avec la technique tunnel pour permettre au liquide de se propager entre 2 plaques de verre.
 - L'huile utilisée pour le `papier huile` est de l'huile d'arachide. 
 
 | Échantillon  | P. Incidente ($\mu$A) | P. Transmise (nA) | P. Réfléchie (nA) |
@@ -162,6 +164,10 @@ Puissance transmise: (0.33 pm 0.02) nA
 
 --------------
 
+### But
+
+Automatiser la prise des mesures à l'aide d'une carte d'acquisition. Identifier la variation de la puissance de la source laser et programmer un système de compensation en temps réel afin d'enlever ce bruit.  
+
 
 
 ## Reconfiguration de l'expérience
@@ -172,17 +178,18 @@ Puissance transmise: (0.33 pm 0.02) nA
 - Le capteur à puissance incidente et les deux capteurs des sphères à transmission et réflection sont tous  respectivement connectés sur les entrées AIN0, AIN1 et AIN2 du LabJack à l'aide de fils BNC à pinces crocodiles. 
 - Puisque le capteur à puissance incidente nous donne une variation en courant dans les micro-ampères, une résistance de 1 M$\Omega$ est connectée entre l'entrée AIN0 et GND du LabJack afin d'enregistrer une variation en tension de l'ordre du volt. 
 
+![Schéma du montage automatisé pour la prise de mesures de RAT](newMontageRAT.PNG)
+
 
 
 ## Caractérisation de la variation du laser
 
 - Un échantillion constant, soit une plaque mince creusée de 2.5mm, est installé entre les sphères. 
+- Les mesures affichées ici sont en volts, comme il est lu par la carte d'acquisition (conversion des bits). L'unité utilisée n'est toutefois pas importante, car il est seulement question de rapport entre les différentes valeurs lors du calcul des coefficients. 
 
-- Acquisitions sur 300 secondes
+#### Bruit d'arrière plan
 
-
-
-### Bruit d'arrière plan
+- Encore une fois, les lumières et rideaux sont fermés. Le laser est fermé et on enregistre le bruit de fond sur les différents capteurs pendant une acquisition de une minute. 
 
 | CHANNEL      | MIN    | MAX    | AVG    | STD    |
 | ------------ | ------ | ------ | ------ | ------ |
@@ -192,7 +199,9 @@ Puissance transmise: (0.33 pm 0.02) nA
 
 
 
-### Données non normalisées 
+### Mesures sans compensation
+
+- Le laser est allumé et l'échantillon est placé entre les 2 sphères intégrantes pour deux acquisitions de 300 secondes. On observe bel et bien à l'écran la variation sur la mesure des sphères intégrantes qui suit la variation de la puissance du laser. 
 
 Fichier: readingRaw300sec1.txt
 
@@ -212,7 +221,15 @@ Fichier: readingRaw300sec2.txt
 
 
 
-### Données normalisées
+### Système de compensation en temps réel
+
+Une première mesure de référence de la puissance de la source laser est d'abord prise, et pour chaque mesure subséquente, l'écart en pourcentage est calculé par rapport à cette valeur de référence. Cet écart est alors directement appliqué (par division) en temps réel sur la mesure des sphères intégrantes. De cette façon, si la puissance de la source laser augmente par rapport à la valeur de référence, la valeur sur les sphères intégrantes sera corrigée pour empêcher la fluctuation de la puissance incidente de biaiser les mesures.
+
+
+
+### Mesures avec compensation
+
+- On utilise le même échantillon, mais en activant le système de compensation en temps réel décrit plus haut. 
 
 Fichier: readingNorm300sec.txt
 
@@ -222,12 +239,16 @@ Fichier: readingNorm300sec.txt
 | Transmitance | 0.2747 | 0.3039 | 0.3004 | 0.0012 |
 | Réflectance  | 0.1672 | 0.1957 | 0.1932 | 0.0008 |
 
+- On voit une grande réduction de l'écart type sur les puissances RAT, mais la dépendance sur la variation de la puissance du laser n'est pas complètement enlevée. 
+
+> Il est possible de travailler en post afin de déterminer un facteur de correction optimal afin que la compensation soit parfaite.
 
 
-## Mesures RAT normalisées
 
-- Échantillons minces du plus épais au plus mince
-- Acquisitions de 10 secondes
+## Mesures de RAT avec compensation
+
+- Échantillons minces du plus épais au plus mince dans le même ordre que la semaine dernière (tableau plus haut). 
+- Acquisitions de 10 secondes. 
 
 Fichier: data0.txt
 
