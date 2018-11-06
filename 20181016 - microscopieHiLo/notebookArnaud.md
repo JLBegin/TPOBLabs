@@ -82,6 +82,8 @@ Transformer un système de microspie standard en système HiLo. Le gros défi se
 
 ### Plan du montage à effectué
 
+***<u>Attention</u>*** ! ce shéma n'est plus bon, des modification on été fait, voir les photos du montage plus bas
+
 ![Schéma du montage à réaliser](dessinMontage.png)
 
 
@@ -137,13 +139,15 @@ Il est possible d'observer (en réflexion)  l'image de l'échantillon en haut de
 
 ## Montage réalisé
 
+***<u>Attention</u>*** la monture stabilisant le laser e st instalble, il faut évitez de lui toucher.s
 
+### ![](hilo1.png)
 
-### ![](hilo1.jpg)
-
-![](hilo2.jpg)
+![](hilo2.png)
 
 Les photos ne sont pas dans le bon sens, mais il sufit d'eller les voirs sur gitHub.
+
+
 
 ## À faire prochainement:
 
