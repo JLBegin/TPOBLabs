@@ -20,15 +20,17 @@ On pourrait modifier le milieu ambiant afin que son indice de réfraction soit i
 
 
 
-**[Photo du montage]**
+### Montage
+
+![Montage de la pince optique](montagePince.png)
 
 
 
 Le montage original a précédement été modifié. Un laser He-Ne a été rajouté afin de ne pas endommager le _QuadCell_ et permettre un alignement plus facile et sécuritaire. Les deux lasers se rendent alors à l'échantillon et la déviation du laser He-Ne informe le _QuadCell_ de la position de la bille à l'échantillon.
 
-Une lame contenant un échantillon de microbilles de 6 um de diamètre à concentration 10^-6 a déjà été préparé et placé sur l'objectif. 
+- Une lame contenant un échantillon de microbilles de 6 um de diamètre à concentration 10^-6 a déjà été préparé et placé sur l'objectif. 
 
-> Lorsque le laser He-Ne est allumé, l'image n'est pas clair. 
+
 
 ### Alignement et mise au point
 
@@ -42,25 +44,19 @@ Une lame contenant un échantillon de microbilles de 6 um de diamètre à concen
 
 
 
-### Calibration du QuadCell
+### Calibration du *QuadCell*
 
 - On trouve une bille collée à la surface de sorte qu'elle ne bouge pas pendant l'acquisition. On centre la bille sur un axe et la place sur le côté pour l'autre axe. 
 - On programme alors sur le logiciel LabView `Controle Moteur.vi` un déplacement de 0.05 à une vitesse de 0.0058. 
-- On part une acquisition sur le QuadCell à l'aide du logiciel LabView `PFM.vi` avec une fréquence de 10 kHz pour 60 000 échantillons. 
+- On part une acquisition sur le *QuadCell* à l'aide du logiciel LabView `PFM.vi` avec une fréquence de 10 kHz pour 60 000 échantillons. 
 - On allume le laser He-Ne et part l'acquisition avec le déplacement programmé. 
 
-- Résultats pour l'axe X : 
-
-  > Relation non linéaire. 
-
-- Résultats pour l'axe Y:
-
-
-
 - L'acquisition par la carte est très bruité et ne donne pas la relation attendue lorsqu'on balais la bille. 
-- On passe alors en acquisition manuelle afin de prendre les mesures sans passer par la carte d'acquisition. On fait des step de 1 um et traverse la bille dans l'axe Y en notant la tension du QuadCell sur X diff. 
+- On passe alors en acquisition manuelle afin de prendre les mesures sans passer par la carte d'acquisition. On fait des step de 1 um et traverse la bille dans l'axe Y en notant la tension du *QuadCell* sur X diff. 
 
 
+
+**Pente de calibration en Y**
 
 | Distance ($\mu$m) | Tension (V) |
 | ----------------- | ----------- |
@@ -88,11 +84,9 @@ Une lame contenant un échantillon de microbilles de 6 um de diamètre à concen
 
 
 
-#### Pente axe X
+**Pente de calibration en X**
 
 - On fait de même pour l'axe X, en prenant les mesures du Y Diff sur le QuadCell. 
-
-
 
 | Distance ($\mu$m) | Tension (V) |
 | ----------------- | ----------- |
@@ -127,8 +121,6 @@ Une lame contenant un échantillon de microbilles de 6 um de diamètre à concen
 
 
 
-
-
 ### Caractérisation du puit de potentiel
 
 - On change à nouveau l'échantillon puisqu'on n'y trouve plus de billes libres.
@@ -144,3 +136,18 @@ Une lame contenant un échantillon de microbilles de 6 um de diamètre à concen
 | 0.05           | 0.010                     |
 | 0.08           | 0.015                     |
 
+- L'incertitude élevée est majoritairement due à l'intensité de la pince optique qui est présentement faible. 
+
+
+
+### Calcul de la constante de trappe
+
+
+
+$$ F = \gamma V = k_t x $$
+
+$$\gamma = 6 \pi \eta r$$
+
+
+
+**À compléter plus tard**
