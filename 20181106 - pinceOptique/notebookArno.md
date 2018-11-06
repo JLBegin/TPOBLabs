@@ -12,9 +12,8 @@
 
 ### Pourquoi un objet ayant un indice de réfraction infériur au milieu ambiant ne pourra pas être capturé à l'aide d'un faisceau gaussien?
 
-> - il doit y avoir de l'absorption pou, donc indice de réfraction plus petite??
+> La lumière ne sera pas déviée vers le centre de la particule et la force résultante ne poussera donc pas la particule vers le centre du faisceau. 
 
 ### Par quels atifices pourrait-on confiner cet objet?
 
-> - Envoyé un laser de meme puissance de chaque côté de l'échantillon 
-
+> On pourrait modifier le milieu ambiant afin que son indice de réfraction soit inférieur à l'objet. Il serait aussi possible d'utiliser plusieurs laser de contraindre l'objet malgré la force résultante inverse. 
