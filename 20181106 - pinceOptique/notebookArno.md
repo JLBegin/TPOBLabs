@@ -4,7 +4,7 @@
 | -------------------------------- | --------------------: |
 |                                  |                       |
 
-# Pince Optique			
+# Pince Optique							semaine 1
 
 ------
 
@@ -21,6 +21,8 @@
 ## Modification du montage fait par les autres équipes
 
 Un laser He-Ne à été ajouté. Celui-ci est utilisé avec la *quadphotodiode* comme référentiel de position.  LA déviation du He-Ne va informer le *quad* sur la déviation de la bille.  Un Laser He-Ne est utilisé pour ne pas *bruler* le *quad*. Les deux faisceau (He-Ne et infrarouge YAG) doivent être doalligné en tout temps. Voir photo nouveau montage.
+
+![](montagePince.png)
 
 ## Manipulations
 
@@ -86,7 +88,74 @@ Il a fallu faire ce processus pour les deux axes, les valeurs sont dans la table
 >
 > pente X : -0.0083 [volt/micron]
 
-Les données son dans un fichier excel sur l'ordi de ludo :penteQuad.xlxs
+Les données son dans un fichier excel sur l'ordi de ludo : penteQuad.xlxs
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/-  0.005  |
+| 0                 | 0.034       |
+| 1                 | 0.034       |
+| 2                 | 0.034       |
+| 3                 | 0.032       |
+| 4                 | 0.019       |
+| 5                 | -0.032      |
+| 6                 | -0.002      |
+| 7                 | 0.004       |
+| 8                 | 0.012       |
+| 9                 | 0.025       |
+| 10                | 0.031       |
+| 11                | 0.060       |
+| 12                | 0.070       |
+| 13                | 0.058       |
+| 14                | 0.037       |
+| 15                | 0.038       |
+| 16                | 0.037       |
+| 17                | 0.037       |
+
+- Cela donne une pente linéaire au centre de la courbe de **8700 V/m**.
+
+
+
+#### Pente axe X
+
+- On fait de même pour l'axe X, en prenant les mesures du Y Diff sur le QuadCell. 
+
+
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/- 0.005   |
+| 0                 | -0.0062     |
+| 1                 | -0.0063     |
+| 2                 | -0.0070     |
+| 3                 | -0.0070     |
+| 4                 | -0.0065     |
+| 5                 | -0.004      |
+| 6                 | -0.002      |
+| 7                 | 0.025       |
+| 8                 | 0.045       |
+| 9                 | 0.030       |
+| 10                | 0.035       |
+| 11                | 0.016       |
+| 12                | 0.0063      |
+| 13                | 0.00        |
+| 14                | -0.009      |
+| 15                | -0.012      |
+| 16                | -0.023      |
+| 17                | -0.035      |
+| 18                | -0.035      |
+| 19                | -0.049      |
+| 20                | -0.03       |
+| 21                | -0.006      |
+| 23                | -0.006      |
+| 24                | -0.005      |
+| 25                | -0.005      |
+
+- Cela donne une pente linéaire au centre de la courbe de **-8300 V/m**.
+
+
+
+vu le fait qu'on avait pas beaucoup de données il a fallu enlever ceux qui sont abérrantes pour obtenir un belle droite.
 
 ### Caractérisation du puit de potentiel  (constante de trappe)
 
@@ -95,3 +164,85 @@ Les données son dans un fichier excel sur l'ordi de ludo :penteQuad.xlxs
 - On veut attendre d'être en vitesse constante avant de lire les voltages du *quad*.
 - Pour chaque vitesse on note la différence de potentiel lu par le *quad* à la main.
 
+- Nous l'Avons fait pour l'axe Y seulement.
+
+| Vitesse (mm/s) | Différence de tension (V) |
+| -------------- | ------------------------- |
+| ----           | +/- 0.003                 |
+| 0.02           | 0                         |
+| 0.03           | 0.005                     |
+| 0.05           | 0.010                     |
+| 0.08           | 0.015                     |
+
+À faire: calculer la constante de trappe .
+
+
+
+
+
+# Pince Optique							semaine 2
+
+------
+
+
+
+#### But
+
+Déterminer si le laser infrarouge peut être utilisé pour la mesure de position sur le QuadCell au lieu du laser secondaire de faible puissance. 
+
+
+
+#### Protocole
+
+- Vérifier le spectre permis par le bloc séparateur. 
+
+  > Il est coté 50/50 pour 300-700nm alors que le laser est à 1064. La courbe ne semble toutefois pas tomber à zéro rapidement (40% vers 800nm). On va alors le garder et observer plus tard la quantité de lumière qui se rend sur le QuadCell. 
+
+- Vérifier la puissance permise par le QuadCell PDQ80A.
+
+  > Plage optimale de 400-1050nm, ce qui est assez. Le module (qui contient un filtre DN 0.6) explique qu'il est généralement utilisé avec puissances au dessous du 5mW avant filtre. 
+
+- Choisir un capteur de puissance pour le laser infrarouge.
+
+  > On utilise le détecteur thorlabs S121C qui accepte la plage 400-1100nm avec puissance maximale de 500mW. On utilise la roulette réfléchissante pour augmenterr graduellement la puissance jusqua 450 mW.
+
+- Mesurer la puissance du laser infrarouge à l'entrée du circuit optique et s'assurer qu'elle soit inférieure à la puissance permise sur le QuadCell. 
+
+  > Le filtre à densité neutre variable est d'abord orienté de sorte à laisser passer le moins de puissance possible. On observe 5mW
+  >
+  > On règle le filtre de sorte à obtenir 450 mW. 
+
+- Enlever le filtre infrarouge avant le cube séparateur et placer ce dernier au dessus du cube, soit avant la  source de lumière blanche. Pour ne pas envoyé de la la lumière à la source.
+
+- Mesure la puissance après le cube séparateur. (ebtré *quadCell*)
+
+- Calcul du rapport de puissance entre l'entré du circuit optique  et l'entrée du *quadCell*
+
+- > $$ \frac{\text{entré quadCell}}{\text{entrée circuit}} = \frac{1.6}{450} = 0.0038$$
+
+### Résumé des pertes de puissances:
+
+- 75 % de perte du au coatings inpropriées des différentes lentilles
+
+- 85 % de perte à cause de la différence des NA entre les deux objectifs
+
+- 75 % de perte à cause du prisme
+
+- > Nous pouvons donc envoyé le maximum de puissance du laser sans aucune crainte pour le quad cell et les détecteurs
+
+En démontant le *quadCell* nous nous sommes aperçu que les lentilles de celle-ci sont on un *coating* pour l'infrarouge, nous pouvons donc enlever le filtre laissant passé que 632.8 devant le *quadCell*
+
+### Résumé des modificaions
+
+1. Retiré le filtre infrarouge après le deuxième objectif (NA=0.5) car on veut que le laser infrafouge se rendre à la *quadCell*
+
+2. Retiré le filtre ava le *quadCell* qui ne laissait passé que 632.8
+
+3. > Il n'y a pas de phot du montage, car seulement 2 filtres ont été enlevés et aucun grosse modification n'ont été apportées.
+
+
+La somme des puissance (recu par la quadCell) varie avec le passage de la pince par dessu une bille.
+
+La somme des puissance (recu par la *quadCell*) varie avec le passage de la pince par dessu une bille.
+
+> Ce phénomène semble venir du fait que le laser n'est aps collimé à la fin du prisme, il diverge bcp trop.
