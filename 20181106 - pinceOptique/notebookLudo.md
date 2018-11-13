@@ -218,7 +218,10 @@ Déterminer si le laser infrarouge peut être utilisé pour la mesure de positio
 Refaire les mesures de calibration de la lecture de position sur le QuadCell avec les pentes en X et Y.
 
 - On trouve une bille collée à la surface de sorte qu'elle ne bouge pas pendant l'acquisition. On centre la bille sur un axe et la place sur le côté pour l'autre axe. 
+
 - On est encore en acquisition manuelle afin de prendre les mesures sans passer par la carte d'acquisition. 
+
+  > Sans bille, on a environ 1.12 V sur le QuadCell, alors qu'on avait 1.6 V. **Ceci est probablement lié au foyer du laser infrarouge ?**
 
 
 
@@ -228,27 +231,27 @@ On fait des steps de 1 um et traverse la bille dans l'axe Y en notant la tension
 
 | Distance ($\mu$m) | Tension (V) |
 | ----------------- | ----------- |
-| +/-               | +/-  0.005  |
-| 0                 | 0.034       |
-| 1                 | 0.034       |
-| 2                 | 0.034       |
-| 3                 | 0.032       |
-| 4                 | 0.019       |
-| 5                 | -0.032      |
-| 6                 | -0.002      |
-| 7                 | 0.004       |
-| 8                 | 0.012       |
-| 9                 | 0.025       |
-| 10                | 0.031       |
-| 11                | 0.060       |
-| 12                | 0.070       |
-| 13                | 0.058       |
-| 14                | 0.037       |
-| 15                | 0.038       |
-| 16                | 0.037       |
-| 17                | 0.037       |
+| +/-               | +/-  0.01   |
+| 0                 | 0           |
+| 1                 | -0.02       |
+| 2                 | 0.02        |
+| 3                 | -0.03       |
+| 4                 | 0           |
+| 5                 | -0.08       |
+| 6                 | -0.15       |
+| 7                 | 0.09        |
+| 8                 | -0.33       |
+| 9                 | 0           |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
 
-- Cela donne une pente linéaire au centre de la courbe de **Y V/m**.
+- Cela donne une pente linéaire au centre de la courbe de **-39 000 V/m**.
 
 
 
@@ -258,31 +261,31 @@ On fait des steps de 1 um et traverse la bille dans l'axe Y en notant la tension
 
 | Distance ($\mu$m) | Tension (V) |
 | ----------------- | ----------- |
-| +/-               | +/- 0.005   |
-| 0                 | -0.0062     |
-| 1                 | -0.0063     |
-| 2                 | -0.0070     |
-| 3                 | -0.0070     |
-| 4                 | -0.0065     |
-| 5                 | -0.004      |
-| 6                 | -0.002      |
-| 7                 | 0.025       |
-| 8                 | 0.045       |
-| 9                 | 0.030       |
-| 10                | 0.035       |
-| 11                | 0.016       |
-| 12                | 0.0063      |
-| 13                | 0.00        |
-| 14                | -0.009      |
-| 15                | -0.012      |
-| 16                | -0.023      |
-| 17                | -0.035      |
-| 18                | -0.035      |
-| 19                | -0.049      |
-| 20                | -0.03       |
-| 21                | -0.006      |
-| 23                | -0.006      |
-| 24                | -0.005      |
-| 25                | -0.005      |
+| +/-               | +/- 0.01    |
+| 0                 | 0.05        |
+| 1                 | 0.06        |
+| 2                 | -0.10       |
+| 3                 | -0.11       |
+| 4                 | -0.075      |
+| 5                 | -0.1        |
+| 6                 | -0.24       |
+| 7                 | -0.11       |
+| 8                 | 0.12        |
+| 9                 | 0.03        |
+| 10                | 0.01        |
+| 11                | 0.06        |
+| 12                | 0.15        |
+| 13                | 0.17        |
+| 14                | 0.10        |
+| 15                | 0           |
+| 16                | 0.15        |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
+|                   |             |
 
-- Cela donne une pente linéaire au centre de la courbe de **-X V/m**.
+- Cela donne une pente linéaire au centre de la courbe de **37 500 V/m**.
