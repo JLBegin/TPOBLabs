@@ -289,3 +289,7 @@ On fait des steps de 1 um et traverse la bille dans l'axe Y en notant la tension
 |                   |             |
 
 - Cela donne une pente linéaire au centre de la courbe de **37 500 V/m**.
+
+
+
+**ATTN: **La somme des deux axes n'est pas constante (environ 1 V à l'extérieur de la bille versus 0.5 V au centre). On réalise que cela est dû au fait que le laser n'est finalement pas collimé après l'objectif (au QuadCell). Il faut alors replacer les objectifs de sorte à obtenir un faisceau collimé à la sortie. 
