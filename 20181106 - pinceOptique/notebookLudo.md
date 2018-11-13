@@ -184,9 +184,105 @@ Déterminer si le laser infrarouge peut être utilisé pour la mesure de positio
   >
   > On règle le filtre de sorte à obtenir 450 mW. 
 
-- Enlever le filtre infrarouge avant le cube séparateur et placer ce dernier au dessus du cube, soit avant la  source de lumière blanche.
+- Enlever le filtre infrarouge avant le cube séparateur. 
 
-- Mesure la puissance après le cube séparateur. 
+- Mesurer la puissance après le cube séparateur avec le même détecteur. 
 
-- 
+  > On obtient un maximum de 2.2 mW devant le QuadCell, ce qui est bien considérant que la documentation du module explique qu'il doit être utiliser avec une puissance inférieure à 5mW idéalement. 
 
+- Obtenir le rapport de puissance entre ce qui arrive au QuadCell et ce qu'il y a après le premier filtre DN variable. 
+
+  > On passe de 450mW à 1.6mW, soit un facteur d'environ 280x.
+  >
+  > Le filtre DN variable est reglé de sorte à laisser passer le plus de puissance possible. On obtient 2.2mW au QuadCell, ce qui correspond à 615mW après le filtre DN variable. 
+
+- Résumé des pertes de puissances:
+
+  - ..
+
+- On enlève d'abord le filtre spécifique au 632.8nm.
+
+- > On découvre que le module possède déjà une lentille avec coating pour l'infrarouge !
+  >
+  > Il filtre alors déjà la lumière blanche. 
+
+
+
+#### Alignement et mise au point avec laser infrarouge
+
+- Une bille est centré à l'image à l'aide des contrôles en X et Y du stage. On place alors l'image au focus avec le contrôle en Z afin d'obtenir une image clair où la circonférence de la bille est bien définie. 
+- Le sytème est aligné en corrigeant la position du miroir du He-Ne afin de centrer l'image du laser dans le détecteur à la position (0, 0). 
+
+#### Calibration du *QuadCell* avec laser infrarouge
+
+Refaire les mesures de calibration de la lecture de position sur le QuadCell avec les pentes en X et Y.
+
+- On trouve une bille collée à la surface de sorte qu'elle ne bouge pas pendant l'acquisition. On centre la bille sur un axe et la place sur le côté pour l'autre axe. 
+- On est encore en acquisition manuelle afin de prendre les mesures sans passer par la carte d'acquisition. 
+
+
+
+**Pente de calibration en Y**
+
+On fait des steps de 1 um et traverse la bille dans l'axe Y en notant la tension du *QuadCell* sur X diff. 
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/-  0.005  |
+| 0                 | 0.034       |
+| 1                 | 0.034       |
+| 2                 | 0.034       |
+| 3                 | 0.032       |
+| 4                 | 0.019       |
+| 5                 | -0.032      |
+| 6                 | -0.002      |
+| 7                 | 0.004       |
+| 8                 | 0.012       |
+| 9                 | 0.025       |
+| 10                | 0.031       |
+| 11                | 0.060       |
+| 12                | 0.070       |
+| 13                | 0.058       |
+| 14                | 0.037       |
+| 15                | 0.038       |
+| 16                | 0.037       |
+| 17                | 0.037       |
+
+- Cela donne une pente linéaire au centre de la courbe de **Y V/m**.
+
+
+
+**Pente de calibration en X**
+
+- On fait de même pour l'axe X, en prenant les mesures du Y Diff sur le QuadCell. 
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/- 0.005   |
+| 0                 | -0.0062     |
+| 1                 | -0.0063     |
+| 2                 | -0.0070     |
+| 3                 | -0.0070     |
+| 4                 | -0.0065     |
+| 5                 | -0.004      |
+| 6                 | -0.002      |
+| 7                 | 0.025       |
+| 8                 | 0.045       |
+| 9                 | 0.030       |
+| 10                | 0.035       |
+| 11                | 0.016       |
+| 12                | 0.0063      |
+| 13                | 0.00        |
+| 14                | -0.009      |
+| 15                | -0.012      |
+| 16                | -0.023      |
+| 17                | -0.035      |
+| 18                | -0.035      |
+| 19                | -0.049      |
+| 20                | -0.03       |
+| 21                | -0.006      |
+| 23                | -0.006      |
+| 24                | -0.005      |
+| 25                | -0.005      |
+
+- Cela donne une pente linéaire au centre de la courbe de **-X V/m**.
