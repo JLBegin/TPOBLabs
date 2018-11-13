@@ -241,7 +241,82 @@ En démontant le *quadCell* nous nous sommes aperçu que les lentilles de celle-
 3. > Il n'y a pas de phot du montage, car seulement 2 filtres ont été enlevés et aucun grosse modification n'ont été apportées.
 
 
-La somme des puissance (recu par la quadCell) varie avec le passage de la pince par dessu une bille.
+
+#### Alignement et mise au point avec laser infrarouge
+
+- Une bille est centré à l'image à l'aide des contrôles en X et Y du stage. On place alors l'image au focus avec le contrôle en Z afin d'obtenir une image clair où la circonférence de la bille est bien définie. 
+- Le sytème est aligné en corrigeant la position du miroir du He-Ne afin de centrer l'image du laser dans le détecteur à la position (0, 0). 
+
+#### Calibration du *QuadCell* avec laser infrarouge
+
+Refaire les mesures de calibration de la lecture de position sur le QuadCell avec les pentes en X et Y.
+
+- On trouve une bille collée à la surface de sorte qu'elle ne bouge pas pendant l'acquisition. On centre la bille sur un axe et la place sur le côté pour l'autre axe. 
+
+- On est encore en acquisition manuelle afin de prendre les mesures sans passer par la carte d'acquisition. 
+
+  > Sans bille, on a environ 1.12 V sur le QuadCell, alors qu'on avait 1.6 V. **Ceci est probablement lié au foyer du laser infrarouge ?**
+
+
+
+**Pente de calibration en Y**
+
+On fait des steps de 1 um et traverse la bille dans l'axe Y en notant la tension du *QuadCell* sur X diff. 
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/-  0.01   |
+| 0                 | 0           |
+| 1                 | -0.02       |
+| 2                 | 0.02        |
+| 3                 | -0.03       |
+| 4                 | 0           |
+| 5                 | -0.08       |
+| 6                 | -0.15       |
+| 7                 | 0.09        |
+| 8                 | -0.33       |
+| 9                 | 0           |
+
+- Cela donne une pente linéaire au centre de la courbe de **-39 000 V/m**.
+
+
+
+**Pente de calibration en X**
+
+- On fait de même pour l'axe X, en prenant les mesures du Y Diff sur le QuadCell. 
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/- 0.01    |
+| 0                 | 0.05        |
+| 1                 | 0.06        |
+| 2                 | -0.10       |
+| 3                 | -0.11       |
+| 4                 | -0.075      |
+| 5                 | -0.1        |
+| 6                 | -0.24       |
+| 7                 | -0.11       |
+| 8                 | 0.12        |
+| 9                 | 0.03        |
+| 10                | 0.01        |
+| 11                | 0.06        |
+| 12                | 0.15        |
+| 13                | 0.17        |
+| 14                | 0.10        |
+| 15                | 0           |
+| 16                | 0.15        |
+
+- Cela donne une pente linéaire au centre de la courbe de **37 500 V/m**.
+
+
+
+**ATTN: **La somme des deux axes n'est pas constante (environ 1 V à l'extérieur de la bille versus 0.5 V au centre). On réalise que cela est dû au fait que le laser n'est finalement pas collimé après l'objectif (au QuadCell). Il faut alors replacer les objectifs de sorte à obtenir un faisceau collimé à la sortie. 
+
+
+
+
+
+
 
 La somme des puissance (recu par la *quadCell*) varie avec le passage de la pince par dessu une bille.
 
