@@ -151,3 +151,42 @@ $$\gamma = 6 \pi \eta r$$
 
 
 **À compléter plus tard**
+
+
+
+
+
+## Pince Optique - Partie 2
+
+#### But
+
+Déterminer si le laser infrarouge peut être utilisé pour la mesure de position sur le QuadCell au lieu du laser secondaire de faible puissance. 
+
+
+
+#### Protocole
+
+- Vérifier le spectre permis par le bloc séparateur. 
+
+  > Il est coté 50/50 pour 300-700nm alors que le laser est à 1064. La courbe ne semble toutefois pas tomber à zéro rapidement (40% vers 800nm). On va alors le garder et observer plus tard la quantité de lumière qui se rend sur le QuadCell. 
+
+- Vérifier la puissance permise par le QuadCell PDQ80A.
+
+  > Plage optimale de 400-1050nm, ce qui est assez. Le module (qui contient un filtre DN 0.6) explique qu'il est généralement utilisé avec puissances au dessous du 5mW avant filtre. 
+
+- Choisir un capteur de puissance pour le laser infrarouge.
+
+  > On utilise le détecteur thorlabs S121C qui accepte la plage 400-1100nm avec puissance maximale de 500mW. 
+
+- Mesurer la puissance du laser infrarouge à l'entrée du circuit optique et s'assurer qu'elle soit inférieure à la puissance permise sur le QuadCell. 
+
+  > Le filtre à densité neutre variable est d'abord orienté de sorte à laisser passer le moins de puissance possible. On observe 5mW
+  >
+  > On règle le filtre de sorte à obtenir 450 mW. 
+
+- Enlever le filtre infrarouge avant le cube séparateur et placer ce dernier au dessus du cube, soit avant la  source de lumière blanche.
+
+- Mesure la puissance après le cube séparateur. 
+
+- 
+
