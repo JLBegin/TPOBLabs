@@ -4,7 +4,7 @@
 | -------------------------------- | --------------------: |
 |                                  |                       |
 
-# Pince Optique			
+# Pince Optique							semaine 1
 
 ------
 
@@ -21,6 +21,8 @@
 ## Modification du montage fait par les autres équipes
 
 Un laser He-Ne à été ajouté. Celui-ci est utilisé avec la *quadphotodiode* comme référentiel de position.  LA déviation du He-Ne va informer le *quad* sur la déviation de la bille.  Un Laser He-Ne est utilisé pour ne pas *bruler* le *quad*. Les deux faisceau (He-Ne et infrarouge YAG) doivent être doalligné en tout temps. Voir photo nouveau montage.
+
+![](montagePince.png)
 
 ## Manipulations
 
@@ -86,7 +88,74 @@ Il a fallu faire ce processus pour les deux axes, les valeurs sont dans la table
 >
 > pente X : -0.0083 [volt/micron]
 
-Les données son dans un fichier excel sur l'ordi de ludo :penteQuad.xlxs
+Les données son dans un fichier excel sur l'ordi de ludo : penteQuad.xlxs
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/-  0.005  |
+| 0                 | 0.034       |
+| 1                 | 0.034       |
+| 2                 | 0.034       |
+| 3                 | 0.032       |
+| 4                 | 0.019       |
+| 5                 | -0.032      |
+| 6                 | -0.002      |
+| 7                 | 0.004       |
+| 8                 | 0.012       |
+| 9                 | 0.025       |
+| 10                | 0.031       |
+| 11                | 0.060       |
+| 12                | 0.070       |
+| 13                | 0.058       |
+| 14                | 0.037       |
+| 15                | 0.038       |
+| 16                | 0.037       |
+| 17                | 0.037       |
+
+- Cela donne une pente linéaire au centre de la courbe de **8700 V/m**.
+
+
+
+#### Pente axe X
+
+- On fait de même pour l'axe X, en prenant les mesures du Y Diff sur le QuadCell. 
+
+
+
+| Distance ($\mu$m) | Tension (V) |
+| ----------------- | ----------- |
+| +/-               | +/- 0.005   |
+| 0                 | -0.0062     |
+| 1                 | -0.0063     |
+| 2                 | -0.0070     |
+| 3                 | -0.0070     |
+| 4                 | -0.0065     |
+| 5                 | -0.004      |
+| 6                 | -0.002      |
+| 7                 | 0.025       |
+| 8                 | 0.045       |
+| 9                 | 0.030       |
+| 10                | 0.035       |
+| 11                | 0.016       |
+| 12                | 0.0063      |
+| 13                | 0.00        |
+| 14                | -0.009      |
+| 15                | -0.012      |
+| 16                | -0.023      |
+| 17                | -0.035      |
+| 18                | -0.035      |
+| 19                | -0.049      |
+| 20                | -0.03       |
+| 21                | -0.006      |
+| 23                | -0.006      |
+| 24                | -0.005      |
+| 25                | -0.005      |
+
+- Cela donne une pente linéaire au centre de la courbe de **-8300 V/m**.
+
+
+
+vu le fait qu'on avait pas beaucoup de données il a fallu enlever ceux qui sont abérrantes pour obtenir un belle droite.
 
 ### Caractérisation du puit de potentiel  (constante de trappe)
 
@@ -94,4 +163,28 @@ Les données son dans un fichier excel sur l'ordi de ludo :penteQuad.xlxs
 - On *trap* une nouvelle bille et on se déplace à à différentes vitesses. Il est important que la bille reste *trap* tout au long du déplacement
 - On veut attendre d'être en vitesse constante avant de lire les voltages du *quad*.
 - Pour chaque vitesse on note la différence de potentiel lu par le *quad* à la main.
+
+- Nous l'Avons fait pour l'axe Y seulement.
+
+| Vitesse (mm/s) | Différence de tension (V) |
+| -------------- | ------------------------- |
+| ----           | +/- 0.003                 |
+| 0.02           | 0                         |
+| 0.03           | 0.005                     |
+| 0.05           | 0.010                     |
+| 0.08           | 0.015                     |
+
+À faire: calculer la constante de trappe .
+
+
+
+
+
+# Pince Optique							semaine 2
+
+------
+
+## 
+
+- mesurer puissance du laser infraroug
 
