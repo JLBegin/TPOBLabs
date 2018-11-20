@@ -44,6 +44,14 @@
 >
 > [source](https://en.wikipedia.org/wiki/Raman_spectroscopy)
 
-### 
+### Graphique du bruit en fonction du temps d'intégration
 
-### 
+
+
+###Spectre d"émission et d'absoption de la chlorophyle
+
+> tout est bine détaillé sur ce [site](https://omlc.org/spectra/PhotochemCAD/html/123.html).
+>
+> ![](absoptionChlorophyle.PNG)
+
+> ![](émissionChlorophyle.PNG)
