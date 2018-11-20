@@ -65,15 +65,112 @@ insaturé $$\rightarrow$$ 85%
 
 
 
-### Manipulations
-
-
-
-
-
-#### Montage
+## Montage
 
 ![Montage de spectroscopie Raman](montageRaman.png)
 
+Introduction sur le montage: illumination, fentes, filtre onde plane, réseau holographique.
 
+Introduction sur le bruit de photons, loi de poisson et tout...
+
+
+
+## Manipulations
+
+- Logiciel d'acquisition : winspec32. Nous avons fixé le rate a 2MHz, le readout a low noise et le gain a 1 pour toute lexpérience
+
+### Caractérisation de la CCD
+
+#### Caractérisation du bruit de lecture
+
+>  Le binning somme sur les pixels, le max sur le graphique peut alors se rendre à 100x 65 535
+
+- Mesures enregistrées dans un fichier. Sans illumination, soit seulement bruit de lecture
+
+| Temps d'intégration (ms) | Nom du fichier          |
+| ------------------------ | ----------------------- |
+| 100                      | bruit_lecture_100ms.txt |
+| 50                       | bruit_lecture_50ms.txt  |
+| 25                       | bruit_lecture_25ms.txt  |
+| 10                       | bruit_lecture_10ms.txt  |
+| 5                        | bruit_lecture_5ms.txt   |
+| 1                        | bruit_lecture_1ms.txt   |
+| 0.1                      | bruit_lecture_100um.txt |
+| 0.01                     | bruit_lecture_10um.txt  |
+| 0.001                    | bruit_lecture_1um.txt   |
+
+**Bruit moyen: ** 61 570 / 100px
+
+#### Caractérisation du bruit thermique
+
+- 
+
+| Temps d'intégration (s) | Nom du fichier           |
+| ----------------------- | ------------------------ |
+| 1                       | bruit_thermique_1s.txt   |
+| 5                       | bruit_thermique_5s.txt   |
+| 10                      | bruit_thermique_10s.txt  |
+| 25                      | bruit_thermique_25s.txt  |
+| 50                      | bruit_thermique_50s.txt  |
+| 100                     | bruit_thermique_100s.txt |
+
+**Graphique du signal en fonction du temps d'intégration**
+
+
+
+
+
+#### Caractérisation du bruit de photon
+
+- On installe un papier blanc à l'échantillon avec lumière de la salle ouverte de sorte à rediriger la lumière blanche vers le spectromètre. 
+
+| Temps d'intégration (s) | Nom du fichier         |
+| ----------------------- | ---------------------- |
+| 0.001                   | bruit_photon_1ms.txt   |
+| 0.1                     | bruit_photon_100ms.txt |
+| 1                       | bruit_photon_1s.txt    |
+| 5                       | bruit_photon_5s.txt    |
+| 10                      | bruit_photon_10s.txt   |
+
+
+
+#### Étalonnage de la caméra sur l'axe des longueurs d'onde
+
+- Lampe au mercure avec feuille blanche à l'échantillon.
+- On observe bel et bien le spectre de la lampe avec ses pics principaux. 
+- Enregistrement du spectre pour un temps d'intégration de 10s sur le fichier *spectre_mercure.txt*. 
+- 
+
+#### Alignement du spectromètre par fluorescence
+
+- On observe l'image du spectromètre avec de l'huile d'olive à l'échantillon. 
+- On aligne le tout en redirigant le faisceau incident par le miroir. 
+
+#### Prise de spectres Raman pour solutions organiques
+
+- Pour chaque échantillon, on enregistre son spectre pour un temps d'intégration de 100s. 
+- Software binning
+
+| Solution      | Nom du fichier  |
+| ------------- | --------------- |
+| Sucrose       | sucrose.txt     |
+| Glycérol      | glycerol.txt    |
+| Isopropanol   | isopropanol.txt |
+| Méthanol      | methanol.txt    |
+| Éthanol       | ethanol.txt     |
+| Canola        | canola.txt      |
+| Arachide      | arachide.txt    |
+| Tournesol     | tournesol.txt   |
+| Maïs          | mais.txt        |
+| Huile d'olive | olive.txt       |
+
+
+
+
+
+**PHOTOS !!**
+
+
+
+**Trouver un moyen de séparer le signal de la fluorescence du signal Raman.**
 
