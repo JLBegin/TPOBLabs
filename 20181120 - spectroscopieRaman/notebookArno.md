@@ -55,3 +55,9 @@
 > ![](absoptionChlorophyle.PNG)
 
 > ![](émissionChlorophyle.PNG)
+
+### Taux de gras satué/insaturé dans l'huile d'olive
+
+> saturé $$ \rightarrow $$ 15% et donc insaturé $$\rightarrow$$ 85% selon [wiki](https://en.wikipedia.org/wiki/Olive_oil)
+> Cependant ces valeurs dépendent de la qualité de l'huile.
+
