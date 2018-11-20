@@ -12,7 +12,7 @@
 
 ### Lignes de Mercure qui devront être observées dans le spectromètre durant l'étalonnage 
 
-> Selon l'annexe 2,  le pic avec le plus d'intensité est celui à 614.95 nm . Il serait donc bien de commencer à le repéré et de le placer au début du captur. Par la suite ds pics à 690, 708 et 709 possèdent une intnsité de 250, 250 et 200. 
+> Selon l'annexe 2,  le pic avec le plus intense est celui à 614.95 nm . Il serait donc bien de  le placer au début du capteur. Par la suite ds pics à 690, 708 et 709 possèdent une intnsité de 250, 250 et 200. 
 
 ### Profondeur des puits du capteur CCD
 
@@ -23,15 +23,18 @@
 > *High sensitivity* : 300 ke- (typical), 250 ke- (min)
 > *High capacity* : 1 Me- (typical), 750 ke- (min)
 >
-> Le nombre de requis pour agmenter la valeur de un pixel de '1' ( valeur des pixels de 0 à 65535 (16bits)) dépend du mode d'opération. Considérons une efficacité quantique de 95%.
+> Le nombre de photons requis pour agmenter la valeur d'un pixel de '1' ( valeur des pixels de 0 à 65535 (16bits)) dépend du mode d'opération. Considérons une efficacité quantique de 95%.
 >
-> High sensitivity* : $$\frac{(0.95)300\text{ke-}}{65535}\approx 4.35 $$ photon par incrément
+> *High sensitivity* : $$\frac{(0.95)300\text{ke-}}{65535}\approx 4.35 $$ photon par incrément
 > *High capacity* : $$\frac{(0.95)1 \text{Me-}}{65535}\approx 14.5 $$ photon par incrément
 
-### Graphique du bruit de photon en fonction du nombre photons mesuré
+### Graphique du bruit de photon en fonction du nombre de photons mesuré
 
-> on saucera pas... $$\frac{N}{\sqrt{N}}$$
-> Il est aussi importnt de voir qu dans la dataSheet, le fabricant spécifie des valeurs pour le bruit de lecture
+> À cause du processus de numérisation (environ 5 photons pour 1 bit) une erreur absolue de $$\pm$$1 bit est toujours présente. C'est-à-dire qu'on ne voit que à coup de 5 photons. POur 12 photons mesurés, nous allons lire 2 bits. Cependant, nous sommes entre le 2ieme et le 3ieme bit. C'est pourquoi nous avons toujours une erreur de $$\pm1$$ peut importe le nombre de photons mesuré.
+>
+> ![](dataCorrection.pdf)
+>
+> Il est aussi important de voir que dans la dataSheet, le fabricant spécifie des valeurs pour le bruit de lecture
 >
 > @ 100 kHz  $$\rightarrow$$  3 e- rms (typical), 5 e- rms (max)
 > @2MHz $$\rightarrow$$ 11 e- rms (typical), 16 e- rms (max)
@@ -56,8 +59,8 @@
 
 > ![](émissionChlorophyle.PNG)
 
-### Taux de gras satué/insaturé dans l'huile d'olive
+### Taux de gras satrué/insaturé dans l'huile d'olive
 
 > saturé $$ \rightarrow $$ 15% et donc insaturé $$\rightarrow$$ 85% selon [wiki](https://en.wikipedia.org/wiki/Olive_oil)
-> Cependant ces valeurs dépendent de la qualité de l'huile.
+> Cependant ces valeurs dépendent de la qualité de l'huile. Voir aussi le document PDF sur le git pour des valeurs plus détaillées
 
