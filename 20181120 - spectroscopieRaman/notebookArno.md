@@ -32,7 +32,7 @@
 
 > À cause du processus de numérisation (environ 5 photons pour 1 bit) une erreur absolue de $$\pm$$1 bit est toujours présente. C'est-à-dire qu'on ne voit que à coup de 5 photons. POur 12 photons mesurés, nous allons lire 2 bits. Cependant, nous sommes entre le 2ieme et le 3ieme bit. C'est pourquoi nous avons toujours une erreur de $$\pm1$$ peut importe le nombre de photons mesuré.
 >
-> ![](dataCorrection.pdf)
+> ![](dataCorrection600dpi.png)
 >
 > Il est aussi important de voir que dans la dataSheet, le fabricant spécifie des valeurs pour le bruit de lecture
 >

@@ -8,4 +8,4 @@ for photons in nbPhotons:
     bruitRelatif.append((bruitAbs/photons )* 50)
 
 plt.plot(nbPhotons,bruitRelatif)
-plt.savefig('dataCorrection', format='pdf')
+plt.savefig('dataCorrection600dpi',dpi=600)
