@@ -32,7 +32,7 @@
 
 > À cause du processus de numérisation (environ 5 photons pour 1 bit) une erreur absolue de $$\pm$$1 bit est toujours présente. C'est-à-dire qu'on ne voit que à coup de 5 photons. POur 12 photons mesurés, nous allons lire 2 bits. Cependant, nous sommes entre le 2ieme et le 3ieme bit. C'est pourquoi nous avons toujours une erreur de $$\pm1$$ peut importe le nombre de photons mesuré.
 >
-> ![](dataCorrection600dpi.png)
+> ![](bruitPhotons.png)
 >
 > Il est aussi important de voir que dans la dataSheet, le fabricant spécifie des valeurs pour le bruit de lecture
 >
@@ -63,4 +63,122 @@
 
 > saturé $$ \rightarrow $$ 15% et donc insaturé $$\rightarrow$$ 85% selon [wiki](https://en.wikipedia.org/wiki/Olive_oil)
 > Cependant ces valeurs dépendent de la qualité de l'huile. Voir aussi le document PDF sur le git pour des valeurs plus détaillées
+
+
+
+
+
+## En laboratoire
+
+## Montage
+
+![Montage de spectroscopie Raman](C:/Users/arnau/Documents/GitHub/TPOBLabs/20181120%20-%20spectroscopieRaman/montageRaman.png)
+
+Introduction sur le montage: illumination, fentes, filtre onde plane, réseau holographique.
+
+Introduction sur le bruit de photons, loi de poisson et tout...  la source provient que les evènements observée sont exxclusivement indépendnt et totalement aléatoire.
+
+
+
+## Manipulations
+
+- Logiciel d'acquisition : winspec32. Nous avons fixé le rate a 2MHz, le readout a low noise et le gain a 1 pour toute lexpérience
+
+### Caractérisation de la CCD
+
+#### Caractérisation du bruit de lecture
+
+> Le binning somme sur les pixels, le max sur le graphique peut alors se rendre à 100x 65 535
+
+- Mesures enregistrées dans un fichier. Sans illumination, soit seulement bruit de lecture
+
+| Temps d'intégration (ms) | Nom du fichier          |
+| ------------------------ | ----------------------- |
+| 100                      | bruit_lecture_100ms.txt |
+| 50                       | bruit_lecture_50ms.txt  |
+| 25                       | bruit_lecture_25ms.txt  |
+| 10                       | bruit_lecture_10ms.txt  |
+| 5                        | bruit_lecture_5ms.txt   |
+| 1                        | bruit_lecture_1ms.txt   |
+| 0.1                      | bruit_lecture_100um.txt |
+| 0.01                     | bruit_lecture_10um.txt  |
+| 0.001                    | bruit_lecture_1um.txt   |
+
+**Bruit moyen: ** 61 570 / 100px
+
+#### Caractérisation du bruit thermique
+
+- 
+
+| Temps d'intégration (s) | Nom du fichier           |
+| ----------------------- | ------------------------ |
+| 1                       | bruit_thermique_1s.txt   |
+| 5                       | bruit_thermique_5s.txt   |
+| 10                      | bruit_thermique_10s.txt  |
+| 25                      | bruit_thermique_25s.txt  |
+| 50                      | bruit_thermique_50s.txt  |
+| 100                     | bruit_thermique_100s.txt |
+
+**Graphique du signal en fonction du temps d'intégration**
+
+
+
+
+
+#### Caractérisation du bruit de photon
+
+- On installe un papier blanc à l'échantillon avec lumière de la salle ouverte de sorte à rediriger la lumière blanche vers le spectromètre. 
+
+| Temps d'intégration (s) | Nom du fichier         |
+| ----------------------- | ---------------------- |
+| 0.001                   | bruit_photon_1ms.txt   |
+| 0.1                     | bruit_photon_100ms.txt |
+| 1                       | bruit_photon_1s.txt    |
+| 5                       | bruit_photon_5s.txt    |
+| 10                      | bruit_photon_10s.txt   |
+
+
+
+#### Étalonnage de la caméra sur l'axe des longueurs d'onde
+
+- Lampe au mercure avec feuille blanche à l'échantillon.
+- On observe bel et bien le spectre de la lampe avec ses pics principaux. 
+- Enregistrement du spectre pour un temps d'intégration de 10s sur le fichier *spectre_mercure.txt*. 
+- Pour l'instant nous n'avons pas effectuer la conversion de nm à pixel (selon l'alignement de la lampe au mercure)
+  **Il est important d'enregistré le spectre de la lampe au mercure à chaque début de lab**
+
+#### Alignement du spectromètre par fluorescence
+
+- On observe l'image du spectromètre avec de l'huile d'olive à l'échantillon. 
+- On aligne le tout en redirigant le faisceau incident par le miroir. On s'assure que l'image sur la caméra (en mode imaging) est bien centré en hauteur et en largueur.
+
+#### Prise de spectres Raman pour solutions organiques
+
+- Pour chaque échantillon, on enregistre son spectre pour un temps d'intégration de 100s. 
+- Software binning
+
+| Solution      | Nom du fichier  |
+| ------------- | --------------- |
+| Sucrose       | sucrose.txt     |
+| Glycérol      | glycerol.txt    |
+| Isopropanol   | isopropanol.txt |
+| Méthanol      | methanol.txt    |
+| Éthanol       | ethanol.txt     |
+| Canola        | canola.txt      |
+| Arachide      | arachide.txt    |
+| Tournesol     | tournesol.txt   |
+| Maïs          | mais.txt        |
+| Huile d'olive | olive.txt       |
+
+
+
+
+
+**PHOTOS !!**
+
+
+
+**Trouver un moyen de séparer le signal de la fluorescence du signal Raman.** $$\rightarrow$$ on crois quil faut intégrer assez longtemps pour que le nombre de photon RAMAN soit au moins 5 fois plus grand que le bruit de photon.
+
+
 
