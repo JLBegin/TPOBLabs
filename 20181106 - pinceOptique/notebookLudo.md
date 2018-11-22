@@ -51,8 +51,8 @@ Le montage original a précédement été modifié. Un laser He-Ne a été rajou
 - On part une acquisition sur le *QuadCell* à l'aide du logiciel LabView `PFM.vi` avec une fréquence de 10 kHz pour 60 000 échantillons. 
 - On allume le laser He-Ne et part l'acquisition avec le déplacement programmé. 
 
-- L'acquisition par la carte est très bruité et ne donne pas la relation attendue lorsqu'on balais la bille. 
-- On passe alors en acquisition manuelle afin de prendre les mesures sans passer par la carte d'acquisition. On fait des step de 1 um et traverse la bille dans l'axe Y en notant la tension du *QuadCell* sur X diff. 
+- **L'acquisition par la carte est très bruité** et ne donne pas la relation attendue lorsqu'on balais la bille. 
+- On passe alors en **acquisition manuelle** afin de prendre les mesures sans passer par la carte d'acquisition. On fait des step de 1 um et traverse la bille dans l'axe Y en notant la tension du *QuadCell* sur X diff. 
 
 
 
@@ -119,6 +119,10 @@ Le montage original a précédement été modifié. Un laser He-Ne a été rajou
 
 - Cela donne une pente linéaire au centre de la courbe de **-8300 V/m**.
 
+Les courbes sont dans le fichier excel `penteQuad.xlsx` .
+
+> Puisqu'on obtient peu de données en acquisition manuelle, il a fallu enlever ceux qui sont abérrantes pour obtenir une droite acceptable.
+
 
 
 ### Caractérisation du puit de potentiel
@@ -142,13 +146,9 @@ Le montage original a précédement été modifié. Un laser He-Ne a été rajou
 
 ### Calcul de la constante de trappe
 
-
-
 $$ F = \gamma V = k_t x $$
 
 $$\gamma = 6 \pi \eta r$$
-
-
 
 **À compléter plus tard**
 
@@ -184,7 +184,7 @@ Déterminer si le laser infrarouge peut être utilisé pour la mesure de positio
   >
   > On règle le filtre de sorte à obtenir 450 mW. 
 
-- Enlever le filtre infrarouge avant le cube séparateur. 
+- Enlever le filtre UV/VIS (bloque l'infrarouge) avant le cube séparateur et placer ce dernier au dessus du cube, soit avant la  source de lumière blanche. Pour ne pas envoyé de la la lumière à la source.
 
 - Mesurer la puissance après le cube séparateur avec le même détecteur. 
 
@@ -198,13 +198,33 @@ Déterminer si le laser infrarouge peut être utilisé pour la mesure de positio
 
 - Résumé des pertes de puissances:
 
-  - ..
+  - 75 % (4x) de perte du aux coatings inapropriées des différentes lentilles
 
-- On enlève d'abord le filtre spécifique au 632.8nm.
+  - 85 % (6.7x) de perte à cause de la différence des NA entre les deux objectifs
 
-- > On découvre que le module possède déjà une lentille avec coating pour l'infrarouge !
+  - 75 % (4x) de perte à cause du prisme
+
+  - Autres pertes (facteur d'environ 3x restant) menant à une baisse de signal de 280x au total.
+
+    > Nous pouvons donc envoyer le maximum de puissance du laser sans aucune crainte pour le quad cell et les détecteurs
+
+- On enlève d'abord le filtre spécifique au 632.8nm devant le QuadCell.
+
+  > On découvre que le module possède déjà une lentille avec coating pour l'infrarouge !
   >
   > Il filtre alors déjà la lumière blanche. 
+
+
+
+#### Résumé des modifications
+
+![](newSetup.png)
+
+A) Montage initial. B) Montage modifié:
+
+1. Le filtre UV/VIS (bloque infrarouge) après le deuxième objectif (NA=0.5) est retiré, car on veut que le laser infrafouge se rendre à le *QuadCell* (module QPD).
+2. Le filtre UV/VIS est installé avant l'illumination afin de ne pas risquer de l'endommager avec le laser infrarouge.
+3. Le filtre spécifique au 632.8 nm devant le *QuadCell* est évidement retiré.
 
 
 
@@ -221,7 +241,7 @@ Refaire les mesures de calibration de la lecture de position sur le QuadCell ave
 
 - On est encore en acquisition manuelle afin de prendre les mesures sans passer par la carte d'acquisition. 
 
-  > Sans bille, on a environ 1.12 V sur le QuadCell, alors qu'on avait 1.6 V. **Ceci est probablement lié au foyer du laser infrarouge ?**
+  > Sans bille, on a environ 1.12 V sur le QuadCell, alors qu'on avait 1.6 V. **Ceci est probablement lié au foyer du laser infrarouge ?** --> voir "attn" à la fin du labo.
 
 
 
@@ -273,6 +293,8 @@ On fait des steps de 1 um et traverse la bille dans l'axe Y en notant la tension
 | 16                | 0.15        |
 
 - Cela donne une pente linéaire au centre de la courbe de **37 500 V/m**.
+
+Ces courbes sont disponibles sur le fichier excel `penteQuadInfrarouge.xlsx`.
 
 
 
