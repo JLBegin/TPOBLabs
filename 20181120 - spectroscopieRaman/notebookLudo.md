@@ -9,7 +9,7 @@
 ### But
 
 Analyser des spectres Raman et appliquer des techniques de moyennage pour diminuer le bruit et contourner les limites de saturation d'un capteur CCD. 
- 
+
 
 
 ### Préparation
@@ -189,17 +189,45 @@ insaturé $$\rightarrow$$ 85%
 
 
 
+## Spectroscopie Raman - Partie 2
+
+### But
+
+Reconfigurer le premier relais optique après l'échantillon afin d'augmenter l'irradiance sur la fente. Réduire le bruit sur le signal afin d'obtenir le spectre Raman de l'huile d'olive. 
+
+
+
+### Manipulations
+
+- Réalignement du faisceau d'entrée afin de remplir la caméra en son centre. 
+
+- Prendre une mesure du spectre de l'huile d'olive sur 10 min (300x2s)
+
+- Calculer le ratio nécessaire afin de différencier les pics Raman du bruit. 
+
+  > Il faudrait obtenir un ratio deux fois plus grand. Cela mène alors à 4x plus de données. 
+
+- Prendre une nouvelle lecture en prenant compte de la diminution sur le bruit avec $\sqrt{N}$ de sorte à obtenir le ratio calculé. 
+
+  > Acquisition sur 40 min (1200 x 2s)
+
+- 
+
+
+
+- Modifier le premier relais afin d'augmenter l'irradiance dans le système. (Peut-être trouver autres modifications).
+- 
+
+
+
+
+
 # TODOS
 
 **Prendre PHOTOS du montage !!**
 
 **Transférer les fichiers de l'ordi du labo vers le nôtre.** 
 
- 
-
-## Spectroscopie Raman - Partie 2
-
-### But
+Obtenir logiciel Spectromètre Ocean Optics
 
  
-
