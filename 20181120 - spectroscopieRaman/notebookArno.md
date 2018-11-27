@@ -180,5 +180,24 @@ Introduction sur le bruit de photons, loi de poisson et tout...  la source provi
 
 **Trouver un moyen de séparer le signal de la fluorescence du signal Raman.** $$\rightarrow$$ on crois quil faut intégrer assez longtemps pour que le nombre de photon RAMAN soit au moins 5 fois plus grand que le bruit de photon.
 
+# Spectroscopie Raman					semaine 2
+
+------
+
+## 
+
+### Amélioration du système
+
+Comme discuter avec prof Daniel, afin d'augmenter le nombre photon raman qui se rend au spectromètre, il serait utile d'augmenter l'irradiance  à la premier fente du système. Pour ce faire, nous pouvons modifier le premier système 4f afin de diminuer la taille du faisceau sur la fente.
+
+### Mesure du spectre Raman de l'huile d'olive
+
+Le pics raman de l'huile d'olive sont très peu intense, moins intense que le bruit de photon. Pour etre capable de différencier le bruit de photon des pics raman, nous devons donc réduire le bruit. En augmentant la durée de l'intégration le bruit de photons diminue. Il faut donc calculer le temps d'intégration nécessaire 
 
 
+
+## In Lab
+
+- Nous avons identifier un pic raman dans une acquisition antérieur de l'huile d'olive. Celui ci est à peine discernab;e par rapport au bruit de photon. 
+- Selon nos calculs, il faut  diminuer le bruit d'un facteur 5 (pour que le pic raman soit 5 fois plus gros que le bruit). Nous devons donc intégrer plus longtemps d'un facteur: 25.
+- Nous devons donc intégrer 25 * 100s = 40 minutes.
