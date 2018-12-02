@@ -201,3 +201,27 @@ Le pics raman de l'huile d'olive sont très peu intense, moins intense que le br
 - Nous avons identifier un pic raman dans une acquisition antérieur de l'huile d'olive. Celui ci est à peine discernab;e par rapport au bruit de photon. 
 - Selon nos calculs, il faut  diminuer le bruit d'un facteur 5 (pour que le pic raman soit 5 fois plus gros que le bruit). Nous devons donc intégrer plus longtemps d'un facteur: 25.
 - Nous devons donc intégrer 25 * 100s = 40 minutes.
+
+
+
+apres 40 minutes 500,000 photon sur un des pics en 2400 secondes 
+
+
+
+
+
+Algrithme de soustraction de background
+
+Brian Wilson
+
+Michael Feld Jason Motz
+
+Frederic Leblond
+
+650 est 15384 cm -1
+
+632.8 et 15802 
+
+
+
+Huile de mais donne un pic d'environ 40,000 pres 100 secondes
