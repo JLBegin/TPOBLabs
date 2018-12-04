@@ -180,6 +180,9 @@ Introduction sur le bruit de photons, loi de poisson et tout...  la source provi
 
 **Trouver un moyen de séparer le signal de la fluorescence du signal Raman.** $$\rightarrow$$ on crois quil faut intégrer assez longtemps pour que le nombre de photon RAMAN soit au moins 5 fois plus grand que le bruit de photon.
 
+- Longueur d'excitation différente  pour me pas excité autant la fluorescence de la chlorophyle ---> pas possible dans le cadre du labo.
+- Trouver une différence dans la réponse de ces deux phénomènes par rapport à un certain paramètre (comme faire varier l'intensité de la source laser ?) ---> rien trouvé de concluant.
+
 # Spectroscopie Raman					semaine 2
 
 ------
@@ -188,11 +191,13 @@ Introduction sur le bruit de photons, loi de poisson et tout...  la source provi
 
 ### Amélioration du système
 
-Comme discuter avec prof Daniel, afin d'augmenter le nombre photon raman qui se rend au spectromètre, il serait utile d'augmenter l'irradiance  à la premier fente du système. Pour ce faire, nous pouvons modifier le premier système 4f afin de diminuer la taille du faisceau sur la fente.
+Comme discuter avec prof Daniel, afin d'augmenter le nombre photon raman qui se rend au spectromètre, il serait utile d'augmenter l'irradiance  à la premier fente du système. Pour ce faire, nous pouvons modifier le premier système 4f afin de diminuer la taille du faisceau sur la fente. **pas fait encore**
 
 ### Mesure du spectre Raman de l'huile d'olive
 
-Le pics raman de l'huile d'olive sont très peu intense, moins intense que le bruit de photon. Pour etre capable de différencier le bruit de photon des pics raman, nous devons donc réduire le bruit. En augmentant la durée de l'intégration le bruit de photons diminue. Il faut donc calculer le temps d'intégration nécessaire 
+Le pics raman de l'huile d'olive sont très peu intense, moins intense que le bruit de photon. Pour etre capable de différencier le bruit de photon des pics raman, nous devons donc augmenté le ratio signal/bruit. En augmentant la durée de l'intégration le bruit de photons diminue (est moins important par rapport à la mesure). Il faut donc calculer le temps d'intégration nécessaire. 
+
+>  Si nous voulons que le ratio signal sur bruit soit 5 fois supérieur qu'actuellement (1 pour 1) nous devons augmenté le temps d'intégration de $5^2$ donc de 100 secondes à  2500 secondes ($\approx 45$mins)
 
 
 
