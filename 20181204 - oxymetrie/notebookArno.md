@@ -49,3 +49,9 @@ Afin d'atténuer le bruit dans les hautes fréquances , la valeur d'un condensat
 > valeur de 0.2$\mu$F
 
 > la  fréquence de coupure est d'environ 800Hz
+
+
+
+### Branchement du circuit d'alimentation
+
+Mesure des courants
