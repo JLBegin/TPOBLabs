@@ -51,11 +51,103 @@ AO1 : Branche 2 : Channel 2
 - Fréquence de coupure : 800 Hz
 - 
 
+##### Circuit amplifiant le courant pour la DEL
+
+[photo]
+
+Mesures de $I_c$:
+
+- Range ampèremètre 200mA
+
+| AO0 (V)    | $I_c $ (mA) |
+| ---------- | ----------- |
+| $\pm$ 0.01 | $\pm$ 0.2   |
+| 0.80       | 14.9        |
+| 0.90       | 23.5        |
+| 1.00       | 27.2        |
+| 1.10       | 28.7        |
+| 1.20       | 35.6        |
+| 1.30       | 38.7        |
+| 1.40       | 39.6        |
 
 
 
+Mesures de $I_b$:
+
+- Range ampèremètre 2000 $\mu$
+
+| AO0 (V)    | $I_b $ ($\mu$A) |
+| ---------- | --------------- |
+| $\pm$ 0.01 | $\pm$ 2         |
+| 0.80       | 61              |
+| 0.90       | 115             |
+| 1.00       | 172             |
+| 1.10       | 230             |
+| 1.20       | 290             |
+| 1.30       | 350             |
+| 1.40       | 416             |
 
 
+
+- Valeur moyenne du gain $h_{FE}$:
+
+
+
+## Deuxième séance
+
+- Interchange Ox3 et Ox2 afin de tester la lumière infrarouge. 
+
+
+
+Mesures de $I_c$:
+
+- Range ampèremètre 200mA
+
+| AO0 (V)    | $I_c $ (mA) |
+| ---------- | ----------- |
+| $\pm$ 0.01 | $\pm$ 0.2   |
+| 0.80       | 14.9        |
+| 0.90       | 18.9        |
+| 1.00       | 30.0        |
+| 1.10       | 33.3        |
+| 1.20       | 38.4        |
+| 1.30       | 41.8        |
+| 1.40       | 44.9        |
+
+
+
+Mesures de $I_b$:
+
+- Range ampèremètre 2000 $\mu$A
+
+| AO0 (V)    | $I_b $ ($\mu$A) |
+| ---------- | --------------- |
+| $\pm$ 0.01 | $\pm$ 2         |
+| 0.80       | 97              |
+| 0.90       | 180             |
+| 1.00       | 270             |
+| 1.10       | 320             |
+| 1.20       | 346             |
+| 1.30       | 422             |
+| 1.40       | 500             |
+
+
+
+##### Montage d'oxymétrie complet
+
+- 8.3 V au lieu de 9V sur chaque graphique
+
+
+
+##### Calibration et calcul du SpO2
+
+Pouls déjà bien calibrer avec 60 sur l'oxymètre portable et le nôtre. 
+
+SpO2 est initialement autour de 91% au lieu de 98%
+
+Facteur de calibration à 1.1 pour SpO2
+
+Prise de données sauvegardé.
 
 
 

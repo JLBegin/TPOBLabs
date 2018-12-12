@@ -220,14 +220,4 @@ Reconfigurer le premier relais optique après l'échantillon afin d'augmenter l'
 
 
 
-
-
-# TODOS
-
-**Prendre PHOTOS du montage !!**
-
-**Transférer les fichiers de l'ordi du labo vers le nôtre.** 
-
-Obtenir logiciel Spectromètre Ocean Optics
-
  
