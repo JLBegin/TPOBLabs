@@ -72,7 +72,7 @@
 
 ## Montage
 
-![Montage de spectroscopie Raman](C:/Users/arnau/Documents/GitHub/TPOBLabs/20181120%20-%20spectroscopieRaman/montageRaman.png)
+![Montage de spectroscopie Raman](montageRaman.png)
 
 Introduction sur le montage: illumination, fentes, filtre onde plane, réseau holographique.
 
@@ -155,7 +155,7 @@ Introduction sur le bruit de photons, loi de poisson et tout...  la source provi
 #### Prise de spectres Raman pour solutions organiques
 
 - Pour chaque échantillon, on enregistre son spectre pour un temps d'intégration de 100s. 
-- Software binning
+- Software binning est activé
 
 | Solution      | Nom du fichier  |
 | ------------- | --------------- |
@@ -197,17 +197,31 @@ Comme discuter avec prof Daniel, afin d'augmenter le nombre photon raman qui se 
 
 Le pics raman de l'huile d'olive sont très peu intense, moins intense que le bruit de photon. Pour etre capable de différencier le bruit de photon des pics raman, nous devons donc augmenté le ratio signal/bruit. En augmentant la durée de l'intégration le bruit de photons diminue (est moins important par rapport à la mesure). Il faut donc calculer le temps d'intégration nécessaire. 
 
->  Si nous voulons que le ratio signal sur bruit soit 5 fois supérieur qu'actuellement (1 pour 1) nous devons augmenté le temps d'intégration de $5^2$ donc de 100 secondes à  2500 secondes ($\approx 45$mins)
+>  Si nous voulons que le ratio signal sur bruit soit 5 fois supérieur qu'actuellement (1 pour 1) nous devons augmenté le temps d'intégration de $5^2$ donc de 100 secondes à  2500 secondes ($\approx 45$min)
 
 
 
 ## In Lab
 
-- Nous avons identifier un pic raman dans une acquisition antérieur de l'huile d'olive. Celui ci est à peine discernab;e par rapport au bruit de photon. 
+- Nous avons identifier un pic raman dans une acquisition antérieur de l'huile d'olive. Celui ci est à peine discernable par rapport au bruit de photon. $\rightarrow$ Pour déduire ou sont les pics RAMAN on de fit à la position des autres substances car les pics ramans sont au même endroits.
 - Selon nos calculs, il faut  diminuer le bruit d'un facteur 5 (pour que le pic raman soit 5 fois plus gros que le bruit). Nous devons donc intégrer plus longtemps d'un facteur: 25.
 - Nous devons donc intégrer 25 * 100s = 40 minutes.
 
+### Manipulations
 
+- Réalignement du faisceau d'entrée afin de remplir la caméra en son centre. 
+
+- Prendre une mesure du spectre de l'huile d'olive sur 10 min (300x2s)
+
+- Calculer le ratio nécessaire afin de différencier les pics Raman du bruit.  (comme expliqué plus baut)
+
+  > Il faudrait obtenir un ratio deux fois plus grand. Cela mène alors à 4x plus de données. 
+
+- Prendre une nouvelle lecture en prenant compte de la diminution sur le bruit avec $\sqrt{N}$ de sorte à obtenir le ratio calculé. 
+
+  > Acquisition sur 40 min (1200 x 2s)
+
+- 
 
 apres 40 minutes 500,000 photon sur un des pics en 2400 secondes 
 
@@ -215,7 +229,7 @@ apres 40 minutes 500,000 photon sur un des pics en 2400 secondes
 
 
 
-Algrithme de soustraction de background
+Algrithme de soustraction de background, piste de solution:
 
 Brian Wilson
 
@@ -223,13 +237,17 @@ Michael Feld Jason Motz
 
 Frederic Leblond
 
+Importance de transformé les longueurs d'onde en raman shift:
+
+wavenumber = $ (\frac{1}{\lambda_1}+ \frac{1}{\lambda_2} )^{-1}$
+
 650 est 15384 cm -1
 
-632.8 et 15802 
+632.8 est 15802 
 
 
 
-Huile de mais donne un pic d'environ 40,000 pres 100 secondes
+Huile de mais donne un pic d'environ 40,000 apres 100 secondes
 
 
 

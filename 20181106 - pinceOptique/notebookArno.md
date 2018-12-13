@@ -157,6 +157,10 @@ Les données son dans un fichier excel sur l'ordi de ludo : penteQuad.xlxs
 
 vu le fait qu'on avait pas beaucoup de données il a fallu enlever ceux qui sont abérrantes pour obtenir un belle droite.
 
+
+
+![](constanteDeTrappe.jpg)
+
 ### Caractérisation du puit de potentiel  (constante de trappe)
 
 - Guillaume prépare un nouvel échantillon car les billes sont toutes collées sur la lame.
@@ -234,6 +238,8 @@ En démontant le *quadCell* nous nous sommes aperçu que les lentilles de celle-
 
 ### Résumé des modificaions
 
+![](newSetup.png)
+
 1. Retiré le filtre infrarouge après le deuxième objectif (NA=0.5) car on veut que le laser infrafouge se rendre à la *quadCell*
 
 2. Retiré le filtre ava le *quadCell* qui ne laissait passé que 632.8
@@ -308,9 +314,15 @@ On fait des steps de 1 um et traverse la bille dans l'axe Y en notant la tension
 
 - Cela donne une pente linéaire au centre de la courbe de **37 500 V/m**.
 
+![](constanteDeTrappe2.jpg)
 
 
-**ATTN: **La somme des deux axes n'est pas constante (environ 1 V à l'extérieur de la bille versus 0.5 V au centre). On réalise que cela est dû au fait que le laser n'est finalement pas collimé après l'objectif (au QuadCell). Il faut alors replacer les objectifs de sorte à obtenir un faisceau collimé à la sortie. 
+
+Il y a beacoup de points abberants et ils ne semble pas avoir de droite précise. Ces variations sont probablement du à la lecture qui est effectué à la main.
+
+
+
+ATTN: **La somme des deux axes n'est pas constante (environ 1 V à l'extérieur de la bille versus 0.5 V au centre). On réalise que cela est dû au fait que le laser n'est finalement pas collimé après l'objectif (au QuadCell). Il faut alors replacer les objectifs de sorte à obtenir un faisceau collimé à la sortie. 
 
 
 
