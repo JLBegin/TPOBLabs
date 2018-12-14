@@ -72,7 +72,7 @@
 
 ## Montage
 
-![Montage de spectroscopie Raman](montageRaman.png)
+![Montage de spectroscopie Raman](montageRaman.jpg)
 
 Introduction sur le montage: illumination, fentes, filtre onde plane, réseau holographique.
 
@@ -104,11 +104,13 @@ Introduction sur le bruit de photons, loi de poisson et tout...  la source provi
 | 0.01                     | bruit_lecture_10um.txt  |
 | 0.001                    | bruit_lecture_1um.txt   |
 
-**Bruit moyen: ** 61 570 / 100px
+**Bruit moyen: ** 61 570 bits / 100px $\rightarrow$ la caméra possède 100 pixels de haut 
 
-#### Caractérisation du bruit thermique
+####  Caractérisation du bruit thermique
 
-- 
+- Aucune illumination (seulement le bruit de lecture et le bruit thermique).
+- Temps d'intégration plus long afin d'observer l'effet du bruit thermique.
+- Mesures enregistrées dans les fichiers suivants: 
 
 | Temps d'intégration (s) | Nom du fichier           |
 | ----------------------- | ------------------------ |
@@ -119,7 +121,7 @@ Introduction sur le bruit de photons, loi de poisson et tout...  la source provi
 | 50                      | bruit_thermique_50s.txt  |
 | 100                     | bruit_thermique_100s.txt |
 
-**Graphique du signal en fonction du temps d'intégration**
+À faire plus tard --> Graphique du signal en fonction du temps d'intégration
 
 
 
@@ -169,12 +171,6 @@ Introduction sur le bruit de photons, loi de poisson et tout...  la source provi
 | Tournesol     | tournesol.txt   |
 | Maïs          | mais.txt        |
 | Huile d'olive | olive.txt       |
-
-
-
-
-
-**PHOTOS !!**
 
 
 
