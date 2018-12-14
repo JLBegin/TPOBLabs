@@ -1,63 +1,79 @@
 
 
-| **Ludovick Bégin - 111 159 148** | Date: 4 décembre2018 |
-| -------------------------------- | -------------------: |
-|                                  |                      |
+| **Ludovick Bégin - 111 159 148** | Date: 4 décembre 2018 |
+| -------------------------------- | --------------------: |
+|                                  |                       |
 
 ## Oxymétrie - Partie 1
 
 ### But
 
+Mettre en application les notions d'oxymétrie et d'électronique afin de bâtir un sphygmo-oxymètre.
 
 
 ### Préparation
 
+***1. Quelle est la plus grosse approximation dans ce laboratoire ?***
 
-
-### Montage
-
+La loi de Beer-Lambert qui décrit l'atténuation d'un signal lumineux dans un matériau fonctionne si ce matériau est isotrope et homogène. On approxime alors les tissus humains comme un matériau isotrope et homogène. 
 
 
 ### Manipulations
 
-##### Générateur de fonctions
+#### Générateur de fonctions
 
-- Labview affiche moyenne de 0V sur le channel rouge et 2.5V sur le channel infrarouge.
+Le tout est effectué à l'aide du programme LabView `oxymètre.lvm`. 
+
+- Labview affiche une moyenne de 0V sur le channel rouge et 2.5V sur le channel infrarouge.
 
 - Connection des sorties de la carte d'acquisition sur l'oscilloscope.
 
-AO0 : Branche 4 : Channel 1
+  - AO0 (Branche 4) vers Channel 1
 
-AO1 : Branche 2 : Channel 2
+  - AO1 (Branche 2) vers Channel 2
 
-- On règle les deux channels sur Labview à 3V et on observe leur signal sur l'oscilloscope: 
-  - Channel 1
-    - C-C (max-min) : 3.20 V
-    - Freq: 33.33 Hz +/- 1
-  - Channel 2
-    - C-C: 3.20 V
-    - Freq: 33.33 Hz
+  > Il faut régler les deux channels de l'oscilloscope en mode couplage C-C pour voir l'onde carré.
 
-- On connecte les sorties de la carte directement à l'oxymètre.
+- On règle les deux channels sur LabView à 3V et on observe leur signal sur l'oscilloscope: 
+  - Channel 1 et channel 2: 
+    - Tension crète à crète : 3.20 V
+    - Fréquence : 33.33 Hz
+
+    > On observe des ondes carrés qui sont déphasées afin d'allumer les deux LED en alternance (pour le tier du temps chacun). 
+
+- On connecte les sorties de la carte d'acquisition (AO0 et AO1) à l'oxymètre afin d'alimenter ce dernier avec le générateur de fonctions.
 - On voit la lumière rouge en marche, la lumière infrarouge reste toutefois invisible même sur la carte infrarouge. 
 
-##### Circuit de détection
 
-- Boite cap-range**
+#### Circuit de détection
 
-- Ampli non fonctionnel -> changé -> ca marche !
-- Condensateur 0.2 uF
+![Circuit de détection](circuit_detection.PNG)
 
-- Fréquence de coupure : 800 Hz
-- 
+- Ce circuit est monté en respectant les indications sur la figure.
 
-##### Circuit amplifiant le courant pour la DEL
+  > Nous obtenions que du bruit à la sortie de l'amplificateur et le changement de la transimpédance n'aide pas la cause.
 
-[photo]
+  > Après changement de la puce OP27 nous obtenons un beau signal carré qui s'apparente au DAC avec le double de la fréquence (66.66 Hz). L'ancienne puce (non-fonctionnelle) est jetée au poubelle. On garde maintenant la résistance de 1M$\Omega$. 
 
-Mesures de $I_c$:
+- Le condensateur (à droite sur la figure du circuit) est fixé à 0.2 $\mu F$ avec la boîte Cap-Range afin d'obtenir un filtre passe-bas décent sur le signal. 
 
-- Range ampèremètre 200mA
+- La fréquence de coupure est calculée à environ 800 Hz.
+
+![Signal observé en détection](signal_detection.jpg)
+
+- Signal observé en détection (haut) et signal d'entré pour l'une des DEL (bas). 
+
+
+#### Circuit de gain par transitor pour le courant de la DEL
+
+![Circuit d'amplification pour une DEL](circuit_ampli.PNG)
+
+Ce circuit est monté en respectant les indications sur la figure.
+
+
+##### Mesures de $I_c$:
+
+- Range ampèremètre reglé à 200mA
 
 | AO0 (V)    | $I_c $ (mA) |
 | ---------- | ----------- |
@@ -72,9 +88,9 @@ Mesures de $I_c$:
 
 
 
-Mesures de $I_b$:
+##### Mesures de $I_b$:
 
-- Range ampèremètre 2000 $\mu$
+- Range ampèremètre reglé à 2000 $\mu$A
 
 | AO0 (V)    | $I_b $ ($\mu$A) |
 | ---------- | --------------- |
@@ -89,17 +105,17 @@ Mesures de $I_b$:
 
 
 
-- Valeur moyenne du gain $h_{FE}$:
+- Valeur moyenne du gain $h_{FE} = I_c / I_b = 40x/0.59x = 68$
 
 
 
 ## Deuxième séance
 
-- Interchange Ox3 et Ox2 afin de tester la lumière infrarouge. 
+- On interchange Ox3 et Ox2 afin de tester la lumière infrarouge. 
 
 
 
-Mesures de $I_c$:
+##### Mesures de $I_c$:
 
 - Range ampèremètre 200mA
 
@@ -116,7 +132,7 @@ Mesures de $I_c$:
 
 
 
-Mesures de $I_b$:
+##### Mesures de $I_b$:
 
 - Range ampèremètre 2000 $\mu$A
 
@@ -133,21 +149,28 @@ Mesures de $I_b$:
 
 
 
-##### Montage d'oxymétrie complet
-
-- 8.3 V au lieu de 9V sur chaque graphique
+- Valeur moyenne du gain $h_{FE} = I_c / I_b = 51x/0.63x = 81$
 
 
 
-##### Calibration et calcul du SpO2
+#### Montage complet du sphygmo-oxymètre
 
-Pouls déjà bien calibrer avec 60 sur l'oxymètre portable et le nôtre. 
+![](circuit_final.PNG)
 
-SpO2 est initialement autour de 91% au lieu de 98%
+- Ce circuit est monté en respectant les indications sur la figure.
+- La lecture en tension sur LabView est de 8.3 V au lieu de 9V sur chaque graphique
 
-Facteur de calibration à 1.1 pour SpO2
 
-Prise de données sauvegardé.
+
+#### Calibration et calcul du SpO2
+
+- Pouls déjà bien calibrer avec 60 sur l'oxymètre portable et le nôtre. 
+
+- SpO2 est initialement autour de 91% au lieu de 98%.
+
+- Facteur de calibration à 1.1 pour SpO2.
+
+- Prise de données sauvegardé sur clé usb.
 
 
 
