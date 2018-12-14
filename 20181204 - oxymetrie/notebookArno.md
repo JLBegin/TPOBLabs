@@ -50,7 +50,7 @@ Afin d'atténuer le bruit dans les hautes fréquances , la valeur d'un condensat
 
 > la  fréquence de coupure est d'environ 800Hz
 
-### Circuit amplifiant le courant pour la DEL
+### Circuit de gain par transitor pour le courant de la DEL
 
 [photo]
 
