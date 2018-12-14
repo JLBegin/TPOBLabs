@@ -2,61 +2,90 @@
 | -------------------------------- | --------------------: |
 |                                  |                       |
 
-# Oxymetrie								semaine 1
+# Oxymetrie							semaine 1
 
 ------
 
+### But
+
+Mettre en application les notions d'oxymétrie et d'électronique afin de bâtir un sphygmo-oxymètre.
+
+### Préparation
+
+***1. Quelle est la plus grosse approximation dans ce laboratoire ?***
+
+La loi de Beer-Lambert qui décrit l'atténuation d'un signal lumineux dans un matériau fonctionne si ce matériau est isotrope et homogène. On approxime alors les tissus humains comme un matériau isotrope et homogène. 
+
+### Manipulations
+
+#### Générateur de fonctions avec carte d'acquisition 
+
+Le tout est effectué à l'aide du programme LabView `oxymètre.lvm`.  --> sur el bureau de l'ordinateur 
+
+- Connection des sorties de la carte d'acquisition sur l'oscilloscope.
+
+  -  channel 2 (pin 2 AO1) -> max: 3.2+/- 0.1, freq: 33 +/- 1 Hz
+
+    channel 1 (pin 4 AO 0) -> max: 3.2 +/- 0.1 , freq : 33 +/- 1 Hz
+
+  > Il faut régler les deux channels de l'oscilloscope en mode couplage C-C pour voir l'onde carré.
+
+- On règle les deux channels sur LabView à 3V et on observe leur signal sur l'oscilloscope: 
+
+  - Channel 1 et channel 2: 
+
+    - Tension crète à crète : 3.20 V
+    - Fréquence : 33.33 Hz - > pour que les LEDS fonctionnent en alternance
+
+    > On observe des ondes carrés qui sont déphasées une par rapport à l'autre
+
+- On connecte les sorties de la carte d'acquisition (AO0 et AO1) à l'oxymètre afin d'alimenter ce dernier avec le générateur de fonctions.
+
+- On voit la lumière rouge en marche, la lumière infrarouge reste toutefois invisible même sur la carte infrarouge. --> il faudrait etre dans le noir complet.
+
+#### Circuit de détection
+
+![Circuit de détection](C:/Users/arnau/Documents/GitHub/TPOBLabs/20181204%20-%20oxymetrie/circuit_detection.PNG)
+
+- Ce circuit est monté en respectant les indications sur la figure.
 
 
-## Question préparatoires
 
-### Quel est la plus grosse approximation dans ce lab:
+  Au début on onbserve que du bruit on essai de changer al résistane de 1M par 1k pour pas amplifier le trop le bruit --> aucune différence.
 
-> beer lambert -> les tissu sont isotrope et homogène
+  > Après changement de la puce OP27 nous obtenons un beau signal carré qui s'apparente au DAC avec le double de la fréquence (66.66 Hz). L'ancienne puce (non-fonctionnelle) est jetée au poubelle. On garde maintenant la résistance de 1M$\Omega$.  Allure du signal dans la photo.
+  >
+  >
+
+- Le condensateur (à droite sur la figure du circuit) est fixé à 0.2 $\mu F$ avec la boîte Cap-Range afin d'obtenir un filtre passe-bas décent sur le signal. Si on met trop de capacitance, le signal devient de plus en plus sunisoïdale. et si on pas assez de capacitance, on voit du bruit haute fréquence.
+
+  La fréquence de coupure est calculée à environ 800 Hz.
+
+![Signal observé en détection](C:/Users/arnau/Documents/GitHub/TPOBLabs/20181204%20-%20oxymetrie/signal_detection.jpg)
+
+- Signal observé en détection (haut) et signal d'entré pour l'une des DEL (bas). 
 
 
 
-## En labo
+# Oxymetrie							semaine 2
 
-### Générateurs de fonctions
+------
 
-On observe des ondes carrés  pour les deux channels sur l'oscilloScope
+On continue à assambler le circuit. Surtout l'alimentation des LED avec le transitors
 
-> il faut bien réglé les deux channels a couplage C-C pour avoir de belles ondes carré
+#### Circuit de gain par transitor pour le courant de la DEL
 
-Sur le logiciel oxymètre, on set les channel à 3 volts:
+![Circuit d'amplification pour une DEL](C:/Users/arnau/Documents/GitHub/TPOBLabs/20181204%20-%20oxymetrie/circuit_ampli.PNG)
 
-On mesure les valeurs suivantes sur l'oscilloscope
+Ce circuit est monté en respectant les indications sur la figure.
 
- channel 2 (pin 2 AO1) -> max: 3.2+/- 0.1, freq: 33 +/- 1 Hz
+##### Mesures de $I_c$:
 
-channel 1 (pin 4 AO 0) -> max: 3.2 +/- 0.1 , freq : 33 +/- 1 Hz
+> Nous ne sommes pas dans le range indiqué dans le potocole, mais tout semble bien marcher quand meme alors on prend les mesures de courant avec l'échelle
 
-> il est impossible de voir l'infrarouge , il faudrait etre dans le noir total
->
-> Nous pouvons cependant très bien voir la diode rouge
+Pour les prochaines sections, les voltages sont appliqué à l'aide du logiciel qui permet de controler la carte d'acquisition. --> c'est pas LabView
 
-### Circuit d'amplification (détection)
-
-Nous avons réalisé le montage de la figure 7
-
-> nous obtenions que du bruit à la sortie de l'ampli
->
-> Après chagement de puce OP27 nous obtenons un beau signal carré qui s'apparente au DAC avec le double de fréquence
-
-Afin d'atténuer le bruit dans les hautes fréquances , la valeur d'un condensateur est ajusté afin d'avoir un effet passe bas
-
-> valeur de 0.2$\mu$F
-
-> la  fréquence de coupure est d'environ 800Hz
-
-### Circuit de gain par transitor pour le courant de la DEL
-
-[photo]
-
-Mesures de $I_c$:
-
-- Range ampèremètre 200mA
+- Range ampèremètre reglé à 200mA
 
 | AO0 (V)    | $I_c $ (mA) |
 | ---------- | ----------- |
@@ -71,9 +100,9 @@ Mesures de $I_c$:
 
 
 
-Mesures de $I_b$:
+##### Mesures de $I_b$:
 
-- Range ampèremètre 2000 $\mu$
+- Range ampèremètre reglé à 2000 $\mu$A
 
 | AO0 (V)    | $I_b $ ($\mu$A) |
 | ---------- | --------------- |
@@ -88,17 +117,15 @@ Mesures de $I_b$:
 
 
 
-- Valeur moyenne du gain $h_{FE}$:
+- Valeur moyenne du gain $h_{FE} = I_c / I_b = 40x/0.59x = 68$
 
 
 
-## Deuxième séance
+- On interchange Ox3 et Ox2 afin de tester la lumière infrarouge. 
 
-- Interchange Ox3 et Ox2 afin de tester la lumière infrarouge. 
+  > On ne voit toujours pas la LED infrarouge, mais le multimetre répond alors nous prenons les mesures
 
-
-
-Mesures de $I_c$:
+##### Mesures de $I_c$:
 
 - Range ampèremètre 200mA
 
@@ -115,7 +142,7 @@ Mesures de $I_c$:
 
 
 
-Mesures de $I_b$:
+##### Mesures de $I_b$:
 
 - Range ampèremètre 2000 $\mu$A
 
@@ -132,21 +159,27 @@ Mesures de $I_b$:
 
 
 
-### Montage d'oxymétrie complet
-
-- 8.3 V au lieu de 9V sur chaque graphique
+- Valeur moyenne du gain $h_{FE} = I_c / I_b = 51x/0.63x = 81$
 
 
 
-### Calibration et calcul du SpO2
+#### Montage complet du sphygmo-oxymètre
 
-Pouls déjà bien calibrer avec 60 sur l'oxymètre portable et le nôtre. 
+![](C:/Users/arnau/Documents/GitHub/TPOBLabs/20181204%20-%20oxymetrie/circuit_final.PNG)
 
-SpO2 est initialement autour de 91% au lieu de 98%
+- Ce circuit est monté en respectant les indications sur la figure.
+- La lecture en tension sur LabView est de 8.3 V au lieu de 9V sur chaque graphique
 
-Facteur de calibration à 1.1 pour SpO2
 
-Prise de données sauvegardé.
+
+#### Calibration et calcul du SpO2
+
+- Pouls déjà bien calibrer avec 60 sur l'oxymètre portable et le nôtre. 
+- SpO2 est initialement autour de 91% au lieu de 98%.
+- Facteur de calibration à 1.1 pour SpO2.
+- Prise de données sauvegardé sur clé usb.
+
+
 
 
 
