@@ -152,6 +152,3 @@ Prise de données sauvegardé.
 
 
 
-### Branchement du circuit d'alimentation
-
-Mesure des courants
