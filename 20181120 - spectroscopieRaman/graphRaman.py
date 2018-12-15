@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import fftpack
 
 """❤😁💕💋💖🤳✨😃👀✔🐱‍🚀🥠🍜🥠🍜🥟🌮"""
 
@@ -20,11 +21,11 @@ class Raman:
         self.normalize()
         self.calibrate()
         if self.removeFluo:
-            self.curveFit(degree=3, sections=10)
+            self.curveFit(degree=40, sections=1)
         self.plot()
 
     def getFile(self):
-        self.fileName = "data/{}".format(["mercury_27nov.txt", "ethanol.TXT", "olive40m.txt", "canola.TXT", "mais.TXT", "lampeMercure1.TXT"][2])
+        self.fileName = "data/{}".format(["mercury_27nov.txt", "ethanol.TXT", "olive40m.txt", "canola.TXT", "mais.TXT", "lampeMercure1.TXT"][4])
 
     def getData(self):
         with open(self.fileName, "r") as file:
@@ -74,10 +75,24 @@ class Raman:
             plt.plot(self.waveNumbers, self.fit, label="Curve fit")
             plt.plot(self.waveNumbers, raman/np.max(raman*3), label="Difference")
 
+        N = len(self.intensities)
+        fZ = np.fft.fft(self.intensities)
+        # fZ = fftpack.fftshift(np.abs(fZ))
+        fr = np.linspace(-N/1.6, N/1.6, N)
+
+        fZ[np.where(np.abs(fr) > 800)] = 0
+        fZ[np.where(np.abs(fr) < 0)] = 0
+
+        waves = np.fft.ifft(fZ)
+
+        # plt.plot(fr, fZ, label='fft')
+
+        plt.plot(self.waveNumbers, np.abs(waves), label="ifft")
+
         plt.ylabel("Intensity", fontsize=12)
         plt.xlabel("Wave number [1/cm]", fontsize=11)
         plt.legend(loc="best")
-        plt.xlim(500, xlim)
+        # plt.xlim(500, xlim)
         plt.tight_layout()
         plt.show()
 
