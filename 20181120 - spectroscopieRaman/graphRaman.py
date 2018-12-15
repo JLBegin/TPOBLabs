@@ -15,6 +15,9 @@ class Raman:
         self.integrationTimes = [100, 100, 100, 100, 1200*2]
         self.numberOfAcq = [100, 100, 100, 100, 1200]
 
+        self.solFiles = ["data/{}.TXT".format(solution) for solution in ["ethanol", "isopropanol", "methanol", "glycerol", "sucrose"]]
+        self.solNames = ["Éthanol", "Isopropanol", "Méthanol", "Glycérol", "Sucrose"]
+
         self.readNoiseValue = 61634
         self.thermalCoef = 8.97
         self.photonsPerBit = 4.35
@@ -26,14 +29,14 @@ class Raman:
 
         self.fileName = ""
 
-    def graph(self):
+    def graphOils(self):
         fig, axes = plt.subplots(len(self.oilFiles), sharex=True, sharey=False)
 
         self.setCalibration()
 
         for i, file in enumerate(self.oilFiles):
             pixel, intensity = self.getData(file)
-            intensity -= self.readNoiseValue * self.numberOfAcq[i]
+            # intensity -= self.readNoiseValue * self.numberOfAcq[i]
             intensity -= self.thermalCoef * self.integrationTimes[i]
 
             waveNumber = self.translate(pixel)
@@ -48,13 +51,52 @@ class Raman:
             # raman -= np.mean(raman)
             # raman /= np.max(raman*10)
             axes[i].plot(waveNumber, raman, label=self.oilNames[i])
-            axes[i].legend(handlelength=0)
+            axes[i].legend(handlelength=0, fontsize=12)
             axes[i].set_ylim(min(raman), 3200)
+            axes[i].tick_params(labelsize=12)
             if i == 2:
-                axes[i].set_ylabel("Intensité [p/s]")
+                axes[i].set_ylabel("Intensité [p/s]", fontsize=13)
 
-        plt.xlabel("Nombre d'onde [cm$^{-1}$]")
-        fig.subplots_adjust(hspace=0)
+        plt.xlabel("Nombre d'onde [cm$^{-1}$]", fontsize=13)
+        plt.xlim(1200, 1850)
+        fig.subplots_adjust(hspace=0, top=0.965, bottom=0.11, left=0.14, right=0.94, wspace=0.2)
+
+        plt.show()
+
+    def graphSols(self):
+        fig, axes = plt.subplots(len(self.solFiles), sharex=True, sharey=False)
+
+        self.setCalibration()
+
+        for i, file in enumerate(self.solFiles):
+            pixel, intensity = self.getData(file)
+            # intensity -= self.readNoiseValue * 100
+            intensity -= self.thermalCoef * 100
+
+            waveNumber = self.translate(pixel)
+
+            waveNumber, intensity = self.cut(waveNumber, intensity, low=250, high=1600)
+
+            fit = 0
+            if i == 3 or 4:
+                fit = self.curveFit(waveNumber, intensity, degree=2, sections=1)
+
+            raman = intensity - fit
+            raman /= 100
+            raman *= self.photonsPerBit
+            # raman -= np.mean(raman)
+            # raman /= np.max(raman*10)
+            axes[i].plot(waveNumber, raman, label=self.solNames[i])
+            axes[i].legend(handlelength=0, fontsize=12)
+            axes[i].set_ylim(min(raman), 4000)
+            axes[i].tick_params(labelsize=12)
+
+            if i == 2:
+                axes[i].set_ylabel("Intensité [p/s]", fontsize=13)
+
+        plt.xlabel("Nombre d'onde [cm$^{-1}$]", fontsize=13)
+        plt.xlim(250, 1600)
+        fig.subplots_adjust(hspace=0, top=0.965, bottom=0.11, left=0.14, right=0.94, wspace=0.2)
 
         plt.show()
 
@@ -95,9 +137,9 @@ class Raman:
     def wToLambda(waveNumbers):
         return [np.round(((1/632.8 - w*10**(-7))**(-1)), 2) for w in waveNumbers]
 
-    def cut(self, waveNumbers, intensities):
-        start = np.where(waveNumbers > 1200)[0][0]
-        end = np.where(waveNumbers > 1850)[0][0]
+    def cut(self, waveNumbers, intensities, low=1200, high=1850):
+        start = np.where(waveNumbers > low)[0][0]
+        end = np.where(waveNumbers > high)[0][0]
 
         return waveNumbers[start: end], intensities[start: end]
 
@@ -155,4 +197,6 @@ class Raman:
         plt.tight_layout()
         plt.show()
 
-Raman().graph()
+Raman().graphOils()
+
+Raman().graphSols()
