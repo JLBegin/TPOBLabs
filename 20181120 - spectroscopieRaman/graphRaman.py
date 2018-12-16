@@ -36,7 +36,7 @@ class Raman:
 
         for i, file in enumerate(self.oilFiles):
             pixel, intensity = self.getData(file)
-            # intensity -= self.readNoiseValue * self.numberOfAcq[i]
+            intensity -= self.readNoiseValue
             intensity -= self.thermalCoef * self.integrationTimes[i]
 
             waveNumber = self.translate(pixel)
@@ -48,8 +48,8 @@ class Raman:
             raman = intensity - fit
             raman /= self.integrationTimes[i]
             raman *= self.photonsPerBit
-            # raman -= np.mean(raman)
-            # raman /= np.max(raman*10)
+
+            # axes[i].plot(waveNumber, (intensity/self.integrationTimes[i])*self.photonsPerBit)
             axes[i].plot(waveNumber, raman, label=self.oilNames[i])
             axes[i].legend(handlelength=0, fontsize=12)
             axes[i].set_ylim(min(raman), 3200)
@@ -70,7 +70,7 @@ class Raman:
 
         for i, file in enumerate(self.solFiles):
             pixel, intensity = self.getData(file)
-            # intensity -= self.readNoiseValue * 100
+            intensity -= self.readNoiseValue
             intensity -= self.thermalCoef * 100
 
             waveNumber = self.translate(pixel)
