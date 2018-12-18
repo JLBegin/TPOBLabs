@@ -112,7 +112,9 @@ insaturé $$\rightarrow$$ 85%
 | 0.01                     | bruit_lecture_10um.txt  |
 | 0.001                    | bruit_lecture_1um.txt   |
 
-**Bruit moyen par pixel: ** 61.6 (bits)
+![](readNoise.png)
+
+**Bruit moyen pour 100 pixels par acquisition: ** 61642 / 1 = **61 600 bits**
 
 ##### Caractérisation du bruit thermique
 
@@ -129,9 +131,11 @@ insaturé $$\rightarrow$$ 85%
 | 50                      | bruit_thermique_50s.txt  |
 | 100                     | bruit_thermique_100s.txt |
 
-**À faire:** Graphique du signal en fonction du temps d'intégration.
+![](thermalNoise.png)
 
- 
+Pour chaque temps d'intégration R (écrit dans la table), on calcule la valeur moyenne du signal et on calcule la pente moyenne (curve-fit de degré 1):
+
+**Bruit thermique moyen par seconde**: **8.97 bits/s**
 
 ##### Caractérisation du bruit de photon
 
@@ -145,6 +149,8 @@ insaturé $$\rightarrow$$ 85%
 | 1                       | bruit_photon_1s.txt    |
 | 5                       | bruit_photon_5s.txt    |
 | 10                      | bruit_photon_10s.txt   |
+
+![](photonNoise.png)
 
 
 
