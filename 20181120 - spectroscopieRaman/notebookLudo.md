@@ -46,7 +46,6 @@ $$w = \left(  \frac{1}{\lambda_1} - \frac{1}{\lambda_2}\right)$$
 
 $$w_{632.8\rightarrow700 (nm)} = \left(  \frac{1}{632.8} - \frac{1}{700}\right)  =151.7 \text{cm}^{-1}$$
 
-
 ***5. Le bruit de photon en fonction du temps d'intégration.***
 
 Le bruit de photon est une variable aléatoire modélisé par le processus de poisson et qui peut alors être exprimé par la loi normale (gaussienne) lorsque l'échantillonage est grand (théorème central limite). En augmentant le temps d'intégration (somme de variables aléatoires), la moyenne du nombre de photons augmente linéairement ($n\mu$), alors que l'écart-type augmente plus lentement par la racine ($\sqrt{n}\sigma$). On peut alors réduire le bruit (l'écart-type sur la moyenne) en intégrant plus longtemps. 
@@ -76,7 +75,7 @@ insaturé $$\rightarrow$$ 85%
 - Le laser illumine l'échantillon sur une ligne horizontale.
 - L'illumination sur l'échantillon est imagé, à l'aide d'un relais, sur une fente.
 
-- La fente (de 100nm) est orienté verticalement afin de faciliter l'alignement (obtention de lumière). Cela bloque toutefois grandement la lumière provenant de l'échantillon (compromis).
+- La fente (de 100$\mu$m) est orienté verticalement afin de faciliter l'alignement (obtention de lumière). Cela bloque toutefois grandement la lumière provenant de l'échantillon (compromis).
 - L'image de cette fente est alors agrandi par un autre relais. 
 - La lumière passe alors sur un réseau de diffraction holographique. 
 - Chaque longueur d'onde est alors diffracté à un angle spécifique. 
@@ -112,9 +111,9 @@ insaturé $$\rightarrow$$ 85%
 | 0.01                     | bruit_lecture_10um.txt  |
 | 0.001                    | bruit_lecture_1um.txt   |
 
-![](readNoise.png)
+![](readNoisePlot.png)
 
-**Bruit moyen pour 100 pixels par acquisition: ** 61642 / 1 = **61 600 bits**
+**Bruit moyen pour 100 pixels: ** 61600 bits $\times$ 4.35  photons / bit = 268.1 kilo-photons
 
 ##### Caractérisation du bruit thermique
 
@@ -131,11 +130,11 @@ insaturé $$\rightarrow$$ 85%
 | 50                      | bruit_thermique_50s.txt  |
 | 100                     | bruit_thermique_100s.txt |
 
-![](thermalNoise.png)
+![](thermalNoisePlot.png)
 
 Pour chaque temps d'intégration R (écrit dans la table), on calcule la valeur moyenne du signal et on calcule la pente moyenne (curve-fit de degré 1):
 
-**Bruit thermique moyen par seconde**: **8.97 bits/s**
+**Bruit thermique moyen par seconde**: **8.97 bits/s = 39 photons/s**
 
 ##### Caractérisation du bruit de photon
 

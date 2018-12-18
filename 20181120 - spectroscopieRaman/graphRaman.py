@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy import fftpack
 
 """❤😁💕💋💖🤳✨😃👀✔🐱‍🚀🥠🍜🥠🍜🥟🌮"""
 
@@ -12,8 +11,7 @@ class Raman:
 
         self.oilFiles = ["data/{}.TXT".format(oil) for oil in ["mais", "arachide", "tournesol", "canola", "olive40m"]]
         self.oilNames = ["Maïs", "Arachide", "Tournesol", "Canola", "Olive"]
-        self.integrationTimes = [100, 100, 100, 100, 1200*2]
-        self.numberOfAcq = [100, 100, 100, 100, 1200]
+        self.integrationTimes = [100, 100, 100, 100, 4500]
 
         self.solFiles = ["data/{}.TXT".format(solution) for solution in ["ethanol", "isopropanol", "methanol", "glycerol", "sucrose"]]
         self.solNames = ["Éthanol", "Isopropanol", "Méthanol", "Glycérol", "Sucrose"]
@@ -38,6 +36,8 @@ class Raman:
             pixel, intensity = self.getData(file)
             intensity -= self.readNoiseValue
             intensity -= self.thermalCoef * self.integrationTimes[i]
+            intensity *= self.photonsPerBit
+            intensity /= self.integrationTimes[i]
 
             waveNumber = self.translate(pixel)
 
@@ -46,16 +46,46 @@ class Raman:
             fit = self.curveFit(waveNumber, intensity, degree=5, sections=1)
 
             raman = intensity - fit
-            raman /= self.integrationTimes[i]
-            raman *= self.photonsPerBit
 
-            # axes[i].plot(waveNumber, (intensity/self.integrationTimes[i])*self.photonsPerBit)
+            axes[i].plot(waveNumber, intensity)
             axes[i].plot(waveNumber, raman, label=self.oilNames[i])
             axes[i].legend(handlelength=0, fontsize=12)
             axes[i].set_ylim(min(raman), 3200)
             axes[i].tick_params(labelsize=12)
+
+            print("STD ", i, np.std(raman[200:220]))
+
             if i == 2:
                 axes[i].set_ylabel("Intensité [p/s]", fontsize=13)
+
+            if i == 6:  # i == 4  : Last resort ploting
+                plt.show()
+
+                ax1 = plt.subplot2grid((5, 2), (0, 0), rowspan=3, colspan=2)
+                ax2 = plt.subplot2grid((5, 2), (3, 0))
+                ax3 = plt.subplot2grid((5, 2), (3, 1))
+                ax4 = plt.subplot2grid((5, 2), (4, 0), colspan=2)
+                ax1.plot(waveNumber, intensity, label="Signal total")
+                ax1.plot(waveNumber, fit, label="Curve-fit")
+                ax2.plot(waveNumber, intensity, label="Signal total")
+                ax2.plot(waveNumber, fit, label="Curve-fit")
+                ax3.plot(waveNumber, intensity, label="Signal total")
+                ax3.plot(waveNumber, fit, label="Curve-fit")
+                ax4.plot(waveNumber, raman, label="Signal Raman")
+
+                ax2.set_ylabel("Intensité [p/s]", fontsize=13)
+                ax4.set_xlabel("Nombre d'onde [cm$^{-1}$]", fontsize=13)
+                ax1.set_xlim(1200, 1850)
+                ax2.set_xlim(1200, 1450)
+                ax3.set_xlim(1500, 1850)
+                ax4.set_xlim(1200, 1850)
+                ax1.legend()
+                ax3.legend()
+                ax4.legend()
+                ax1.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+                ax2.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+                ax3.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+                plt.show()
 
         plt.xlabel("Nombre d'onde [cm$^{-1}$]", fontsize=13)
         plt.xlim(1200, 1850)
@@ -84,8 +114,6 @@ class Raman:
             raman = intensity - fit
             raman /= 100
             raman *= self.photonsPerBit
-            # raman -= np.mean(raman)
-            # raman /= np.max(raman*10)
             axes[i].plot(waveNumber, raman, label=self.solNames[i])
             axes[i].legend(handlelength=0, fontsize=12)
             axes[i].set_ylim(min(raman), 4000)
@@ -160,43 +188,5 @@ class Raman:
 
         np.savetxt("outputRaman.txt", data, '%.15f')
 
-    def plot(self):
-        xlim = 2000
-
-        if not self.fitPixels:
-            self.waveNumbers = self.pixels
-            xlim = 1300
-
-        plt.plot(self.waveNumbers, self.intensities, linewidth=2, label="Signal")
-
-        if self.removeFluo:
-            diff = (self.intensities-self.fit)
-            raman = diff/np.max(diff*10)
-            plt.plot(self.waveNumbers, self.fit, label="Curve fit")
-            plt.plot(self.waveNumbers, raman, label="Difference")
-
-        plt.ylim(min(raman))
-        N = len(self.intensities)
-        fZ = np.fft.fft(self.intensities)
-        # # fZ = fftpack.fftshift(np.abs(fZ))
-        fr = np.linspace(-N/1.6, N/1.6, N)
-
-        fZ[np.where(np.abs(fr) > 800)] = 0
-        fZ[np.where(np.abs(fr) < 0)] = 0
-
-        waves = np.fft.ifft(fZ)
-
-        # plt.plot(fr, fZ, label='fft')
-
-        # plt.plot(self.waveNumbers, np.abs(waves), label="ifft")
-
-        plt.ylabel("Intensity", fontsize=12)
-        plt.xlabel("Wave number [1/cm]", fontsize=11)
-        plt.legend(loc="best")
-        # plt.xlim(500, xlim)
-        plt.tight_layout()
-        plt.show()
-
 Raman().graphOils()
-
 Raman().graphSols()
