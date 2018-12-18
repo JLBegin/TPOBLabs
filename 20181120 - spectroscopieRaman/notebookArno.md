@@ -201,28 +201,33 @@ Le pics raman de l'huile d'olive sont très peu intense, moins intense que le br
 
 - Nous avons identifier un pic raman dans une acquisition antérieur de l'huile d'olive. Celui ci est à peine discernable par rapport au bruit de photon. $\rightarrow$ Pour déduire ou sont les pics RAMAN on de fit à la position des autres substances car les pics ramans sont au même endroits.
 - Selon nos calculs, il faut  diminuer le bruit d'un facteur 5 (pour que le pic raman soit 5 fois plus gros que le bruit). Nous devons donc intégrer plus longtemps d'un facteur: 25.
-- Nous devons donc intégrer 25 * 100s = 40 minutes.
+- Nous devons donc intégrer 25 * 100s = 40 minutes
+
+
 
 ### Manipulations
 
 - Réalignement du faisceau d'entrée afin de remplir la caméra en son centre. 
 
-- Prendre une mesure du spectre de l'huile d'olive sur 10 min (300x2s)
+- Recalibration à l'aide de la lampe au mercure. Spectre à nouveau sauvegardé sous le fichier `mercury_27nov.txt`. 
 
-- Calculer le ratio nécessaire afin de différencier les pics Raman du bruit.  (comme expliqué plus baut)
+- Prise de mesure du spectre de l'huile d'olive sur 10 min (300 acquisitions de 2 secondes)
 
-  > Il faudrait obtenir un ratio deux fois plus grand. Cela mène alors à 4x plus de données. 
+- Calcul du ratio nécessaire afin de différencier les pics Raman du bruit. 
 
-- Prendre une nouvelle lecture en prenant compte de la diminution sur le bruit avec $\sqrt{N}$ de sorte à obtenir le ratio calculé. 
+  > On observe un petit pic raman avec une hauteur environ égale à 2.5 fois celle du bruit. 
+  >
+  > Il faudrait obtenir un ratio deux fois plus grand. Cela mène alors à 4x plus de données selon la théorie énoncée en préparation. 
+
+- Prise d'une nouvelle mesure du spectre de l'huile d'olive en prenant compte de la diminution sur le bruit avec $\sqrt{N}$ de sorte à obtenir le ratio calculé. 
 
   > Acquisition sur 40 min (1200 x 2s)
 
-- 
+- Spectre enregistré sous le fichier `olive40m.txt`.
 
-apres 40 minutes 500,000 photon sur un des pics en 2400 secondes 
+  > Chaque acquisition de 2s prend plutôt près de 3 secondes au logiciel. L'acquisition de 40m prend alors plutôt 1h20 à faire, bien qu'il y est seulement l'information de 40m. 
 
-
-
+- apres 40 minutes 500,000 photon sur un des pics en 2400 secondes 
 
 
 Algrithme de soustraction de background, piste de solution:
